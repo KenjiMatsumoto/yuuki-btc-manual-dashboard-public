@@ -1,6 +1,6 @@
 {
   "candidate_id": "btc_manual_trigger_v1",
-  "generated_at_utc": "2026-07-19T09:04:27Z",
+  "generated_at_utc": "2026-07-19T09:10:47Z",
   "scope": {
     "asset": "BTCUSDT",
     "venue": "binance_perp",
@@ -16,7 +16,7 @@
       "remaining": 0
     },
     "shadow_resolved_rows": {
-      "current": 1452,
+      "current": 1453,
       "required": 3,
       "ratio": 1.0,
       "remaining": 0
@@ -42,8 +42,8 @@
       "bad_trade_prevention_count": 4897
     },
     "shadow": {
-      "journal_rows": 1460,
-      "resolved_rows": 1452,
+      "journal_rows": 1461,
+      "resolved_rows": 1453,
       "pending_rows": 8,
       "entered_rows": 44,
       "filled_entered_rows": 44,
@@ -54,7 +54,7 @@
       "gross_return_per_filled_entered_trade_pct": 0.9048107113625508,
       "average_return_per_filled_entered_trade_pct": 0.020563879803694337,
       "missed_opportunity_count": 204,
-      "bad_trade_prevention_count": 1204
+      "bad_trade_prevention_count": 1205
     },
     "readiness": {
       "verdict": "blocked",
@@ -5590,17 +5590,17 @@
       },
       {
         "key": "cheap_trigger_not_met",
-        "count": 25
+        "count": 26
       }
     ],
     "skip_reasons": [
       {
         "key": "方向優位が弱く環境認定できない / OIの追随が弱く自信度が不足 / 想定RRが閾値未満 / 事前トリガー未達で詳細執行判断に進まない",
-        "count": 25
+        "count": 26
       },
       {
         "key": "方向優位が弱く環境認定できない / OIの追随が弱く自信度が不足 / 想定RRが閾値未満",
-        "count": 5
+        "count": 4
       }
     ],
     "permissions": [
@@ -5668,7 +5668,7 @@
       },
       {
         "key": "cheap_trigger_not_met",
-        "count": 25,
+        "count": 26,
         "explanation": {
           "code": "cheap_trigger_not_met",
           "ja_label": "安値/押し目トリガー未達",
