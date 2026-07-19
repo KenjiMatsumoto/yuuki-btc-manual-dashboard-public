@@ -1,6 +1,6 @@
 {
   "candidate_id": "btc_manual_trigger_v1",
-  "generated_at_utc": "2026-07-19T13:46:34Z",
+  "generated_at_utc": "2026-07-19T13:58:18Z",
   "scope": {
     "asset": "BTCUSDT",
     "venue": "binance_perp",
@@ -10,13 +10,13 @@
   },
   "progress": {
     "replay_executed_rows": {
-      "current": 243,
+      "current": 220,
       "required": 5,
       "ratio": 1.0,
       "remaining": 0
     },
     "shadow_resolved_rows": {
-      "current": 1471,
+      "current": 1472,
       "required": 3,
       "ratio": 1.0,
       "remaining": 0
@@ -30,20 +30,20 @@
   },
   "key_metrics": {
     "replay": {
-      "executed_rows": 243,
-      "allowed_setup_count": 243,
+      "executed_rows": 220,
+      "allowed_setup_count": 220,
       "allowed_unfilled_rows": 0,
-      "wins": 125,
-      "losses": 118,
-      "realized_win_rate": 0.51440329218107,
-      "gross_return_per_filled_allowed_trade_pct": 12.719182635021047,
-      "average_return_per_filled_allowed_trade_pct": 0.052342315370456985,
-      "missed_opportunity_count": 762,
-      "bad_trade_prevention_count": 4897
+      "wins": 119,
+      "losses": 101,
+      "realized_win_rate": 0.5409090909090909,
+      "gross_return_per_filled_allowed_trade_pct": 14.828921747848655,
+      "average_return_per_filled_allowed_trade_pct": 0.06740418976294843,
+      "missed_opportunity_count": 819,
+      "bad_trade_prevention_count": 4863
     },
     "shadow": {
-      "journal_rows": 1479,
-      "resolved_rows": 1471,
+      "journal_rows": 1480,
+      "resolved_rows": 1472,
       "pending_rows": 8,
       "entered_rows": 44,
       "filled_entered_rows": 44,
@@ -54,7 +54,7 @@
       "gross_return_per_filled_entered_trade_pct": 0.9048107113625508,
       "average_return_per_filled_entered_trade_pct": 0.020563879803694337,
       "missed_opportunity_count": 204,
-      "bad_trade_prevention_count": 1223
+      "bad_trade_prevention_count": 1224
     },
     "readiness": {
       "verdict": "blocked",
@@ -5590,19 +5590,19 @@
       },
       {
         "key": "rr_too_low",
-        "count": 24
+        "count": 23
       },
       {
         "key": "trend_alignment_short",
-        "count": 6
+        "count": 7
       },
       {
         "key": "london_compression_guard",
-        "count": 6
+        "count": 7
       },
       {
         "key": "score_below_allowed_threshold",
-        "count": 3
+        "count": 4
       },
       {
         "key": "oi_confirms_move",
@@ -5612,11 +5612,11 @@
     "skip_reasons": [
       {
         "key": "方向優位が弱く環境認定できない / OIの追随が弱く自信度が不足 / 想定RRが閾値未満 / 事前トリガー未達で詳細執行判断に進まない",
-        "count": 24
+        "count": 23
       },
       {
         "key": "OIの追随が弱く自信度が不足 / 事前トリガー未達で詳細執行判断に進まない / London時間の低ボラ圧縮でだましを警戒 / 方向性はあるがOI/継続確認不足のため監視継続",
-        "count": 3
+        "count": 4
       },
       {
         "key": "事前トリガー未達で詳細執行判断に進まない / London時間の低ボラ圧縮でだましを警戒",
@@ -5626,21 +5626,21 @@
     "permissions": [
       {
         "key": "blocked",
-        "count": 24
+        "count": 23
       },
       {
         "key": "watch_only",
-        "count": 6
+        "count": 7
       }
     ],
     "actions": [
       {
         "key": "skip",
-        "count": 24
+        "count": 23
       },
       {
         "key": "watch",
-        "count": 6
+        "count": 7
       }
     ],
     "reason_codes_explained": [
@@ -5696,7 +5696,7 @@
       },
       {
         "key": "rr_too_low",
-        "count": 24,
+        "count": 23,
         "explanation": {
           "code": "rr_too_low",
           "ja_label": "想定RR不足",
@@ -5706,7 +5706,7 @@
       },
       {
         "key": "trend_alignment_short",
-        "count": 6,
+        "count": 7,
         "explanation": {
           "code": "trend_alignment_short",
           "ja_label": "未登録理由コード",
@@ -5716,7 +5716,7 @@
       },
       {
         "key": "london_compression_guard",
-        "count": 6,
+        "count": 7,
         "explanation": {
           "code": "london_compression_guard",
           "ja_label": "未登録理由コード",
@@ -5726,7 +5726,7 @@
       },
       {
         "key": "score_below_allowed_threshold",
-        "count": 3,
+        "count": 4,
         "explanation": {
           "code": "score_below_allowed_threshold",
           "ja_label": "未登録理由コード",
@@ -5805,11 +5805,11 @@
     },
     "replay_validation": {
       "status": "pass",
-      "detail": "replay rows=5902, executed_rows=243, minimum_required=5, win_rate=0.51440329218107"
+      "detail": "replay rows=5902, executed_rows=220, minimum_required=5, win_rate=0.5409090909090909"
     },
     "shadow_evidence": {
       "status": "pass",
-      "detail": "resolved_rows=1448, minimum_required=3, decisive_rows=44, minimum_decisive_required=1, pending_rows=8, wins=24, losses=20"
+      "detail": "resolved_rows=1472, minimum_required=3, decisive_rows=44, minimum_decisive_required=1, pending_rows=8, wins=24, losses=20"
     },
     "shadow_performance": {
       "status": "pass",
