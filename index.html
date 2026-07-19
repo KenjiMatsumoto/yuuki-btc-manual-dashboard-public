@@ -1,0 +1,349 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>BTC手動トリガー戦略ダッシュボード</title>
+  <style>
+    :root { color-scheme: dark; --bg:#0b1020; --card:#151b2e; --muted:#93a4bd; --text:#eef4ff; --ok:#35d07f; --warn:#ffd166; --bad:#ff6b6b; --line:#2b3653; --blue:#8ecbff; }
+    body { margin:0; font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; background:var(--bg); color:var(--text); }
+    header { padding:16px 20px; border-bottom:1px solid var(--line); background:#0f1628; position:sticky; top:0; z-index:2; }
+    h1 { margin:0 0 6px; font-size:21px; }
+    h2 { margin:18px 0 8px; font-size:17px; }
+    h3 { margin:12px 0 6px; font-size:14px; }
+    main { padding:16px 20px 28px; max-width:1180px; margin:auto; }
+    .muted { color:var(--muted); font-size:12px; }
+    .row { display:flex; gap:10px; flex-wrap:wrap; align-items:center; }
+    .grid { display:grid; gap:10px; grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); }
+    .card { background:var(--card); border:1px solid var(--line); border-radius:14px; padding:13px; box-shadow: 0 6px 24px rgba(0,0,0,.15); }
+    .k { color:var(--muted); font-size:11px; letter-spacing:.06em; text-transform:uppercase; }
+    .v { font-size:21px; font-weight:750; margin-top:4px; line-height:1.25; }
+    .ok { color:var(--ok); } .warn { color:var(--warn); } .bad { color:var(--bad); }
+    table { width:100%; border-collapse:collapse; overflow:hidden; border-radius:12px; margin-top:10px; }
+    th, td { border-bottom:1px solid var(--line); padding:9px 8px; vertical-align:top; text-align:left; font-size:13px; }
+    th { color:var(--muted); font-size:12px; background:#10182b; }
+    .table-wrap { overflow-x:auto; }
+    .pill { display:inline-block; padding:3px 8px; border-radius:999px; border:1px solid var(--line); background:#0e1526; margin:2px; font-size:12px; }
+    .note { border-left:4px solid var(--blue); padding:10px 12px; background:#0d1425; border-radius:10px; margin:10px 0; }
+    button { background:#243250; color:var(--text); border:1px solid var(--line); border-radius:10px; padding:7px 11px; cursor:pointer; }
+    button:hover { background:#304266; }
+    a { color:var(--blue); }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>BTC手動トリガー戦略ダッシュボード <span class="muted">1ページ判断ビュー</span></h1>
+    <div id="runtimeHealth" class="row">runtime health: 読み込み中</div>
+    <div class="row muted">
+      <span>自動更新: <span id="refreshSec"></span>秒</span>
+      <span>最終読み込み: <span id="loadedAt">-</span></span>
+      <span>サーバー更新状態: <span id="serverRefresh">-</span></span>
+      <button onclick="loadAll(true)">手動更新</button>
+      <a id="statusJsonLink" href="api/status.json" target="_blank">ステータスJSON</a>
+      <a id="strategyJsonLink" href="api/strategy.json" target="_blank">戦略JSON</a>
+      <a id="paperReadyJsonLink" href="api/paper-ready.json" target="_blank">Paper可否JSON</a>
+    </div>
+  </header>
+  <main>
+    <section class="card" id="officialCleanForward">
+      <div class="k">公式成績(clean-forward)</div>
+      <div class="muted">cutover: <code>2026-07-16T00:43:37Z</code> / レーン別の公式成績を読み込み中</div>
+    </section>
+    <section class="card" id="connectionNotice">
+      <div class="k">URL / 接続確認</div>
+      <div><b>このページが実際に表示できている場合だけ、外部接続OKです。</b></div>
+      <div class="muted">このURLはGitHub Pages固定URLです。trycloudflare/sslip/localhost.run/serveoは使っていません。</div><div class="muted">公開方式: GitHub Pages 静的スナップショット。トンネル/直IPではありません。JSONはcron pushで更新します。</div>
+    </section>
+    <section id="decision"></section>
+    <h2>今動いている戦略（新規判定対象: 2レーン）</h2>
+    <div class="card"><div id="lanes"></div></div>
+    <h2>Forward / Paper 状況</h2>
+    <div class="card"><div id="paperBroker"></div></div>
+    <h2>Paper昇格ゲートと診断 / リーク/過剰最適化監査 / overfit_ruled_out / Paper詳細診断（market-fill survivor / 対照群 / Forward差分）</h2>
+    <div class="card"><div id="paperDiagnostics"></div></div>
+    <h2>Exit正常性</h2>
+    <div class="card"><div id="exitHealth"></div></div>
+    <h2>判断に必要なピックアップ</h2>
+    <div class="card"><div id="picks"></div></div>
+  </main>
+<script>
+const REFRESH_SEC = 300;
+function dashboardBasePath(){
+  const p = window.location.pathname;
+  if (p.endsWith('/')) return p;
+  if (p.endsWith('/index.html')) return p.slice(0, -'index.html'.length);
+  return p + '/';
+}
+const BASE_PATH = dashboardBasePath();
+function apiUrl(path){ return new URL(path, window.location.origin + BASE_PATH).toString(); }
+document.getElementById('refreshSec').textContent = REFRESH_SEC;
+document.getElementById('statusJsonLink').href = apiUrl('api/status.json');
+document.getElementById('strategyJsonLink').href = apiUrl('api/strategy.json');
+document.getElementById('paperReadyJsonLink').href = apiUrl('api/paper-ready.json');
+function pct(x){ return x === null || x === undefined || Number.isNaN(Number(x)) ? '-' : (Number(x).toFixed(2) + '%'); }
+function num(x){ return x === null || x === undefined ? '-' : (typeof x === 'number' ? Number(x.toFixed ? x.toFixed(4) : x) : x); }
+function yen(x){ return x === null || x === undefined ? '-' : Number(x).toFixed(2); }
+function htmlEscape(s){ return String(s ?? '').replace(/[&<>'"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;',"'":'&#39;','"':'&quot;'}[c])); }
+function healthClass(v){ const s=String(v||''); if (s.includes('BLOCKED') || s.includes('不可') || s.includes('ダメ') || s.includes('blocked')) return 'bad'; if (s.includes('継続') || s.includes('OK') || s.includes('価値')) return 'ok'; return 'warn'; }
+function winRate(w,l,n){ const d=(w||0)+(l||0); return d ? pct((w||0)*100/d) : '-'; }
+const SHARED_SIGNAL_GROUP = 'multiview系(同一シグナル群)';
+const PAPER_LANE_DISPLAY_REGISTRY = {"manual_trigger":{"category":"Base forward","always_show":false},"manual_trigger_yuuki_candidate_paper_y02_return_high_update_success_long":{"category":"対照群","always_show":false},"manual_trigger_yuuki_candidate_paper_y03_london_noise_absorption_long":{"category":"対照群","always_show":false},"manual_trigger_yuuki_candidate_paper_y04_high_range_shallow_pullback_long":{"category":"対照群","always_show":false},"manual_trigger_yuuki_candidate_paper_y07_20x_short_duration_only_long":{"category":"対照群","always_show":false},"manual_trigger_yuuki_candidate_paper_y10_entry_band_mid_hold_long":{"category":"対照群","always_show":false},"manual_trigger_yuuki_candidate_paper_y14_veto__oi1_positive_long":{"category":"対照群","always_show":false},"manual_trigger_yuuki_candidate_paper_y16_london_initial_wait_long":{"category":"対照群","always_show":false},"manual_trigger_yuuki_candidate_paper_y18_london_false_breakdown_long":{"category":"対照群","always_show":false},"manual_trigger_yuuki_candidate_paper_y21_high_range_shallow_oi_stop_long":{"category":"対照群","always_show":false},"manual_trigger_yuuki_candidate_paper_y23_turning_point_long":{"category":"対照群","always_show":false},"manual_trigger_yuuki_candidate_paper_y24_turning_failure_short":{"category":"対照群","always_show":false},"manual_trigger_yuuki_candidate_paper_y29_tp2_attempt_long":{"category":"対照群","always_show":false},"manual_trigger_yuuki_candidate_paper_y32_oi_fast_drop_short":{"category":"対照群","always_show":false},"manual_trigger_yuuki_candidate_paper_y34_funding_neutral_limited_long":{"category":"対照群","always_show":false},"manual_trigger_yuuki_candidate_paper_y36_invalidation_break_short":{"category":"対照群","always_show":false},"manual_trigger_yuuki_candidate_paper_y38_long_failure_reversal_short":{"category":"対照群","always_show":false},"manual_trigger_yuuki_candidate_paper_y41_5m_confirmation_long":{"category":"対照群","always_show":false},"manual_trigger_yuuki_candidate_paper_y42_15m_confirmation_long":{"category":"対照群","always_show":false},"manual_trigger_yuuki_candidate_paper_y43_1h_confirmation_long":{"category":"対照群","always_show":false},"manual_trigger_yuuki_candidate_paper_y46_wait_unlock_score_long":{"category":"対照群","always_show":false},"manual_trigger_yuuki_candidate_paper_y12_priceup_oidown_resolve_wait_long":{"category":"multiview系(同一シグナル群)","always_show":false},"manual_trigger_yuuki_candidate_paper_y17_london_false_dip_recovery_long":{"category":"multiview系(同一シグナル群)","always_show":false},"manual_trigger_yuuki_candidate_paper_y19_london_liquidity_continuation_long":{"category":"multiview系(同一シグナル群)","always_show":false},"manual_trigger_yuuki_candidate_paper_y20_london_no_trade_veto":{"category":"multiview系(同一シグナル群)","always_show":false},"manual_trigger_yuuki_premortem_unlock_u01_weak_impulse_unlock":{"category":"premortem unlock u01(探索)","always_show":true},"manual_trigger_yuuki_r2_w2_london_late_low_vol_gate_loo":{"category":"r2_w2 ゲート除去(採用)","always_show":true},"manual_trigger_yuuki_w12_f1_flush_rebound_long":{"category":"w12_f1 清算フラッシュ反発(採用)","always_show":true},"manual_trigger_yuuki_wave1_turning_pullback_10bps":{"category":"診断/rescue","always_show":false},"manual_trigger_yuuki_wave1_turning_pullback_20bps":{"category":"診断/rescue","always_show":false},"manual_trigger_yuuki_wave1_turning_pullback_30bps":{"category":"診断/rescue","always_show":false},"manual_trigger_yuuki_wave1_zone_limit_original_pullback":{"category":"wave1 帯指値エントリー","always_show":true},"manual_trigger_yuuki_wave2_zone_limit_tp_far":{"category":"wave2 ゆーき比率exit(探索)","always_show":true}};
+const SHARED_SIGNAL_LANES = new Set([
+  'manual_trigger_yuuki_multiview',
+  'manual_trigger_yuuki_candidate_paper_y12_priceup_oidown_resolve_wait_long',
+  'manual_trigger_yuuki_candidate_paper_y17_london_false_dip_recovery_long',
+  'manual_trigger_yuuki_candidate_paper_y19_london_liquidity_continuation_long',
+  'manual_trigger_yuuki_candidate_paper_y20_london_no_trade_veto',
+]);
+const SHARED_SIGNAL_NOTE = '同一トレードの重複計上を含む。勝敗判定はグループで1つと数える';
+function sharedSignalGroup(label, members){
+  const byLane = new Map();
+  for (const row of members){
+    const lane = row.lane || row.short_label || row.strategy_label_ja || '-';
+    if(!byLane.has(lane)) byLane.set(lane, []);
+    byLane.get(lane).push(row);
+  }
+  const detailRows = [...byLane.entries()].map(([lane, rows]) => {
+    const first = rows[0] || {};
+    const sum = key => rows.reduce((total, row) => total + Number(row[key] || 0), 0);
+    const entries = rows.reduce((total, row) => total + Number(row.unique_entries ?? row.entries ?? 0), 0);
+    return `<tr><td>${htmlEscape(first.short_label || first.strategy_label_ja || lane)}</td><td>${num(rows.length)}</td><td>${num(entries)}</td><td>${num(sum('closed_trades'))}</td><td>${num(sum('wins'))}-${num(sum('losses'))}</td><td>${yen(sum('realized_pnl_usdt'))}</td></tr>`;
+  }).join('');
+  const accountLabel = members.length === byLane.size ? '' : ` / ${members.length} account`;
+  return `<details class="sharedSignalGroup"><summary><b>${htmlEscape(label)}</b>（${byLane.size} 戦略レーン${accountLabel}、展開）</summary><div class="muted">${SHARED_SIGNAL_NOTE}</div><div class="table-wrap"><table><thead><tr><th>戦略レーン</th><th>Paper口座/行数</th><th>entry</th><th>closed</th><th>W-L</th><th>実現PnL</th></tr></thead><tbody>${detailRows}</tbody></table></div></details>`;
+}
+function cleanForwardLaneLabel(r){
+  if(r.lane === 'manual_trigger') return `<b>Base v1（退役・参考値のみ）</b><div class="muted">2026-07-18 park済み。理由: 旧会計混在累計 -1,151.9 USDT / 9W-15L。cutover後 3/3・+59.44 USDT は参考固定値で、退役後は増えない。</div>`;
+  if(r.lane === 'manual_trigger_yuuki_r2_w2_london_late_low_vol_gate_loo') return `<b>r2_w2 ゲート除去（V2・観測中）</b>`;
+  if(r.lane === 'manual_trigger_yuuki_w12_f1_flush_rebound_long') return `<b>w12_f1 清算フラッシュ反発（V2・観測中）</b>`;
+  return htmlEscape(r.short_label || r.lane);
+}
+function renderOfficialCleanForward(c){
+  if(!c || !c.cutover_utc){ document.getElementById('officialCleanForward').innerHTML = '<div class="bad">公式成績(clean-forward)を生成できません</div>'; return; }
+  const grouped = c.shared_signal_group || null;
+  const groupedLanes = new Set(grouped?.member_lanes || []);
+  const normalRows = (c.lane_rows || []).filter(r => !groupedLanes.has(r.lane));
+  let rows = '';
+  if(grouped){
+    rows += `<tr><td>${sharedSignalGroup(SHARED_SIGNAL_GROUP, grouped.member_rows || [])}</td><td>${num(grouped.unique_entries)}</td><td>${num(grouped.closed_trades)}</td><td>${num(grouped.wins)}-${num(grouped.losses)}</td><td>${yen(grouped.realized_pnl_usdt)}</td><td>${num(grouped.closed_trades)}/20</td></tr>`;
+  }
+  rows += normalRows.map(r => `<tr><td>${cleanForwardLaneLabel(r)}</td><td>${num(r.unique_entries)}</td><td>${num(r.closed_trades)}</td><td>${num(r.wins)}-${num(r.losses)}</td><td>${yen(r.realized_pnl_usdt)}</td><td>${num(r.closed_trades)}/20</td></tr>`).join('');
+  if(!rows) rows = '<tr><td colspan="6" class="muted">cutover後のentryはまだありません</td></tr>';
+  document.getElementById('officialCleanForward').innerHTML = `<div class="k">公式成績(clean-forward)</div><h2 style="margin-top:4px">修正後clean-forward（重複除外）</h2><div class="note">cutover ${htmlEscape(c.cutover_utc)} / 標準出口tp1_fullをlane代表。exit variant間とmultiview系の同一シグナル重複は除外。</div><div class="grid"><div><div class="k">ユニークentry</div><div class="v">${num(c.unique_entries)}</div></div><div><div class="k">代表closed</div><div class="v">${num(c.representative_closed_trades)}</div></div><div><div class="k">W-L</div><div class="v">${num(c.representative_wins)}-${num(c.representative_losses)}</div></div><div><div class="k">代表realized PnL</div><div class="v">${yen(c.representative_realized_pnl_usdt)} USDT</div></div><div><div class="k">除外したexit variant重複</div><div class="v">${num(c.duplicate_variant_entries_excluded)}</div></div><div><div class="k">除外したshared signal重複</div><div class="v">${num(c.duplicate_shared_signal_entries_excluded)}</div></div></div><div class="table-wrap"><table><thead><tr><th>lane / signal group</th><th>unique_entries</th><th>closed</th><th>W-L</th><th>realized PnL</th><th>進捗(closed/20)</th></tr></thead><tbody>${rows}</tbody></table></div>`;
+}
+async function getJson(path){ const r = await fetch(apiUrl(path) + '?t=' + Date.now()); if(!r.ok) throw new Error(path + ' ' + r.status); return await r.json(); }
+async function loadAll(manual=false){
+  const metaPromise = getJson('api/meta.json').then(meta => {
+    renderRuntimeHealth(meta.runtime_health || {});
+    document.getElementById('serverRefresh').textContent = meta.last_refresh_ok ? '正常' : ('エラー: ' + (meta.last_refresh_error || '不明'));
+  }).catch(e => {
+    document.getElementById('serverRefresh').textContent = 'meta読み込みエラー: ' + e.message;
+  });
+  let artifactError = null;
+  try {
+    const [status, strategy, paperReady, paperDiagnostics] = await Promise.all([
+      getJson('api/status.json'), getJson('api/strategy.json'), getJson('api/paper-ready.json'), getJson('api/paper-diagnostics.json')
+    ]);
+    renderOfficialCleanForward(paperDiagnostics.clean_forward_summary || {});
+    renderDecisionSummary(status, strategy, paperReady, paperDiagnostics.clean_forward_summary || {});
+    renderLanes(status, strategy, paperReady, paperDiagnostics);
+    renderPaperBroker(status, paperDiagnostics);
+    renderPaperDiagnostics(status, strategy, paperReady, paperDiagnostics);
+    renderExitHealth(status);
+    renderPicks(status, strategy, paperReady);
+    document.getElementById('loadedAt').textContent = new Date().toLocaleString();
+  } catch(e) {
+    artifactError = e;
+  }
+  await metaPromise;
+  if (artifactError) {
+    document.getElementById('serverRefresh').textContent += ` / artifact読み込みエラー: ${artifactError.message}`;
+  }
+}
+function renderRuntimeHealth(h){
+  const cls = h.runtime_healthy ? 'ok' : 'bad';
+  document.getElementById('runtimeHealth').innerHTML = `
+    <b class="${cls}">runtime health: ${htmlEscape(h.classification_ja || h.status || '-')}</b>
+    <span>最新tick UTC: ${htmlEscape(h.latest_tick_utc || '-')}</span>
+    <span>経過分: ${num(h.tick_age_minutes)}</span>
+    <span>active Paper口座数（legacy field）: ${num(h.active_paper_lane_count)}</span>
+    <span>trade_events_this_tick: ${num(h.trade_events_this_tick)}</span>
+    <span>status: ${htmlEscape(h.status || '-')}</span>`;
+}
+function renderDecisionSummary(status, strategy, paperReady, cleanForward){
+  const p = status.paper_broker || {};
+  const c = cleanForward || {};
+  const rows = c.lane_rows || [];
+  const r2 = rows.find(row => row.lane === 'manual_trigger_yuuki_r2_w2_london_late_low_vol_gate_loo') || {};
+  const w12 = rows.find(row => row.lane === 'manual_trigger_yuuki_w12_f1_flush_rebound_long') || {};
+  const entries = Number(c.unique_entries || 0);
+  const closed = Number(c.representative_closed_trades || 0);
+  const wins = Number(c.representative_wins || 0);
+  const losses = Number(c.representative_losses || 0);
+  const signedPnl = Number(c.representative_realized_pnl_usdt || 0);
+  const headline = `${entries} / ${closed} / ${wins}-${losses} / ${signedPnl >= 0 ? '+' : ''}${yen(signedPnl)} USDT`;
+  const progress = row => `${num(row.unique_entries || 0)}/${num(row.closed_trades || 0)}, ${Number(row.realized_pnl_usdt || 0) >= 0 ? '+' : ''}${yen(row.realized_pnl_usdt || 0)} USDT`;
+  document.getElementById('decision').innerHTML = `<div class="card"><div class="k">V3 現時点の結論</div><h2 class="bad">採用判断: 不可（clean-forward N不足）</h2><div class="grid"><div><div class="k">公式ヘッドライン（Entry数 / Closed数 / W-L / Realized PnL）</div><div class="v">${headline}</div></div><div><div class="k">全件決着 / 必要N</div><div class="v">${closed === entries && entries > 0 ? '全件決着' : '未決着あり'} / ${closed}&lt;20</div><div class="muted">全件決着でも clean-forward Closed数 ${closed} は採用基準20件に未達。</div></div><div><div class="k">外部発注</div><div class="v ${(p.external_orders || 0) === 0 ? 'ok' : 'warn'}">${num(p.external_orders || 0)} 件</div></div></div><div class="note"><b>継続観測:</b> r2_w2（${progress(r2)}） / w12_f1（${progress(w12)}）</div><div class="muted"><b>不採用:</b> Base v1 / market-fill / 対照群 / multiview系（退役・比較・参考表示のみ。採用判断の候補に含めない）</div></div>`;
+}
+function paperLaneCategory(l){
+  const lane = l.lane || '';
+  if (SHARED_SIGNAL_LANES.has(lane)) return SHARED_SIGNAL_GROUP;
+  if (lane.includes('candidate_paper_') && ((l.paper_group || '') === 'survivor' || l.market_fill_verdict_20260705 !== undefined)) return (!l.market_fill_verdict_20260705 || l.market_fill_verdict_20260705 === 'candidate_for_frozen_forward_shadow') ? 'market-fill survivor' : '対照群';
+  if (PAPER_LANE_DISPLAY_REGISTRY[lane]) return PAPER_LANE_DISPLAY_REGISTRY[lane].category;
+  if ((l.paper_group || '') === 'preserved') return '既存best yuuki_multiview';
+  if (lane === 'manual_trigger_yuuki_r2_w2_london_late_low_vol_gate_loo') return 'r2_w2 ゲート除去(採用)';
+  if (lane === 'manual_trigger_yuuki_w12_f1_flush_rebound_long') return 'w12_f1 清算フラッシュ反発(採用)';
+  if (lane.includes('wave2_zone_limit_tp_far')) return 'wave2 ゆーき比率exit(探索)';
+  if (lane.includes('wave1_zone_limit')) return 'wave1 帯指値エントリー';
+  if (lane.includes('premortem_unlock')) return 'premortem unlock u01(探索)';
+  if (lane.includes('candidate_paper_')) return (!l.market_fill_verdict_20260705 || l.market_fill_verdict_20260705 === 'candidate_for_frozen_forward_shadow') ? 'market-fill survivor' : '対照群';
+  if (lane.includes('london_short_not_crowded_clean_shadow')) return 'BT/OOS済みclean shadow';
+  if (lane === 'manual_trigger') return 'Base forward';
+  return '診断/rescue';
+}
+function summarizePaperRows(status){
+  const p = status.paper_broker || {}; const grouped = {};
+  for (const l of (p.lanes || [])){
+    const cat = paperLaneCategory(l); if(!grouped[cat]) grouped[cat] = [];
+    grouped[cat].push(l);
+  }
+  const order = ['r2_w2 ゲート除去(採用)','w12_f1 清算フラッシュ反発(採用)',SHARED_SIGNAL_GROUP,'market-fill survivor','対照群','BT/OOS済みclean shadow','既存best yuuki_multiview','wave1 帯指値エントリー','wave2 ゆーき比率exit(探索)','premortem unlock u01(探索)','Base forward','診断/rescue'];
+  return order.map(cat => {
+    const rows = grouped[cat] || [];
+    return {cat, rows, variants: rows.length, laneCount: new Set(rows.map(row => row.lane)).size,
+      entries: rows.reduce((s,l)=>s+(l.entries||0),0), open: rows.reduce((s,l)=>s+(l.open_positions||0),0), closed: rows.reduce((s,l)=>s+(l.closed_trades||0),0),
+      wins: rows.reduce((s,l)=>s+(l.wins||0),0), losses: rows.reduce((s,l)=>s+(l.losses||0),0), realized: rows.reduce((s,l)=>s+(l.realized_pnl_usdt||0),0), unrealized: rows.reduce((s,l)=>s+(l.unrealized_pnl_usdt||0),0), liquidationRiskCloses: rows.reduce((s,l)=>s+(l.liquidation_risk_20x_closes||l.liquidation_risk_closes||0),0),
+      leverage: rows[0]?.paper_leverage_label || p.paper_leverage_label || '20x'};
+  }).filter(x => x.variants);
+}
+function paperAccountInventory(status, diag){
+  const p = status.paper_broker || {};
+  const accounts = (p.lanes || []).length ? (p.lanes || []) : (diag?.variant_rows || []);
+  const strategyLanes = new Set(accounts.map(x => x.lane).filter(Boolean));
+  const activeAccounts = accounts.filter(x => x.paper_broker_enabled !== false && x.paper_state_status !== 'parked_not_updated_by_broker').length;
+  const parkedAccounts = accounts.length - activeAccounts;
+  return {
+    strategyLaneCount: strategyLanes.size,
+    paperAccountCount: accounts.length,
+    activeAccountCount: activeAccounts,
+    parkedAccountCount: parkedAccounts,
+    reportedActiveAccountCount: Number(p.active_paper_lane_count ?? diag?.active_paper_account_count ?? activeAccounts),
+    reportedParkedAccountCount: Number(p.parked_paper_lane_count ?? diag?.parked_paper_account_count ?? parkedAccounts)
+  };
+}
+function paperAccountSection(account){
+  const lane = account.lane || '';
+  if (lane === 'manual_trigger_yuuki_r2_w2_london_late_low_vol_gate_loo' || lane === 'manual_trigger_yuuki_w12_f1_flush_rebound_long') return {rank:0, label:'新規観測2レーン'};
+  if (account.paper_broker_enabled === false || account.paper_state_status === 'parked_not_updated_by_broker') return {rank:2, label:'parked参考（broker更新停止）'};
+  return {rank:1, label:'その他active（比較・参考）'};
+}
+function buildStrategyRows(status, strategy, paperReady){
+  const strategyByGroup = {}; for (const l of (strategy.lanes || [])) strategyByGroup[l.lane_group || l.lane_id] = l;
+  const alwaysShowCats = new Set(Object.values(PAPER_LANE_DISPLAY_REGISTRY).filter(x => x.always_show).map(x => x.category));
+  const paperMeta = {
+    'r2_w2 ゲート除去(採用)': ['r2_w2 gate leave-one-out + 20x Paper', '採用レーン。clean-forward closed/20まで観測。'],
+    'w12_f1 清算フラッシュ反発(採用)': ['W12-F1 flush rebound long + 20x Paper', '採用レーン。clean-forward closed/20まで観測。'],
+    'multiview系(同一シグナル群)': ['multiview / y12 / y17 / y19 / y20 + 20x Paper', '同一シグナル群に畳んだ参考表示。採用判断の候補ではない。'],
+    'market-fill survivor': ['Market-fill再検証通過 + 20x Paper', '比較・参考表示。採用判断の候補ではない。'],
+    '対照群': ['Market-fill非通過/比較用 + 20x Paper', '旧対照群の参考表示。昇格・採用判断の候補ではない。'],
+    'BT/OOS済みclean shadow': ['BT/OOS済みclean shadow + 20x Paper', '比較・参考表示。採用判断の候補ではない。'],
+    'Base forward': ['Base v1（退役・参考値のみ）', '2026-07-18 park済み。退役後は新規判定・broker更新なし。'],
+    'wave1 帯指値エントリー': ['zone-limit fill + 20x Paper', '比較・参考表示。現在の採用判断候補ではない。'],
+    'wave2 ゆーき比率exit(探索)': ['TP1=1.76×ATR + expiry240 + 20x Paper', 'OOS比率ゲート未達(0.519)の探索枠。multiviewとの同一シグナル比較用。現在の採用判断候補ではない。'],
+    'premortem unlock u01(探索)': ['premortem veto解除 + 20x Paper', '探索結果の参考表示。現在の採用判断候補ではない。'],
+    '既存best yuuki_multiview': ['既存best保持 + 20x Paper', 'multiview系へ集約した参考表示。採用判断候補ではない。']
+  };
+  return summarizePaperRows(status).filter(x => alwaysShowCats.has(x.cat) || x.cat !== '診断/rescue' || x.entries || x.closed || x.realized || x.open).map(x => {
+    const [type, verdict] = paperMeta[x.cat] || ['既存best保持 + 20x Paper', '現状の本命/保存中。昇格はまだ不可。'];
+    const label = x.cat === SHARED_SIGNAL_GROUP ? sharedSignalGroup(x.cat, x.rows) : `<b>${htmlEscape(x.cat)}</b>`;
+    const variantLabel = x.cat === SHARED_SIGNAL_GROUP ? `${x.laneCount} lane / ${x.variants} account` : num(x.variants);
+    const entryLabel = x.cat === SHARED_SIGNAL_GROUP ? '同一シグナル重複を除外した勝敗は上段clean-forward参照' : `entries ${num(x.entries)} / open ${num(x.open)} / closed ${num(x.closed)}`;
+    return `<tr><td>${label}<br><span class="muted">${htmlEscape(type)}</span></td><td>${htmlEscape(verdict)}</td><td>${variantLabel}</td><td>${htmlEscape(x.leverage)}</td><td>${entryLabel}</td><td><span class="muted">カテゴリ合算PnL/WR/Feeは非表示。下のPaper口座別（exit variant別）を参照。</span></td></tr>`;
+  }).join('');
+}
+function renderLanes(status, strategy, paperReady, diag){
+  const rows = buildStrategyRows(status, strategy, paperReady);
+  const inventory = paperAccountInventory(status, diag);
+  const countCheck = inventory.paperAccountCount === inventory.activeAccountCount + inventory.parkedAccountCount && inventory.activeAccountCount === inventory.reportedActiveAccountCount && inventory.parkedAccountCount === inventory.reportedParkedAccountCount;
+  document.getElementById('lanes').innerHTML = `<div class="note"><b>新規判定対象は2レーン:</b> r2_w2 / w12_f1。下表のその他分類は退役済みまたは比較・参考表示で、別戦略として数えません。<br><b>表示語彙:</b> 戦略=売買ルール / レーン=戦略の観測系統 / variant=exit policy差分 / 口座=レーン×variant。<br><b>口座内訳・在庫照合:</b> 戦略レーン数 ${num(inventory.strategyLaneCount)} / Paper口座総数 ${num(inventory.paperAccountCount)} = active Paper口座 ${num(inventory.activeAccountCount)} + parked Paper口座 ${num(inventory.parkedAccountCount)} <span class="${countCheck ? 'ok' : 'bad'}">${countCheck ? '一致' : '不一致'}</span>。legacy field名のlane_countは実体が口座数です。診断/rescueは全てpark済み・broker更新対象外です。<br>${SHARED_SIGNAL_NOTE}</div><div class="table-wrap"><table><thead><tr><th>戦略レーン/分類</th><th>今の判断</th><th>Paper口座数</th><th>レバレッジ</th><th>エントリー状況</th><th>勝率/PnL</th></tr></thead><tbody>${rows || '<tr><td colspan="6">稼働戦略なし</td></tr>'}</tbody></table></div>`;
+}
+function renderPaperBroker(status, diag){
+  const p = status.paper_broker || {};
+  const inventory = paperAccountInventory(status, diag);
+  const rows = summarizePaperRows(status).map(x => `<tr><td><b>${htmlEscape(x.cat)}</b></td><td>${htmlEscape(x.leverage)}</td><td>${num(x.variants)}</td><td>${num(x.entries)}</td><td>${num(x.open)}</td><td>${num(x.closed)}</td><td class="${x.liquidationRiskCloses ? 'bad' : 'ok'}">${num(x.liquidationRiskCloses)}</td><td><span class="muted">合算しない</span></td></tr>`).join('');
+  const sectionLabels = ['新規観測2レーン','その他active（比較・参考）','parked参考（broker更新停止）'];
+  const accountGroups = new Map(sectionLabels.map(label => [label, []]));
+  for (const account of (p.lanes || [])) accountGroups.get(paperAccountSection(account).label).push(account);
+  const accountRows = sectionLabels.map(label => {
+    const accounts = accountGroups.get(label);
+    if (!accounts.length) return '';
+    const detailRows = accounts.map(x => {
+      const parked = x.paper_broker_enabled === false || x.paper_state_status === 'parked_not_updated_by_broker';
+      return `<tr><td><b>${htmlEscape(x.strategy_label_ja || x.lane || '-')}</b><br><span class="muted">${htmlEscape(x.paper_state_lane || x.lane || '-')} / ${htmlEscape(x.exit_policy_variant || '-')}</span></td><td class="${parked ? 'muted' : 'ok'}">${parked ? 'parked・更新停止' : 'active'}</td><td>${htmlEscape(x.inception_utc || '-')}</td><td>${num(x.post_z2_closed_trades)}</td><td>${num(x.closed_trades)}</td></tr>`;
+    }).join('');
+    return `<tr><td colspan="5"><b>${htmlEscape(label)}</b>（${num(accounts.length)}口座）</td></tr>${detailRows}`;
+  }).join('');
+  document.getElementById('paperBroker').innerHTML = `<div class="muted">Paperはすべて ${htmlEscape(p.paper_leverage_label || '20x')} 表示。外部発注 ${num(p.external_orders)} 件。PnL/勝率/FeeはPaper口座（戦略レーン × exit variant）単位のみ。曖昧だった「決済イベント」列は廃止し、清算risk closeだけを危険検知として表示。</div><div class="grid"><div><div class="k">戦略レーン数</div><div class="v">${num(inventory.strategyLaneCount)}</div></div><div><div class="k">Paper口座総数</div><div class="v">${num(inventory.paperAccountCount)}</div></div><div><div class="k">active Paper口座</div><div class="v">${num(inventory.activeAccountCount)}</div></div><div><div class="k">parked Paper口座</div><div class="v">${num(inventory.parkedAccountCount)}</div></div></div><div class="table-wrap"><table><thead><tr><th>分類</th><th>lev</th><th>Paper口座数</th><th>entries</th><th>open</th><th>closed</th><th>清算risk close</th><th>PnL/WR/Fee</th></tr></thead><tbody>${rows || '<tr><td colspan="8">paper記録なし</td></tr>'}</tbody></table></div><h3>Paper口座開始・Z2後決着</h3><div class="muted">Z2 cutover: 2026-07-12T05:17:45Z。paper計測開始 UTC はstate初期化サイクルの最初のbroker tickから導出（会計/state変更なし）。新規観測2レーン、その他active、parked参考を分離。</div><div class="table-wrap"><table><thead><tr><th>Paper口座（戦略レーン × exit variant）</th><th>口座状態</th><th>paper計測開始 UTC</th><th>Z2以降closed</th><th>全closed</th></tr></thead><tbody>${accountRows || '<tr><td colspan="5">paper口座記録なし</td></tr>'}</tbody></table></div>`;
+}
+
+function paperDiagSeverity(x){
+  if ((x.realized_pnl_usdt || 0) < 0) return 'bad';
+  if ((x.entries || 0) === 0) return 'warn';
+  return 'ok';
+}
+function renderPaperDiagnostics(status, strategy, paperReady, diag){
+  const p = status.paper_broker || {}; diag = diag || {};
+  const b = diag.focus_breakdown || diag.pnl_breakdown || {};
+  const f = diag.forward_paper_gap || {};
+  const laneRows = (diag.variant_rows || []).slice(0, 80).map(x => `<tr><td><b>${htmlEscape(x.short_label || x.lane || '-')}</b><br><span class="muted">${htmlEscape(x.exit_policy_variant || '-')} / ${htmlEscape(x.side || '-')} / ${htmlEscape(x.category || '-')}</span></td><td>${num(x.entries)} / ${num(x.closed_trades)}</td><td>${htmlEscape(x.closed_progress_label || '-')}</td><td>${x.decided_win_rate == null ? '-' : pct(100*x.decided_win_rate)}</td><td>${x.profit_factor == null ? '-' : num(x.profit_factor)} / ${x.payoff_ratio == null ? '-' : num(x.payoff_ratio)}</td><td class="${paperDiagSeverity(x)}">${yen(x.realized_pnl_usdt)}</td><td>${yen(x.avg_win_usdt)} / ${yen(x.avg_loss_usdt)}</td><td>${yen(x.max_win_usdt)} / ${yen(x.max_loss_usdt)}</td><td>${htmlEscape((x.exit_reasons || []).join(', ') || '-')}</td><td>${htmlEscape((x.reason_codes || []).join(', ') || '-')}</td></tr>`).join('');
+  const worstRows = (b.worst_trades || []).map(t => `<tr><td>${htmlEscape(t.exit_time_utc || '-')}<br><span class="muted">${htmlEscape(t.short_label || t.lane || '-')}</span></td><td>${htmlEscape(t.exit_policy_variant || '-')}</td><td>${htmlEscape(t.side || '-')}</td><td>${yen(t.realized_pnl_usdt)}</td><td>${pct(t.return_on_notional_pct)}</td><td>${htmlEscape(t.exit_reason || '-')}</td><td>${htmlEscape((t.reason_codes || []).join(', ') || '-')}</td></tr>`).join('');
+  const bestRows = (b.best_trades || []).map(t => `<tr><td>${htmlEscape(t.exit_time_utc || '-')}<br><span class="muted">${htmlEscape(t.short_label || t.lane || '-')}</span></td><td>${htmlEscape(t.exit_policy_variant || '-')}</td><td>${htmlEscape(t.side || '-')}</td><td>${yen(t.realized_pnl_usdt)}</td><td>${pct(t.return_on_notional_pct)}</td><td>${htmlEscape(t.exit_reason || '-')}</td><td>${htmlEscape((t.reason_codes || []).join(', ') || '-')}</td></tr>`).join('');
+  const gapRows = (f.category_rows || []).map(x => `<tr><td>${htmlEscape(x.category)}</td><td>${num(x.forward_entered_rows)}</td><td>${num(x.paper_entries)}</td><td class="${(x.paper_minus_forward||0) ? 'warn' : 'ok'}">${num(x.paper_minus_forward)}</td><td>${htmlEscape(x.note_ja || '')}</td></tr>`).join('');
+  const categoryRows = (diag.category_breakdown || []).map(x => `<tr><td>${htmlEscape(x.category)}</td><td>${num(x.accounts || x.variant_count || 0)}</td><td>${num(x.entries || 0)}</td><td>${num(x.closed_trades)}</td><td><span class="muted">分類合算しない</span></td></tr>`).join('');
+  const skipRows = (diag.skip_reason_rows || []).slice(0,12).map(x => `<tr><td>${htmlEscape(x.kind)}</td><td>${htmlEscape(x.reason)}</td><td>${num(x.count)}</td><td>${htmlEscape(x.meaning_ja || '')}</td></tr>`).join('');
+  document.getElementById('paperDiagnostics').innerHTML = `
+    <div class="note bad"><b>参考: 旧会計混在(phantom決済含む・判断に使わない)</b><br>以下はPaper口座（戦略レーン×exit variant）単位の旧累計表示です。複数戦略/分類をまたぐPnL・勝率・Feeは合算せず、expiry_minutesだけの強制決着もPaper勝敗にしません。</div>
+    <div class="grid">
+      <div><div class="k">active Paper口座数</div><div class="v">${num(diag.active_paper_account_count ?? diag.active_paper_variant_count ?? diag.market_fill_survivor_summary?.variants ?? 0)}</div><div class="muted">Paper broker更新はmarket-fill survivor + BT/OOS済みclean shadow + 参照基準。closed&gt;=20で劣化比較開始。</div></div>
+      <div><div class="k">評価単位</div><div class="v warn">Paper口座別</div><div class="muted">候補・exit policyを混ぜず、戦略レーン×exit variantの口座単位だけを見る。</div></div>
+      <div><div class="k">state park</div><div class="v ok">${num(diag.parked_state_count || 0)}</div><div class="muted">非通過候補は削除せずpark。broker更新対象外。</div></div>
+      <div><div class="k">対照群 Paper口座数</div><div class="v">${num(diag.control_summary?.variants || 0)}</div><div class="muted">market-fill非通過/比較群。昇格対象と合算しない。</div></div>
+    </div>
+    <h3>分類別サマリー（market-fill survivor と対照群は別表示）</h3>
+    <div class="table-wrap"><table><thead><tr><th>分類</th><th>Paper口座数</th><th>entries</th><th>closed</th><th>PnL/WR/Fee</th></tr></thead><tbody>${categoryRows || '<tr><td colspan="5">分類別データなし</td></tr>'}</tbody></table></div>
+    <h3>Forward と Paper の差分</h3>
+    <div class="table-wrap"><table><thead><tr><th>分類</th><th>Forward entered</th><th>Paper entries</th><th>差</th><th>読み方</th></tr></thead><tbody>${gapRows || '<tr><td colspan="5">差分データなし</td></tr>'}</tbody></table></div>
+    <h3>Paper口座別（exit variant別）: entry数/closed進捗/exit policy</h3>
+    <div class="muted">PF（Profit Factor）=総勝ち/総負け、Payoff（平均勝ち/平均負け）、決着勝率（flat/open除外）。分母なしは「-」。</div>
+    <div class="table-wrap"><table><thead><tr><th>variant</th><th>entries/closed</th><th>進捗</th><th>決着勝率</th><th>PF / Payoff</th><th>realized</th><th>avg win/loss</th><th>max win/loss</th><th>exit理由</th><th>entry理由/コード</th></tr></thead><tbody>${laneRows || '<tr><td colspan="10">variant記録なし</td></tr>'}</tbody></table></div>
+    <h3>損益の中身（上位/下位トレード）</h3>
+    <div class="grid"><div><div class="k">悪いトレード</div><div class="table-wrap"><table><thead><tr><th>time/lane</th><th>exit</th><th>side</th><th>PnL</th><th>return</th><th>理由</th><th>codes</th></tr></thead><tbody>${worstRows || '<tr><td colspan="7">なし</td></tr>'}</tbody></table></div></div><div><div class="k">良いトレード</div><div class="table-wrap"><table><thead><tr><th>time/lane</th><th>exit</th><th>side</th><th>PnL</th><th>return</th><th>理由</th><th>codes</th></tr></thead><tbody>${bestRows || '<tr><td colspan="7">なし</td></tr>'}</tbody></table></div></div></div>
+    <h3>entryできていない/止まっている理由</h3>
+    <div class="table-wrap"><table><thead><tr><th>種別</th><th>理由</th><th>件数</th><th>意味</th></tr></thead><tbody>${skipRows || '<tr><td colspan="4">skip/blocker情報なし</td></tr>'}</tbody></table></div>
+  `;
+}
+
+function exitPolicyJa(v){ const map = {tp1_full:'TP1到達で全利確', rr_1_5_full:'RR 1.5到達で全利確', tp1_partial_rr_runner_be:'TP1で半分利確+SL建値移動+残りRR1.5追走', tp1_partial_rr_runner:'TP1で半分利確+SL建値移動+残りRR1.5追走'}; return map[v] || v || '-'; }
+function renderExitHealth(status){
+  const p = status.paper_broker || {}; const lanes = p.lanes || [];
+  const variants = [...new Set(lanes.map(l => l.exit_policy_variant).filter(Boolean))];
+  const decisions = lanes.map(l => ({cat: paperLaneCategory(l), label: l.strategy_label_ja || l.lane, d:(l.last_exit_decisions || []).slice(-1)[0]})).filter(x => x.d).slice(-5);
+  const bad = lanes.filter(l => (l.open_positions||0) > 0 && !(l.last_mark_price)).length;
+  const rows = decisions.map(x => `<tr><td>${htmlEscape(x.cat)}</td><td>${htmlEscape(x.label)}</td><td>${htmlEscape(x.d.action || 'none')}</td><td>${htmlEscape(x.d.reason || '-')}</td></tr>`).join('');
+  document.getElementById('exitHealth').innerHTML = `<div class="grid"><div><div class="k">Exit policy</div><div class="v">${variants.map(exitPolicyJa).map(htmlEscape).join(' / ') || '-'}</div></div><div><div class="k">Openなのにmark欠損</div><div class="v ${bad ? 'bad' : 'ok'}">${num(bad)}</div></div></div><div class="table-wrap"><table><thead><tr><th>分類</th><th>戦略</th><th>直近action</th><th>理由</th></tr></thead><tbody>${rows || '<tr><td colspan="4">open positionなし / exit判断なし</td></tr>'}</tbody></table></div>`;
+}
+function renderPicks(status, strategy, paperReady){
+  const sh = strategy.summary?.current_forward_shadow || {};
+  const p = status.paper_broker || {};
+  const picks = [];
+  picks.push(paperReady?.paper_usable_now ? 'Paper ready候補あり。対象候補を確認。' : 'Paper ready gateはまだ不可。現状はforward/paper観察で、live昇格判断ではない。');
+  if ((sh.entered_rows || 0) < 20) picks.push(`Forward enteredが${num(sh.entered_rows)}で少ない。最低20件程度までは判断保留。`);
+  if ((p.total_entries || 0) === 0) picks.push('Paper entriesが0。まだ実際のpaper評価は始まっていない/発火していない。');
+  else picks.push(`Paperはentries ${num(p.total_entries)}、closed ${num(p.total_closed_trades)}。PnL評価はclosed増加後に見る。`);
+  if ((p.external_orders || 0) === 0) picks.push('外部発注は0件。これは実資金発注ではなくpaper記録。');
+  document.getElementById('picks').innerHTML = `<ul>${picks.slice(0,4).map(x=>`<li>${htmlEscape(x)}</li>`).join('')}</ul>`;
+}
+loadAll(); setInterval(loadAll, REFRESH_SEC * 1000);
+</script>
+</body>
+</html>

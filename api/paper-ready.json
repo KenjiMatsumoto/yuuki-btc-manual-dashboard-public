@@ -1,0 +1,420 @@
+{
+  "artifact": "btc_manual_trigger_yuuki_paper_ready_gate",
+  "blocker_counts": {
+    "clean_forward_auto_promotion_disabled": 20,
+    "holdout_net_not_positive": 7,
+    "holdout_rows_lt_20": 24,
+    "latest_execution_permission_blocked": 24,
+    "next200_paper_live_enabled_false": 20,
+    "overfit_not_ruled_out": 1,
+    "paper_broker_excludes_next200": 20,
+    "promotion_policy_disallows_paper_auto_use": 24,
+    "verdict_is_forward_shadow_not_paper": 44
+  },
+  "counts": {
+    "candidate_rows_checked": 44,
+    "paper_blocked": 44,
+    "paper_ready": 0
+  },
+  "dashboard_current_forward_shadow": {
+    "average_return_per_filled_entered_trade_pct": 0.020563879803694337,
+    "bad_trade_prevention_count": 1184,
+    "entered_rows": 44,
+    "entered_unfilled_rows": 0,
+    "entered_win_rate": 0.5454545454545454,
+    "filled_entered_rows": 44,
+    "gross_return_per_filled_entered_trade_pct": 0.9048107113625508,
+    "journal_rows": 1440,
+    "losses": 20,
+    "missed_opportunity_count": 204,
+    "pending_rows": 8,
+    "resolved_rows": 1432,
+    "wins": 24
+  },
+  "dashboard_current_readiness": {
+    "blocker_count": 1,
+    "promotion_recommendation": "stay_shadow",
+    "verdict": "blocked"
+  },
+  "generated_at_utc": "2026-07-19T03:58:37Z",
+  "leak_overfit_audit": {
+    "audit_available": true,
+    "candidate_id": "btc_manual_trigger_yuuki_london_short_not_crowded_clean_shadow",
+    "current_evidence": {
+      "chronological_holdout_14_signal_days": "positive",
+      "full_historical_replay": "positive",
+      "real_forward_closed_rows": 0,
+      "rolling_oos": "3 windows, 2/3 positive after MEXC/Bitget taker cost"
+    },
+    "direct_label_leak_found": false,
+    "forbidden_inputs_not_found_in_predicate": [
+      "forward_outcome_bucket",
+      "future_return",
+      "gross_return",
+      "pnl",
+      "win_loss_label"
+    ],
+    "overfit_ruled_out": false,
+    "promotion_status": "clean_forward_shadow_only_not_paper_or_live_trusted",
+    "required_before_trust_upgrade": [
+      "keep rule frozen with no threshold changes",
+      "accumulate at least 20 real forward closed rows",
+      "verify after-cost PnL, win rate, and positive-window ratio",
+      "run sensitivity/neighborhood checks around funding/premium/session boundaries",
+      "preserve yuuki_multiview lane unchanged"
+    ],
+    "risk_flags": [
+      "post_hoc_candidate_selection_risk",
+      "same_dataset_candidate_discovery_risk",
+      "small_rolling_oos_window_count",
+      "no_clean_forward_closed_rows_yet"
+    ],
+    "verdict": "causal_predicate_no_direct_label_leak_found_but_overfit_not_ruled_out"
+  },
+  "next_required_actions": [
+    "clean forward shadowでclosed/decisive rowsを貯める",
+    "latest_execution_permission=allowedが実際に出るまでpaper投入しない",
+    "holdout rows >= 20 かつ holdout/OOS net positiveを満たす候補のみpaper候補へ手動昇格",
+    "paper_broker_includes_next200=true等のruntime policyはgate通過後にだけ変更"
+  ],
+  "operator_answer_ja": "Paperで今すぐ利用不可。BT/OOS候補はあるが、forward shadow / runtime policy / latest permission gate未通過。",
+  "overall_paper_status": "PAPER_BLOCKED",
+  "paper_usable_now": false,
+  "ready_candidates": [],
+  "top_blocked_candidates_by_oos": [
+    {
+      "blockers": [
+        "clean_forward_auto_promotion_disabled",
+        "next200_paper_live_enabled_false",
+        "paper_broker_excludes_next200",
+        "verdict_is_forward_shadow_not_paper"
+      ],
+      "bt_mexc_net_pct_1x": 343.677837,
+      "bt_rows": 2941,
+      "candidate_id": "n074_puod_resolve_long_oipos",
+      "data_root": null,
+      "holdout_mexc_net_pct_1x": 0.200694,
+      "holdout_rows": null,
+      "latest_execution_permission": null,
+      "oos_mexc_net_pct_1x": 312.164248,
+      "oos_rows": null,
+      "paper_status": "PAPER_BLOCKED",
+      "paper_usable_now": false,
+      "promotion_policy": null,
+      "source": "next200_top_canonical_oos",
+      "verdict": "candidate_for_frozen_forward_shadow"
+    },
+    {
+      "blockers": [
+        "clean_forward_auto_promotion_disabled",
+        "next200_paper_live_enabled_false",
+        "paper_broker_excludes_next200",
+        "verdict_is_forward_shadow_not_paper"
+      ],
+      "bt_mexc_net_pct_1x": 280.461063,
+      "bt_rows": 2392,
+      "candidate_id": "n103_liq_loose",
+      "data_root": null,
+      "holdout_mexc_net_pct_1x": 0.057217,
+      "holdout_rows": null,
+      "latest_execution_permission": null,
+      "oos_mexc_net_pct_1x": 259.239359,
+      "oos_rows": null,
+      "paper_status": "PAPER_BLOCKED",
+      "paper_usable_now": false,
+      "promotion_policy": null,
+      "source": "next200_top_canonical_oos",
+      "verdict": "candidate_for_frozen_forward_shadow"
+    },
+    {
+      "blockers": [
+        "clean_forward_auto_promotion_disabled",
+        "holdout_net_not_positive",
+        "next200_paper_live_enabled_false",
+        "paper_broker_excludes_next200",
+        "verdict_is_forward_shadow_not_paper"
+      ],
+      "bt_mexc_net_pct_1x": 265.988422,
+      "bt_rows": 2964,
+      "candidate_id": "n174_score_long_ge5_oipos",
+      "data_root": null,
+      "holdout_mexc_net_pct_1x": -0.248459,
+      "holdout_rows": null,
+      "latest_execution_permission": null,
+      "oos_mexc_net_pct_1x": 251.171668,
+      "oos_rows": null,
+      "paper_status": "PAPER_BLOCKED",
+      "paper_usable_now": false,
+      "promotion_policy": null,
+      "source": "next200_top_canonical_oos",
+      "verdict": "candidate_for_frozen_forward_shadow"
+    },
+    {
+      "blockers": [
+        "clean_forward_auto_promotion_disabled",
+        "next200_paper_live_enabled_false",
+        "paper_broker_excludes_next200",
+        "verdict_is_forward_shadow_not_paper"
+      ],
+      "bt_mexc_net_pct_1x": 254.931173,
+      "bt_rows": 2120,
+      "candidate_id": "n075_puod_resolve_long_oipos_london",
+      "data_root": null,
+      "holdout_mexc_net_pct_1x": 0.057217,
+      "holdout_rows": null,
+      "latest_execution_permission": null,
+      "oos_mexc_net_pct_1x": 229.278283,
+      "oos_rows": null,
+      "paper_status": "PAPER_BLOCKED",
+      "paper_usable_now": false,
+      "promotion_policy": null,
+      "source": "next200_top_canonical_oos",
+      "verdict": "candidate_for_frozen_forward_shadow"
+    },
+    {
+      "blockers": [
+        "clean_forward_auto_promotion_disabled",
+        "next200_paper_live_enabled_false",
+        "paper_broker_excludes_next200",
+        "verdict_is_forward_shadow_not_paper"
+      ],
+      "bt_mexc_net_pct_1x": 247.175779,
+      "bt_rows": 1926,
+      "candidate_id": "n188_guard_liq_puod_veto",
+      "data_root": null,
+      "holdout_mexc_net_pct_1x": 0.057217,
+      "holdout_rows": null,
+      "latest_execution_permission": null,
+      "oos_mexc_net_pct_1x": 228.207307,
+      "oos_rows": null,
+      "paper_status": "PAPER_BLOCKED",
+      "paper_usable_now": false,
+      "promotion_policy": null,
+      "source": "next200_top_canonical_oos",
+      "verdict": "candidate_for_frozen_forward_shadow"
+    },
+    {
+      "blockers": [
+        "clean_forward_auto_promotion_disabled",
+        "next200_paper_live_enabled_false",
+        "paper_broker_excludes_next200",
+        "verdict_is_forward_shadow_not_paper"
+      ],
+      "bt_mexc_net_pct_1x": 244.972369,
+      "bt_rows": 1898,
+      "candidate_id": "n096_liq_base_strict",
+      "data_root": null,
+      "holdout_mexc_net_pct_1x": 0.057217,
+      "holdout_rows": null,
+      "latest_execution_permission": null,
+      "oos_mexc_net_pct_1x": 227.292513,
+      "oos_rows": null,
+      "paper_status": "PAPER_BLOCKED",
+      "paper_usable_now": false,
+      "promotion_policy": null,
+      "source": "next200_top_canonical_oos",
+      "verdict": "candidate_for_frozen_forward_shadow"
+    },
+    {
+      "blockers": [
+        "clean_forward_auto_promotion_disabled",
+        "next200_paper_live_enabled_false",
+        "paper_broker_excludes_next200",
+        "verdict_is_forward_shadow_not_paper"
+      ],
+      "bt_mexc_net_pct_1x": 245.034716,
+      "bt_rows": 1844,
+      "candidate_id": "n101_liq_oi4pos",
+      "data_root": null,
+      "holdout_mexc_net_pct_1x": 0.057217,
+      "holdout_rows": null,
+      "latest_execution_permission": null,
+      "oos_mexc_net_pct_1x": 226.063,
+      "oos_rows": null,
+      "paper_status": "PAPER_BLOCKED",
+      "paper_usable_now": false,
+      "promotion_policy": null,
+      "source": "next200_top_canonical_oos",
+      "verdict": "candidate_for_frozen_forward_shadow"
+    },
+    {
+      "blockers": [
+        "clean_forward_auto_promotion_disabled",
+        "holdout_net_not_positive",
+        "next200_paper_live_enabled_false",
+        "paper_broker_excludes_next200",
+        "verdict_is_forward_shadow_not_paper"
+      ],
+      "bt_mexc_net_pct_1x": 237.209146,
+      "bt_rows": 3590,
+      "candidate_id": "n163_score_long_ge5",
+      "data_root": null,
+      "holdout_mexc_net_pct_1x": -2.736306,
+      "holdout_rows": null,
+      "latest_execution_permission": null,
+      "oos_mexc_net_pct_1x": 225.245267,
+      "oos_rows": null,
+      "paper_status": "PAPER_BLOCKED",
+      "paper_usable_now": false,
+      "promotion_policy": null,
+      "source": "next200_top_canonical_oos",
+      "verdict": "candidate_for_frozen_forward_shadow"
+    },
+    {
+      "blockers": [
+        "clean_forward_auto_promotion_disabled",
+        "next200_paper_live_enabled_false",
+        "paper_broker_excludes_next200",
+        "verdict_is_forward_shadow_not_paper"
+      ],
+      "bt_mexc_net_pct_1x": 244.126861,
+      "bt_rows": 1879,
+      "candidate_id": "n097_liq_trend_strong",
+      "data_root": null,
+      "holdout_mexc_net_pct_1x": 0.057217,
+      "holdout_rows": null,
+      "latest_execution_permission": null,
+      "oos_mexc_net_pct_1x": 225.180665,
+      "oos_rows": null,
+      "paper_status": "PAPER_BLOCKED",
+      "paper_usable_now": false,
+      "promotion_policy": null,
+      "source": "next200_top_canonical_oos",
+      "verdict": "candidate_for_frozen_forward_shadow"
+    },
+    {
+      "blockers": [
+        "clean_forward_auto_promotion_disabled",
+        "next200_paper_live_enabled_false",
+        "paper_broker_excludes_next200",
+        "verdict_is_forward_shadow_not_paper"
+      ],
+      "bt_mexc_net_pct_1x": 246.520689,
+      "bt_rows": 2150,
+      "candidate_id": "n102_liq_novolband",
+      "data_root": null,
+      "holdout_mexc_net_pct_1x": 0.057217,
+      "holdout_rows": null,
+      "latest_execution_permission": null,
+      "oos_mexc_net_pct_1x": 222.749179,
+      "oos_rows": null,
+      "paper_status": "PAPER_BLOCKED",
+      "paper_usable_now": false,
+      "promotion_policy": null,
+      "source": "next200_top_canonical_oos",
+      "verdict": "candidate_for_frozen_forward_shadow"
+    },
+    {
+      "blockers": [
+        "clean_forward_auto_promotion_disabled",
+        "next200_paper_live_enabled_false",
+        "paper_broker_excludes_next200",
+        "verdict_is_forward_shadow_not_paper"
+      ],
+      "bt_mexc_net_pct_1x": 224.663597,
+      "bt_rows": 1540,
+      "candidate_id": "n100_liq_early",
+      "data_root": null,
+      "holdout_mexc_net_pct_1x": 0.254195,
+      "holdout_rows": null,
+      "latest_execution_permission": null,
+      "oos_mexc_net_pct_1x": 210.706497,
+      "oos_rows": null,
+      "paper_status": "PAPER_BLOCKED",
+      "paper_usable_now": false,
+      "promotion_policy": null,
+      "source": "next200_top_canonical_oos",
+      "verdict": "candidate_for_frozen_forward_shadow"
+    },
+    {
+      "blockers": [
+        "clean_forward_auto_promotion_disabled",
+        "holdout_net_not_positive",
+        "next200_paper_live_enabled_false",
+        "paper_broker_excludes_next200",
+        "verdict_is_forward_shadow_not_paper"
+      ],
+      "bt_mexc_net_pct_1x": 215.203356,
+      "bt_rows": 4148,
+      "candidate_id": "n166_score_two_sided",
+      "data_root": null,
+      "holdout_mexc_net_pct_1x": -3.208553,
+      "holdout_rows": null,
+      "latest_execution_permission": null,
+      "oos_mexc_net_pct_1x": 200.09507,
+      "oos_rows": null,
+      "paper_status": "PAPER_BLOCKED",
+      "paper_usable_now": false,
+      "promotion_policy": null,
+      "source": "next200_top_canonical_oos",
+      "verdict": "candidate_for_frozen_forward_shadow"
+    },
+    {
+      "blockers": [
+        "clean_forward_auto_promotion_disabled",
+        "next200_paper_live_enabled_false",
+        "paper_broker_excludes_next200",
+        "verdict_is_forward_shadow_not_paper"
+      ],
+      "bt_mexc_net_pct_1x": 202.801055,
+      "bt_rows": 1673,
+      "candidate_id": "n099_liq_pr15hold",
+      "data_root": null,
+      "holdout_mexc_net_pct_1x": 0.254195,
+      "holdout_rows": null,
+      "latest_execution_permission": null,
+      "oos_mexc_net_pct_1x": 186.215017,
+      "oos_rows": null,
+      "paper_status": "PAPER_BLOCKED",
+      "paper_usable_now": false,
+      "promotion_policy": null,
+      "source": "next200_top_canonical_oos",
+      "verdict": "candidate_for_frozen_forward_shadow"
+    },
+    {
+      "blockers": [
+        "clean_forward_auto_promotion_disabled",
+        "holdout_net_not_positive",
+        "next200_paper_live_enabled_false",
+        "paper_broker_excludes_next200",
+        "verdict_is_forward_shadow_not_paper"
+      ],
+      "bt_mexc_net_pct_1x": 188.75824,
+      "bt_rows": 2008,
+      "candidate_id": "n141_carry_backwardation_long",
+      "data_root": null,
+      "holdout_mexc_net_pct_1x": -0.194959,
+      "holdout_rows": null,
+      "latest_execution_permission": null,
+      "oos_mexc_net_pct_1x": 185.273155,
+      "oos_rows": null,
+      "paper_status": "PAPER_BLOCKED",
+      "paper_usable_now": false,
+      "promotion_policy": null,
+      "source": "next200_top_canonical_oos",
+      "verdict": "candidate_for_frozen_forward_shadow"
+    },
+    {
+      "blockers": [
+        "clean_forward_auto_promotion_disabled",
+        "next200_paper_live_enabled_false",
+        "paper_broker_excludes_next200",
+        "verdict_is_forward_shadow_not_paper"
+      ],
+      "bt_mexc_net_pct_1x": 199.24109,
+      "bt_rows": 1609,
+      "candidate_id": "n091_fdip_novol",
+      "data_root": null,
+      "holdout_mexc_net_pct_1x": 0.895807,
+      "holdout_rows": null,
+      "latest_execution_permission": null,
+      "oos_mexc_net_pct_1x": 183.176782,
+      "oos_rows": null,
+      "paper_status": "PAPER_BLOCKED",
+      "paper_usable_now": false,
+      "promotion_policy": null,
+      "source": "next200_top_canonical_oos",
+      "verdict": "candidate_for_frozen_forward_shadow"
+    }
+  ]
+}
