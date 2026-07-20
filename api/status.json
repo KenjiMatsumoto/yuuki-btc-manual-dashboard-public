@@ -1,6 +1,6 @@
 {
   "candidate_id": "btc_manual_trigger_v1",
-  "generated_at_utc": "2026-07-20T13:23:13Z",
+  "generated_at_utc": "2026-07-20T13:28:43Z",
   "scope": {
     "asset": "BTCUSDT",
     "venue": "binance_perp",
@@ -16,7 +16,7 @@
       "remaining": 0
     },
     "shadow_resolved_rows": {
-      "current": 1568,
+      "current": 1569,
       "required": 3,
       "ratio": 1.0,
       "remaining": 0
@@ -42,8 +42,8 @@
       "bad_trade_prevention_count": 4863
     },
     "shadow": {
-      "journal_rows": 1576,
-      "resolved_rows": 1568,
+      "journal_rows": 1577,
+      "resolved_rows": 1569,
       "pending_rows": 8,
       "entered_rows": 47,
       "filled_entered_rows": 47,
@@ -54,7 +54,7 @@
       "gross_return_per_filled_entered_trade_pct": -0.7957006001333027,
       "average_return_per_filled_entered_trade_pct": -0.016929800002836226,
       "missed_opportunity_count": 214,
-      "bad_trade_prevention_count": 1307
+      "bad_trade_prevention_count": 1308
     },
     "readiness": {
       "verdict": "blocked",
@@ -5590,15 +5590,15 @@
       },
       {
         "key": "rr_too_low",
-        "count": 16
+        "count": 17
       },
       {
         "key": "trend_alignment_short",
-        "count": 8
+        "count": 7
       },
       {
         "key": "score_below_allowed_threshold",
-        "count": 6
+        "count": 5
       },
       {
         "key": "oi_confirms_move",
@@ -5612,11 +5612,11 @@
     "skip_reasons": [
       {
         "key": "方向優位が弱く環境認定できない / OIの追随が弱く自信度が不足 / 想定RRが閾値未満 / 事前トリガー未達で詳細執行判断に進まない",
-        "count": 13
+        "count": 14
       },
       {
         "key": "OIの追随が弱く自信度が不足 / 事前トリガー未達で詳細執行判断に進まない / 方向性はあるがOI/継続確認不足のため監視継続",
-        "count": 5
+        "count": 4
       },
       {
         "key": "方向優位が弱く環境認定できない / OIの追随が弱く自信度が不足 / 想定RRが閾値未満",
@@ -5634,11 +5634,11 @@
     "permissions": [
       {
         "key": "blocked",
-        "count": 16
+        "count": 17
       },
       {
         "key": "watch_only",
-        "count": 8
+        "count": 7
       },
       {
         "key": "allowed",
@@ -5648,11 +5648,11 @@
     "actions": [
       {
         "key": "skip",
-        "count": 16
+        "count": 17
       },
       {
         "key": "watch",
-        "count": 8
+        "count": 7
       },
       {
         "key": "enter",
@@ -5712,7 +5712,7 @@
       },
       {
         "key": "rr_too_low",
-        "count": 16,
+        "count": 17,
         "explanation": {
           "code": "rr_too_low",
           "ja_label": "想定RR不足",
@@ -5722,7 +5722,7 @@
       },
       {
         "key": "trend_alignment_short",
-        "count": 8,
+        "count": 7,
         "explanation": {
           "code": "trend_alignment_short",
           "ja_label": "未登録理由コード",
@@ -5732,7 +5732,7 @@
       },
       {
         "key": "score_below_allowed_threshold",
-        "count": 6,
+        "count": 5,
         "explanation": {
           "code": "score_below_allowed_threshold",
           "ja_label": "未登録理由コード",
