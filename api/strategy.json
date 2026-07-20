@@ -1,5 +1,5 @@
 {
-  "generated_at_utc": "2026-07-20T08:40:01Z",
+  "generated_at_utc": "2026-07-20T08:51:22Z",
   "summary": {
     "strategy_lane_count": 14,
     "classification_counts": {
@@ -22,19 +22,19 @@
       "blocker_count": 1
     },
     "current_forward_shadow": {
-      "journal_rows": 1556,
-      "resolved_rows": 1547,
-      "pending_rows": 9,
-      "entered_rows": 45,
-      "filled_entered_rows": 44,
+      "journal_rows": 1557,
+      "resolved_rows": 1549,
+      "pending_rows": 8,
+      "entered_rows": 46,
+      "filled_entered_rows": 45,
       "entered_unfilled_rows": 0,
       "wins": 24,
-      "losses": 20,
-      "entered_win_rate": 0.5454545454545454,
-      "gross_return_per_filled_entered_trade_pct": 0.9048107113625508,
-      "average_return_per_filled_entered_trade_pct": 0.020563879803694337,
+      "losses": 21,
+      "entered_win_rate": 0.5333333333333333,
+      "gross_return_per_filled_entered_trade_pct": 0.27502610880775064,
+      "average_return_per_filled_entered_trade_pct": 0.006111691306838903,
       "missed_opportunity_count": 211,
-      "bad_trade_prevention_count": 1292
+      "bad_trade_prevention_count": 1293
     },
     "forward_repair_50_verdict_counts": {
       "reject": 49,
@@ -1732,7 +1732,7 @@
         "bitget_taker_10x_margin_net_pct_est": -125.519299
       },
       "forward": {
-        "rows": 1401,
+        "rows": 1402,
         "allowed_or_entered_rows": 23,
         "promotion_status": "blocked_forward_shadow_not_mature_or_failed"
       },
@@ -1784,8 +1784,8 @@
         "bitget_taker_10x_margin_net_pct_est": -112.694911
       },
       "forward": {
-        "rows": 1402,
-        "allowed_or_entered_rows": 29,
+        "rows": 1403,
+        "allowed_or_entered_rows": 30,
         "promotion_status": "blocked_forward_shadow_not_mature_or_failed"
       },
       "decision_ja": "継続価値あり/現時点採用不可。frozen forward-shadowとして観察開始。ただし20 closed rows等のgate未達までは採用不可。"
@@ -1966,8 +1966,8 @@
         "bitget_taker_10x_margin_net_pct_est": null
       },
       "forward": {
-        "rows": 1402,
-        "allowed_or_entered_rows": 16,
+        "rows": 1403,
+        "allowed_or_entered_rows": 17,
         "promotion_status": "blocked_forward_shadow_not_mature_or_failed"
       },
       "decision_ja": "tp_sl_onlyを独立freezeしたforward/paper観察レーン。TP/SL未達のexpiryは勝敗化せず、cost ledger付きpaperで別途観察。採用不可。"
@@ -1992,7 +1992,7 @@
         "bitget_taker_10x_margin_net_pct_est": 83.66441
       },
       "forward": {
-        "rows": 1396,
+        "rows": 1397,
         "allowed_or_entered_rows": 2,
         "promotion_status": "blocked_forward_shadow_not_mature_or_failed"
       },
