@@ -1,5 +1,5 @@
 {
-  "generated_at_utc": "2026-07-20T13:52:22Z",
+  "generated_at_utc": "2026-07-20T13:59:17Z",
   "summary": {
     "strategy_lane_count": 14,
     "classification_counts": {
@@ -19,7 +19,7 @@
     "current_candidate_readiness": {
       "verdict": "blocked",
       "promotion_recommendation": "stay_shadow",
-      "blocker_count": 1
+      "blocker_count": 2
     },
     "current_forward_shadow": {
       "journal_rows": 1579,
