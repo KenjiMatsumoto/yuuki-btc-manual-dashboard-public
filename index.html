@@ -92,6 +92,14 @@ function num(x){ return x === null || x === undefined ? '-' : (typeof x === 'num
 function yen(x){ return x === null || x === undefined ? '-' : Number(x).toFixed(2); }
 function htmlEscape(s){ return String(s ?? '').replace(/[&<>'"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;',"'":'&#39;','"':'&quot;'}[c])); }
 function healthClass(v){ const s=String(v||''); if (s.includes('BLOCKED') || s.includes('不可') || s.includes('ダメ') || s.includes('blocked')) return 'bad'; if (s.includes('継続') || s.includes('OK') || s.includes('価値')) return 'ok'; return 'warn'; }
+function tickLivenessBand(ageMinutes){
+  if(ageMinutes === null || ageMinutes === undefined || ageMinutes === '') return {cls:'bad', label:'赤・最終tick不明'};
+  const age = Number(ageMinutes);
+  if(Number.isNaN(age)) return {cls:'bad', label:'赤・最終tick不明'};
+  if(age > 45) return {cls:'bad', label:'赤・45分超'};
+  if(age > 15) return {cls:'warn', label:'黄・15分超'};
+  return {cls:'ok', label:'緑・15分以内'};
+}
 function winRate(w,l,n){ const d=(w||0)+(l||0); return d ? pct((w||0)*100/d) : '-'; }
 const SHARED_SIGNAL_GROUP = 'multiview系(同一シグナル群)';
 const SHARED_SIGNAL_DISPLAY_LABEL = 'multiview共有シグナル群（同一トレード・5戦略レーン）';
@@ -104,6 +112,12 @@ const SHARED_SIGNAL_LANES = new Set([
   'manual_trigger_yuuki_candidate_paper_y20_london_no_trade_veto',
 ]);
 const SHARED_SIGNAL_NOTE = '同一トレードの重複計上を含む。勝敗判定はグループで1つと数える。同一シグナル群はグループで1勝敗。';
+function experimentBadge(){ return '<span class="pill warn">実験中</span>'; }
+function experimentBadgeForLane(lane){ return lane === 'manual_trigger_yuuki_wave2_zone_limit_tp_far' ? experimentBadge() : ''; }
+function experimentBadgeForCategory(category){
+  return category === SHARED_SIGNAL_GROUP || category === 'Wave 2 TP far（Paper観測中）' ? experimentBadge() : '';
+}
+function paperBrokerCategoryLabel(category){ return category === SHARED_SIGNAL_GROUP ? SHARED_SIGNAL_DISPLAY_LABEL : category; }
 function sharedSignalGroup(label, members){
   const byLane = new Map();
   for (const row of members){
@@ -118,10 +132,10 @@ function sharedSignalGroup(label, members){
     return `<tr><td>${htmlEscape(first.display_label || first.strategy_label_ja || '戦略レーン')}</td><td>${num(rows.length)}</td><td>${num(entries)}</td><td>${num(sum('closed_trades'))}</td><td>${num(sum('wins'))}-${num(sum('losses'))}</td><td>${yen(sum('realized_pnl_usdt'))}</td></tr>`;
   }).join('');
   const accountLabel = members.length === byLane.size ? '' : ` / ${members.length} account`;
-  return `<details class="sharedSignalGroup"><summary><b>${htmlEscape(label)}</b>（${byLane.size} 戦略レーン${accountLabel}、展開）</summary><div class="muted">${SHARED_SIGNAL_NOTE}</div><div class="table-wrap"><table><thead><tr><th>戦略レーン</th><th>Paper口座/行数</th><th>entry</th><th>closed</th><th>W-L</th><th>実現PnL</th></tr></thead><tbody>${detailRows}</tbody></table></div></details>`;
+  return `<details class="sharedSignalGroup"><summary><b>${htmlEscape(label)}</b> ${experimentBadgeForCategory(SHARED_SIGNAL_GROUP)}（${byLane.size} 戦略レーン${accountLabel}、展開）</summary><div class="muted">${SHARED_SIGNAL_NOTE}</div><div class="table-wrap"><table><thead><tr><th>戦略レーン</th><th>Paper口座/行数</th><th>entry</th><th>closed</th><th>W-L</th><th>実現PnL</th></tr></thead><tbody>${detailRows}</tbody></table></div></details>`;
 }
 function cleanForwardLaneLabel(r){
-  return `<b>${htmlEscape(r.display_label || '戦略レーン')}</b>`;
+  return `<b>${htmlEscape(r.display_label || '戦略レーン')}</b> ${experimentBadgeForLane(r.lane)}`;
 }
 function progressBar(row){
   const closed = Number(row.closed_trades || 0);
@@ -154,7 +168,7 @@ function renderOfficialCleanForward(c){
     noEntry.length ? `${noEntry.join(' / ')} はclosed 0件です。発火・entry条件を継続観測します。` : '判定対象2レーンともclean-forward決着が発生しています。',
     `現役11戦略レーンの公式合計は ${num(active.closed_trades)} closed、${num(active.wins)}-${num(active.losses)}、${Number(active.realized_pnl_usdt||0) >= 0 ? '+' : ''}${yen(active.realized_pnl_usdt)} USDTです。`,
   ];
-  document.getElementById('officialCleanForward').innerHTML = `<div class="k">公式成績（clean-forward）</div><h2 style="margin-top:4px">現役: 研究選定済み / Paper観測中 / live未承認</h2><div class="note">cutover ${htmlEscape(c.cutover_utc)}。現役11戦略レーンだけを公式合計に含め、Base v1は退役・参考へ分離。公式集計はexit variantの重複を除外。r2_w2 / w12_f1は合算せず、各closed 20件で個別判定します。</div><div class="grid"><div><div class="k">現役戦略レーン</div><div class="v">${num(active.strategy_lane_count)}</div></div><div><div class="k">ユニークentry</div><div class="v">${num(active.unique_entries)}</div></div><div><div class="k">closed</div><div class="v">${num(active.closed_trades)}</div></div><div><div class="k">W-L</div><div class="v">${num(active.wins)}-${num(active.losses)}</div></div><div><div class="k">realized PnL</div><div class="v">${Number(active.realized_pnl_usdt||0) >= 0 ? '+' : ''}${yen(active.realized_pnl_usdt)} USDT</div></div></div><h3>判定対象2戦略レーンの個別進捗</h3><div class="progress-stack">${progress.map(progressBar).join('')}</div><div class="weekly-highlights"><b>今週の見どころ（自動生成）</b><ul>${highlights.map(x=>`<li>${htmlEscape(x)}</li>`).join('')}</ul></div><div class="table-wrap"><table><thead><tr><th>現役戦略レーン / 共有シグナル群</th><th>unique entries</th><th>closed</th><th>W-L</th><th>realized PnL</th><th>状態 / 進捗</th></tr></thead><tbody>${rows}</tbody></table></div><h3>退役・参考（公式合計・採用判断に不算入）</h3><div class="muted">Base v1はstate保持、broker更新停止。旧会計混在累計 -1,151.9 USDT / 9W-15Lは参考値で、現役合計に含めません。</div><div class="table-wrap"><table><thead><tr><th>退役戦略レーン</th><th>unique entries</th><th>closed</th><th>W-L</th><th>realized PnL</th><th>状態</th></tr></thead><tbody>${retiredRows || '<tr><td colspan="6">退役参考なし</td></tr>'}</tbody></table></div>`;
+  document.getElementById('officialCleanForward').innerHTML = `<div class="k">公式成績（clean-forward）</div><h2 style="margin-top:4px">現役: 研究選定済み / Paper観測中 / live未承認</h2><div class="note"><b>主実験: wave2 vs multiview系(同一シグナルのexit比較)。両者のclosed 20件で優劣判定。</b><br><span class="muted">経緯注記: Wave 2のOOS比率ゲート未達(0.519)は採用判断ではなく実験開始までの経緯です。この比較実験は新規判定対象2レーンとは別管理です。</span></div><div class="note">cutover ${htmlEscape(c.cutover_utc)}。現役11戦略レーンだけを公式合計に含め、Base v1は退役・参考へ分離。公式集計はexit variantの重複を除外。r2_w2 / w12_f1は合算せず、各closed 20件で個別判定します。</div><div class="grid"><div><div class="k">現役戦略レーン</div><div class="v">${num(active.strategy_lane_count)}</div></div><div><div class="k">ユニークentry</div><div class="v">${num(active.unique_entries)}</div></div><div><div class="k">closed</div><div class="v">${num(active.closed_trades)}</div></div><div><div class="k">W-L</div><div class="v">${num(active.wins)}-${num(active.losses)}</div></div><div><div class="k">realized PnL</div><div class="v">${Number(active.realized_pnl_usdt||0) >= 0 ? '+' : ''}${yen(active.realized_pnl_usdt)} USDT</div></div></div><h3>判定対象2戦略レーンの個別進捗</h3><div class="progress-stack">${progress.map(progressBar).join('')}</div><div class="weekly-highlights"><b>今週の見どころ（自動生成）</b><ul>${highlights.map(x=>`<li>${htmlEscape(x)}</li>`).join('')}</ul></div><div class="table-wrap"><table><thead><tr><th>現役戦略レーン / 共有シグナル群</th><th>unique entries</th><th>closed</th><th>W-L</th><th>realized PnL</th><th>状態 / 進捗</th></tr></thead><tbody>${rows}</tbody></table></div><h3>退役・参考（公式合計・採用判断に不算入）</h3><div class="muted">Base v1はstate保持、broker更新停止。旧会計混在累計 -1,151.9 USDT / 9W-15Lは参考値で、現役合計に含めません。</div><div class="table-wrap"><table><thead><tr><th>退役戦略レーン</th><th>unique entries</th><th>closed</th><th>W-L</th><th>realized PnL</th><th>状態</th></tr></thead><tbody>${retiredRows || '<tr><td colspan="6">退役参考なし</td></tr>'}</tbody></table></div>`;
 }
 async function getJson(path){ const r = await fetch(apiUrl(path) + '?t=' + Date.now()); if(!r.ok) throw new Error(path + ' ' + r.status); return await r.json(); }
 async function loadAll(manual=false){
@@ -186,13 +200,14 @@ async function loadAll(manual=false){
   }
 }
 function renderRuntimeHealth(h){
-  const cls = h.runtime_healthy ? 'ok' : 'bad';
-  const life = h.runtime_healthy ? '正常稼働' : '要確認';
+  const band = tickLivenessBand(h.tick_age_minutes);
+  const runtimeCls = h.runtime_healthy ? 'ok' : 'bad';
   const tradeActivity = Number(h.trade_events_this_tick || 0) > 0 ? `${num(h.trade_events_this_tick)}件` : '取引なし';
   document.getElementById('runtimeHealth').innerHTML = `
-    <b class="${cls}">死活: ${life}・${htmlEscape(h.classification_ja || '-')}</b>
+    <b class="${band.cls}">死活: ${band.label}</b>
     <span>最新tick UTC: ${htmlEscape(h.latest_tick_utc || '-')}</span>
     <span>経過分: ${num(h.tick_age_minutes)}</span>
+    <span class="${runtimeCls}">実行判定: ${htmlEscape(h.classification_ja || '-')}</span>
     <span>active Paper口座: ${num(h.active_paper_lane_count)}</span>
     <span>今回tick: ${tradeActivity}</span>`;
 }
@@ -282,13 +297,13 @@ function buildStrategyRows(status, strategy, paperReady){
     'London Short clean shadow（Paper観測中）': ['BT/OOS済みclean shadow + 20x Paper', '比較・参考表示。新規判定対象ではない。'],
     'Base v1（退役・参考）': ['Base v1（退役・参考）', '2026-07-18 park済み。state保持、broker更新停止。'],
     'Wave 1 帯指値（Paper観測中）': ['zone-limit fill + 20x Paper', '比較・参考表示。新規判定対象ではない。'],
-    'Wave 2 TP far（Paper観測中）': ['TP1=1.76×ATR + expiry240 + 20x Paper', 'OOS比率ゲート未達(0.519)の比較・参考表示。'],
+    'Wave 2 TP far（Paper観測中）': ['TP1=1.76×ATR + expiry240 + 20x Paper', '実験中。multiview系とのexit比較をclosed 20件まで観測。'],
     'u01 weak impulse unlock（Paper観測中）': ['premortem veto解除 + 20x Paper', '探索結果の比較・参考表示。'],
     '既存best yuuki_multiview': ['既存best保持 + 20x Paper', 'multiview共有シグナル群へ集約した比較・参考表示。']
   };
   return summarizePaperRows(status).filter(x => alwaysShowCats.has(x.cat) || x.cat !== '診断/rescue' || x.entries || x.closed || x.realized || x.open).map(x => {
     const [type, verdict] = paperMeta[x.cat] || ['既存Paper観測 + 20x', '比較・参考表示。新規判定対象ではない。'];
-    const label = x.cat === SHARED_SIGNAL_GROUP ? sharedSignalGroup(SHARED_SIGNAL_DISPLAY_LABEL, x.rows) : `<b>${htmlEscape(x.cat)}</b>`;
+    const label = x.cat === SHARED_SIGNAL_GROUP ? sharedSignalGroup(SHARED_SIGNAL_DISPLAY_LABEL, x.rows) : `<b>${htmlEscape(x.cat)}</b> ${experimentBadgeForCategory(x.cat)}`;
     const variantLabel = x.cat === SHARED_SIGNAL_GROUP ? `${x.laneCount}戦略レーン / ${x.variants}口座` : num(x.variants);
     const entryLabel = x.cat === SHARED_SIGNAL_GROUP ? '同一シグナル重複を除外した勝敗は上段clean-forward参照' : `entries ${num(x.entries)} / open ${num(x.open)} / closed ${num(x.closed)}`;
     return `<tr><td>${label}<br><span class="muted">${htmlEscape(type)}</span></td><td>${htmlEscape(verdict)}</td><td>${variantLabel}</td><td>${htmlEscape(x.leverage)}</td><td>${entryLabel}</td><td><span class="muted">カテゴリ合算PnL/WR/Feeは非表示。下のPaper口座別（exit variant別）を参照。</span></td></tr>`;
@@ -303,7 +318,7 @@ function renderLanes(status, strategy, paperReady, diag){
 function renderPaperBroker(status, diag){
   const p = status.paper_broker || {};
   const inventory = paperAccountInventory(status, diag);
-  const rows = summarizePaperRows(status).map(x => `<tr><td><b>${htmlEscape(x.cat)}</b></td><td>${htmlEscape(x.leverage)}</td><td>${num(x.variants)}</td><td>${num(x.entries)}</td><td>${num(x.open)}</td><td>${num(x.closed)}</td><td class="${x.liquidationRiskCloses ? 'bad' : 'ok'}">${num(x.liquidationRiskCloses)}</td><td><span class="muted">合算しない</span></td></tr>`).join('');
+  const rows = summarizePaperRows(status).map(x => `<tr><td><b>${htmlEscape(paperBrokerCategoryLabel(x.cat))}</b> ${experimentBadgeForCategory(x.cat)}</td><td>${htmlEscape(x.leverage)}</td><td>${num(x.variants)}</td><td>${num(x.entries)}</td><td>${num(x.open)}</td><td>${num(x.closed)}</td><td class="${x.liquidationRiskCloses ? 'bad' : 'ok'}">${num(x.liquidationRiskCloses)}</td><td><span class="muted">合算しない</span></td></tr>`).join('');
   const sectionLabels = ['新規観測2レーン','その他active（比較・参考）','parked参考（broker更新停止）'];
   const accountGroups = new Map(sectionLabels.map(label => [label, []]));
   for (const account of (p.lanes || [])) accountGroups.get(paperAccountSection(account).label).push(account);
@@ -316,7 +331,7 @@ function renderPaperBroker(status, diag){
     }).join('');
     return `<tr><td colspan="5"><b>${htmlEscape(label)}</b>（${num(accounts.length)}口座）</td></tr>${detailRows}`;
   }).join('');
-  document.getElementById('paperBroker').innerHTML = `<div class="muted">Paperはすべて ${htmlEscape(p.paper_leverage_label || '20x')} 表示。外部発注 ${num(p.external_orders)} 件。PnL/勝率/FeeはPaper口座（戦略レーン × exit variant）単位のみ。曖昧だった「決済イベント」列は廃止し、清算risk closeだけを危険検知として表示。</div><div class="grid"><div><div class="k">戦略レーン数</div><div class="v">${num(inventory.strategyLaneCount)}</div></div><div><div class="k">Paper口座総数</div><div class="v">${num(inventory.paperAccountCount)}</div></div><div><div class="k">active Paper口座</div><div class="v">${num(inventory.activeAccountCount)}</div></div><div><div class="k">parked Paper口座</div><div class="v">${num(inventory.parkedAccountCount)}</div></div></div><div class="table-wrap"><table><thead><tr><th>分類</th><th>lev</th><th>Paper口座数</th><th>entries</th><th>open</th><th>closed</th><th>清算risk close</th><th>PnL/WR/Fee</th></tr></thead><tbody>${rows || '<tr><td colspan="8">paper記録なし</td></tr>'}</tbody></table></div><h3>Paper口座開始・Z2後決着</h3><div class="muted">Z2 cutover: 2026-07-12T05:17:45Z。paper計測開始 UTC はstate初期化サイクルの最初のbroker tickから導出（会計/state変更なし）。新規観測2レーン、その他active、parked参考を分離。</div><div class="table-wrap"><table><thead><tr><th>Paper口座（戦略レーン × exit variant）</th><th>口座状態</th><th>paper計測開始 UTC</th><th>Z2以降closed</th><th>全closed</th></tr></thead><tbody>${accountRows || '<tr><td colspan="5">paper口座記録なし</td></tr>'}</tbody></table></div>`;
+  document.getElementById('paperBroker').innerHTML = `<div class="muted">Paperはすべて ${htmlEscape(p.paper_leverage_label || '20x')} 表示。外部発注 ${num(p.external_orders)} 件。PnL/勝率/FeeはPaper口座（戦略レーン × exit variant）単位のみ。曖昧だった「決済イベント」列は廃止し、清算risk closeだけを危険検知として表示。</div><div class="grid"><div><div class="k">戦略レーン数</div><div class="v">${num(inventory.strategyLaneCount)}</div></div><div><div class="k">Paper口座総数</div><div class="v">${num(inventory.paperAccountCount)}</div></div><div><div class="k">active Paper口座</div><div class="v">${num(inventory.activeAccountCount)}</div></div><div><div class="k">parked Paper口座</div><div class="v">${num(inventory.parkedAccountCount)}</div></div></div><div class="table-wrap"><table><thead><tr><th>分類</th><th>lev</th><th>Paper口座数</th><th>entries</th><th>open</th><th>closed</th><th>清算risk close</th><th>PnL/WR/Fee</th></tr></thead><tbody>${rows || '<tr><td colspan="8">paper記録なし</td></tr>'}</tbody></table></div><h3>Paper口座開始・Z2後決着</h3><div class="muted">Z2 cutover: 2026-07-12T05:17:45Z。paper計測開始 UTC はstate初期化サイクルの最初のbroker tickから導出（会計/state変更なし）。新規観測2レーン、その他active、parked参考を分離。</div><div class="table-wrap"><table><thead><tr><th>Paper口座（戦略レーン × exit variant）</th><th>口座状態</th><th>paper計測開始 UTC</th><th>新会計n<br><span class="muted">Z2以降closed</span></th><th>通算N<br><span class="muted">通算は旧会計混在の参考値</span></th></tr></thead><tbody>${accountRows || '<tr><td colspan="5">paper口座記録なし</td></tr>'}</tbody></table></div>`;
 }
 
 function paperDiagSeverity(x){
@@ -324,11 +339,16 @@ function paperDiagSeverity(x){
   if ((x.entries || 0) === 0) return 'warn';
   return 'ok';
 }
+function decidedWrText(x){
+  const wr = x.decided_win_rate == null ? '-' : pct(100*x.decided_win_rate);
+  const partial = String(x.exit_policy_variant || '').includes('partial');
+  return `決着WR ${wr}${partial ? `（partial TP1勝ち ${num(x.partial_tp1_wins || 0)}件）` : ''}`;
+}
 function renderPaperDiagnostics(status, strategy, paperReady, diag){
   const p = status.paper_broker || {}; diag = diag || {};
   const b = diag.focus_breakdown || diag.pnl_breakdown || {};
   const f = diag.forward_paper_gap || {};
-  const laneRows = (diag.variant_rows || []).slice(0, 80).map(x => `<tr><td><b>${htmlEscape(x.display_label || x.short_label || '戦略レーン')}</b><br><span class="muted">${htmlEscape(exitPolicyLabel(x.exit_policy_variant))} / ${htmlEscape(x.side || '-')} / ${htmlEscape(x.category || '-')}</span></td><td>${num(x.entries)} / ${num(x.closed_trades)}</td><td>${htmlEscape(x.closed_progress_label || '-')}</td><td>${x.decided_win_rate == null ? '-' : pct(100*x.decided_win_rate)}</td><td>${x.profit_factor == null ? '-' : num(x.profit_factor)} / ${x.payoff_ratio == null ? '-' : num(x.payoff_ratio)}</td><td class="${paperDiagSeverity(x)}">${yen(x.realized_pnl_usdt)}</td><td>${yen(x.avg_win_usdt)} / ${yen(x.avg_loss_usdt)}</td><td>${yen(x.max_win_usdt)} / ${yen(x.max_loss_usdt)}</td><td>${htmlEscape((x.exit_reasons || []).join(', ') || '-')}</td><td>${htmlEscape((x.reason_codes || []).join(', ') || '-')}</td></tr>`).join('');
+  const laneRows = (diag.variant_rows || []).slice(0, 80).map(x => `<tr><td><b>${htmlEscape(x.display_label || x.short_label || '戦略レーン')}</b><br><span class="muted">${htmlEscape(exitPolicyLabel(x.exit_policy_variant))} / ${htmlEscape(x.side || '-')} / ${htmlEscape(x.category || '-')}</span></td><td>${num(x.entries)} / ${num(x.closed_trades)}</td><td>${htmlEscape(x.closed_progress_label || '-')}</td><td>${decidedWrText(x)}</td><td>${x.profit_factor == null ? '-' : num(x.profit_factor)} / ${x.payoff_ratio == null ? '-' : num(x.payoff_ratio)}</td><td class="${paperDiagSeverity(x)}">${yen(x.realized_pnl_usdt)}</td><td>${yen(x.avg_win_usdt)} / ${yen(x.avg_loss_usdt)}</td><td>${yen(x.max_win_usdt)} / ${yen(x.max_loss_usdt)}</td><td>${htmlEscape((x.exit_reasons || []).join(', ') || '-')}</td><td>${htmlEscape((x.reason_codes || []).join(', ') || '-')}</td></tr>`).join('');
   const worstRows = (b.worst_trades || []).map(t => `<tr><td>${htmlEscape(t.exit_time_utc || '-')}<br><span class="muted">${htmlEscape(t.short_label || t.lane || '-')}</span></td><td>${htmlEscape(t.exit_policy_variant || '-')}</td><td>${htmlEscape(t.side || '-')}</td><td>${yen(t.realized_pnl_usdt)}</td><td>${pct(t.return_on_notional_pct)}</td><td>${htmlEscape(t.exit_reason || '-')}</td><td>${htmlEscape((t.reason_codes || []).join(', ') || '-')}</td></tr>`).join('');
   const bestRows = (b.best_trades || []).map(t => `<tr><td>${htmlEscape(t.exit_time_utc || '-')}<br><span class="muted">${htmlEscape(t.short_label || t.lane || '-')}</span></td><td>${htmlEscape(t.exit_policy_variant || '-')}</td><td>${htmlEscape(t.side || '-')}</td><td>${yen(t.realized_pnl_usdt)}</td><td>${pct(t.return_on_notional_pct)}</td><td>${htmlEscape(t.exit_reason || '-')}</td><td>${htmlEscape((t.reason_codes || []).join(', ') || '-')}</td></tr>`).join('');
   const gapRows = (f.category_rows || []).map(x => `<tr><td>${htmlEscape(x.category)}</td><td>${num(x.forward_entered_rows)}</td><td>${num(x.paper_entries)}</td><td class="${(x.paper_minus_forward||0) ? 'warn' : 'ok'}">${num(x.paper_minus_forward)}</td><td>${htmlEscape(x.note_ja || '')}</td></tr>`).join('');
