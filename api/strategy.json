@@ -1,5 +1,5 @@
 {
-  "generated_at_utc": "2026-07-20T06:47:06Z",
+  "generated_at_utc": "2026-07-20T06:54:03Z",
   "summary": {
     "strategy_lane_count": 14,
     "classification_counts": {
@@ -1784,7 +1784,7 @@
         "bitget_taker_10x_margin_net_pct_est": -112.694911
       },
       "forward": {
-        "rows": 1394,
+        "rows": 1395,
         "allowed_or_entered_rows": 28,
         "promotion_status": "blocked_forward_shadow_not_mature_or_failed"
       },
@@ -1966,7 +1966,7 @@
         "bitget_taker_10x_margin_net_pct_est": null
       },
       "forward": {
-        "rows": 1394,
+        "rows": 1395,
         "allowed_or_entered_rows": 15,
         "promotion_status": "blocked_forward_shadow_not_mature_or_failed"
       },
