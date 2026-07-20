@@ -18,16 +18,16 @@
   "dashboard_current_forward_shadow": {
     "average_return_per_filled_entered_trade_pct": -0.016929800002836226,
     "bad_trade_prevention_count": 1323,
-    "entered_rows": 51,
+    "entered_rows": 52,
     "entered_unfilled_rows": 0,
     "entered_win_rate": 0.5106382978723404,
     "filled_entered_rows": 47,
     "gross_return_per_filled_entered_trade_pct": -0.7957006001333027,
-    "journal_rows": 1594,
+    "journal_rows": 1595,
     "losses": 23,
-    "missed_opportunity_count": 214,
+    "missed_opportunity_count": 215,
     "pending_rows": 10,
-    "resolved_rows": 1584,
+    "resolved_rows": 1585,
     "wins": 24
   },
   "dashboard_current_readiness": {
@@ -35,7 +35,7 @@
     "promotion_recommendation": "stay_shadow",
     "verdict": "blocked"
   },
-  "generated_at_utc": "2026-07-20T17:12:58Z",
+  "generated_at_utc": "2026-07-20T17:18:35Z",
   "leak_overfit_audit": {
     "audit_available": true,
     "candidate_id": "btc_manual_trigger_yuuki_london_short_not_crowded_clean_shadow",
