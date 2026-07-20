@@ -1,6 +1,6 @@
 {
   "candidate_id": "btc_manual_trigger_v1",
-  "generated_at_utc": "2026-07-20T10:40:24Z",
+  "generated_at_utc": "2026-07-20T10:46:35Z",
   "scope": {
     "asset": "BTCUSDT",
     "venue": "binance_perp",
@@ -16,13 +16,13 @@
       "remaining": 0
     },
     "shadow_resolved_rows": {
-      "current": 1556,
+      "current": 1558,
       "required": 3,
       "ratio": 1.0,
       "remaining": 0
     },
     "shadow_decisive_rows": {
-      "current": 45,
+      "current": 46,
       "required": 1,
       "ratio": 1.0,
       "remaining": 0
@@ -42,19 +42,19 @@
       "bad_trade_prevention_count": 4863
     },
     "shadow": {
-      "journal_rows": 1566,
-      "resolved_rows": 1556,
-      "pending_rows": 10,
+      "journal_rows": 1567,
+      "resolved_rows": 1558,
+      "pending_rows": 9,
       "entered_rows": 47,
-      "filled_entered_rows": 45,
+      "filled_entered_rows": 46,
       "entered_unfilled_rows": 0,
       "wins": 24,
-      "losses": 21,
-      "entered_win_rate": 0.5333333333333333,
-      "gross_return_per_filled_entered_trade_pct": 0.27502610880775064,
-      "average_return_per_filled_entered_trade_pct": 0.006111691306838903,
+      "losses": 22,
+      "entered_win_rate": 0.5217391304347826,
+      "gross_return_per_filled_entered_trade_pct": -0.4066727169384973,
+      "average_return_per_filled_entered_trade_pct": -0.00884071123779342,
       "missed_opportunity_count": 214,
-      "bad_trade_prevention_count": 1297
+      "bad_trade_prevention_count": 1298
     },
     "readiness": {
       "verdict": "blocked",
