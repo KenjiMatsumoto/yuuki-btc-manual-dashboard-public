@@ -4,7 +4,7 @@
     "clean_forward_auto_promotion_disabled": 20,
     "holdout_net_not_positive": 7,
     "holdout_rows_lt_20": 24,
-    "latest_execution_permission_blocked": 16,
+    "latest_execution_permission_blocked": 18,
     "next200_paper_live_enabled_false": 20,
     "overfit_not_ruled_out": 1,
     "paper_broker_excludes_next200": 20,
@@ -17,26 +17,26 @@
     "paper_ready": 0
   },
   "dashboard_current_forward_shadow": {
-    "average_return_per_filled_entered_trade_pct": -0.010598918607060859,
+    "average_return_per_filled_entered_trade_pct": -0.00602118269344027,
     "bad_trade_prevention_count": 1325,
-    "entered_rows": 53,
+    "entered_rows": 54,
     "entered_unfilled_rows": 0,
-    "entered_win_rate": 0.5102040816326531,
-    "filled_entered_rows": 49,
-    "gross_return_per_filled_entered_trade_pct": -0.5193470117459821,
-    "journal_rows": 1601,
+    "entered_win_rate": 0.52,
+    "filled_entered_rows": 50,
+    "gross_return_per_filled_entered_trade_pct": -0.3010591346720135,
+    "journal_rows": 1603,
     "losses": 24,
     "missed_opportunity_count": 216,
-    "pending_rows": 11,
-    "resolved_rows": 1590,
-    "wins": 25
+    "pending_rows": 12,
+    "resolved_rows": 1591,
+    "wins": 26
   },
   "dashboard_current_readiness": {
     "blocker_count": 2,
     "promotion_recommendation": "stay_shadow",
     "verdict": "blocked"
   },
-  "generated_at_utc": "2026-07-20T18:30:03Z",
+  "generated_at_utc": "2026-07-20T18:36:21Z",
   "leak_overfit_audit": {
     "audit_available": true,
     "candidate_id": "btc_manual_trigger_yuuki_london_short_not_crowded_clean_shadow",

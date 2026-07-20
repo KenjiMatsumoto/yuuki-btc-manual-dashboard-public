@@ -1,5 +1,5 @@
 {
-  "generated_at_utc": "2026-07-20T18:30:02Z",
+  "generated_at_utc": "2026-07-20T18:36:21Z",
   "summary": {
     "strategy_lane_count": 14,
     "classification_counts": {
@@ -22,17 +22,17 @@
       "blocker_count": 2
     },
     "current_forward_shadow": {
-      "journal_rows": 1601,
-      "resolved_rows": 1590,
-      "pending_rows": 11,
-      "entered_rows": 53,
-      "filled_entered_rows": 49,
+      "journal_rows": 1603,
+      "resolved_rows": 1591,
+      "pending_rows": 12,
+      "entered_rows": 54,
+      "filled_entered_rows": 50,
       "entered_unfilled_rows": 0,
-      "wins": 25,
+      "wins": 26,
       "losses": 24,
-      "entered_win_rate": 0.5102040816326531,
-      "gross_return_per_filled_entered_trade_pct": -0.5193470117459821,
-      "average_return_per_filled_entered_trade_pct": -0.010598918607060859,
+      "entered_win_rate": 0.52,
+      "gross_return_per_filled_entered_trade_pct": -0.3010591346720135,
+      "average_return_per_filled_entered_trade_pct": -0.00602118269344027,
       "missed_opportunity_count": 216,
       "bad_trade_prevention_count": 1325
     },
@@ -1732,7 +1732,7 @@
         "bitget_taker_10x_margin_net_pct_est": -125.519299
       },
       "forward": {
-        "rows": 1436,
+        "rows": 1437,
         "allowed_or_entered_rows": 23,
         "promotion_status": "blocked_forward_shadow_not_mature_or_failed"
       },
@@ -1784,7 +1784,7 @@
         "bitget_taker_10x_margin_net_pct_est": -112.694911
       },
       "forward": {
-        "rows": 1437,
+        "rows": 1438,
         "allowed_or_entered_rows": 31,
         "promotion_status": "blocked_forward_shadow_not_mature_or_failed"
       },
@@ -1966,7 +1966,7 @@
         "bitget_taker_10x_margin_net_pct_est": null
       },
       "forward": {
-        "rows": 1437,
+        "rows": 1438,
         "allowed_or_entered_rows": 17,
         "promotion_status": "blocked_forward_shadow_not_mature_or_failed"
       },
@@ -1992,7 +1992,7 @@
         "bitget_taker_10x_margin_net_pct_est": 83.66441
       },
       "forward": {
-        "rows": 1431,
+        "rows": 1432,
         "allowed_or_entered_rows": 3,
         "promotion_status": "blocked_forward_shadow_not_mature_or_failed"
       },
