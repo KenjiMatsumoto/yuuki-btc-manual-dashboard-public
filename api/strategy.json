@@ -1,5 +1,5 @@
 {
-  "generated_at_utc": "2026-07-20T08:58:05Z",
+  "generated_at_utc": "2026-07-20T09:03:44Z",
   "summary": {
     "strategy_lane_count": 14,
     "classification_counts": {
@@ -22,10 +22,10 @@
       "blocker_count": 1
     },
     "current_forward_shadow": {
-      "journal_rows": 1558,
-      "resolved_rows": 1549,
+      "journal_rows": 1559,
+      "resolved_rows": 1550,
       "pending_rows": 9,
-      "entered_rows": 46,
+      "entered_rows": 47,
       "filled_entered_rows": 45,
       "entered_unfilled_rows": 0,
       "wins": 24,
@@ -34,7 +34,7 @@
       "gross_return_per_filled_entered_trade_pct": 0.27502610880775064,
       "average_return_per_filled_entered_trade_pct": 0.006111691306838903,
       "missed_opportunity_count": 211,
-      "bad_trade_prevention_count": 1293
+      "bad_trade_prevention_count": 1294
     },
     "forward_repair_50_verdict_counts": {
       "reject": 49,
@@ -1732,7 +1732,7 @@
         "bitget_taker_10x_margin_net_pct_est": -125.519299
       },
       "forward": {
-        "rows": 1402,
+        "rows": 1403,
         "allowed_or_entered_rows": 23,
         "promotion_status": "blocked_forward_shadow_not_mature_or_failed"
       },
@@ -1784,7 +1784,7 @@
         "bitget_taker_10x_margin_net_pct_est": -112.694911
       },
       "forward": {
-        "rows": 1403,
+        "rows": 1404,
         "allowed_or_entered_rows": 30,
         "promotion_status": "blocked_forward_shadow_not_mature_or_failed"
       },
@@ -1966,7 +1966,7 @@
         "bitget_taker_10x_margin_net_pct_est": null
       },
       "forward": {
-        "rows": 1403,
+        "rows": 1404,
         "allowed_or_entered_rows": 17,
         "promotion_status": "blocked_forward_shadow_not_mature_or_failed"
       },
@@ -1992,7 +1992,7 @@
         "bitget_taker_10x_margin_net_pct_est": 83.66441
       },
       "forward": {
-        "rows": 1397,
+        "rows": 1398,
         "allowed_or_entered_rows": 2,
         "promotion_status": "blocked_forward_shadow_not_mature_or_failed"
       },
