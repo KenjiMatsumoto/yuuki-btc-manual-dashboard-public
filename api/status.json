@@ -1,6 +1,6 @@
 {
   "candidate_id": "btc_manual_trigger_v1",
-  "generated_at_utc": "2026-07-21T07:53:41Z",
+  "generated_at_utc": "2026-07-21T07:59:42Z",
   "scope": {
     "asset": "BTCUSDT",
     "venue": "binance_perp",
@@ -42,9 +42,9 @@
       "bad_trade_prevention_count": 4863
     },
     "shadow": {
-      "journal_rows": 1664,
+      "journal_rows": 1665,
       "resolved_rows": 1651,
-      "pending_rows": 13,
+      "pending_rows": 14,
       "entered_rows": 63,
       "filled_entered_rows": 57,
       "entered_unfilled_rows": 0,
@@ -7231,10 +7231,6 @@
     "not_allowed_rows": 14,
     "reason_codes": [
       {
-        "key": "oi_not_confirming",
-        "count": 14
-      },
-      {
         "key": "funding_not_extreme",
         "count": 14
       },
@@ -7251,26 +7247,34 @@
         "count": 14
       },
       {
-        "key": "rr_too_low",
-        "count": 7
+        "key": "oi_not_confirming",
+        "count": 13
       },
       {
         "key": "trend_alignment_long",
-        "count": 7
+        "count": 8
       },
       {
         "key": "score_below_allowed_threshold",
         "count": 7
       },
       {
+        "key": "rr_too_low",
+        "count": 6
+      },
+      {
         "key": "price_up_oi_down_wait_guard",
         "count": 5
+      },
+      {
+        "key": "oi_confirms_move",
+        "count": 1
       }
     ],
     "skip_reasons": [
       {
         "key": "方向優位が弱く環境認定できない / OIの追随が弱く自信度が不足 / 想定RRが閾値未満 / 事前トリガー未達で詳細執行判断に進まない",
-        "count": 7
+        "count": 6
       },
       {
         "key": "OIの追随が弱く自信度が不足 / 事前トリガー未達で詳細執行判断に進まない / Price上昇に対してOIが減少しており追随不成立 / 方向性はあるがOI/継続確認不足のため監視継続",
@@ -7279,6 +7283,10 @@
       {
         "key": "OIの追随が弱く自信度が不足 / 事前トリガー未達で詳細執行判断に進まない / 方向性はあるがOI/継続確認不足のため監視継続",
         "count": 2
+      },
+      {
+        "key": "事前トリガー未達で詳細執行判断に進まない",
+        "count": 1
       }
     ],
     "permissions": [
@@ -7287,12 +7295,12 @@
         "count": 16
       },
       {
-        "key": "blocked",
-        "count": 7
+        "key": "watch_only",
+        "count": 8
       },
       {
-        "key": "watch_only",
-        "count": 7
+        "key": "blocked",
+        "count": 6
       }
     ],
     "actions": [
@@ -7301,25 +7309,15 @@
         "count": 16
       },
       {
-        "key": "skip",
-        "count": 7
+        "key": "watch",
+        "count": 8
       },
       {
-        "key": "watch",
-        "count": 7
+        "key": "skip",
+        "count": 6
       }
     ],
     "reason_codes_explained": [
-      {
-        "key": "oi_not_confirming",
-        "count": 14,
-        "explanation": {
-          "code": "oi_not_confirming",
-          "ja_label": "OI追随不足",
-          "plain_ja": "価格の方向に対して建玉（OI）の増減が十分についてきていない状態です。上昇/下落に見えても新規参加者の追随が弱く、だましや一時的な戻りの可能性が高いので許可しません。",
-          "operator_hint_ja": "ゆーきさん式では「価格だけ」では入らず、OIが同方向に確認できるまで待つためのブレーキです。"
-        }
-      },
       {
         "key": "funding_not_extreme",
         "count": 14,
@@ -7361,18 +7359,18 @@
         }
       },
       {
-        "key": "rr_too_low",
-        "count": 7,
+        "key": "oi_not_confirming",
+        "count": 13,
         "explanation": {
-          "code": "rr_too_low",
-          "ja_label": "想定RR不足",
-          "plain_ja": "エントリー候補から利確目標までの距離に対して、損切り幅やコストを考えた見返りが小さい状態です。",
-          "operator_hint_ja": "勝率が多少高くても手数料・スリッページ後に期待値が残りにくいのでブロックします。"
+          "code": "oi_not_confirming",
+          "ja_label": "OI追随不足",
+          "plain_ja": "価格の方向に対して建玉（OI）の増減が十分についてきていない状態です。上昇/下落に見えても新規参加者の追随が弱く、だましや一時的な戻りの可能性が高いので許可しません。",
+          "operator_hint_ja": "ゆーきさん式では「価格だけ」では入らず、OIが同方向に確認できるまで待つためのブレーキです。"
         }
       },
       {
         "key": "trend_alignment_long",
-        "count": 7,
+        "count": 8,
         "explanation": {
           "code": "trend_alignment_long",
           "ja_label": "未登録理由コード",
@@ -7391,10 +7389,30 @@
         }
       },
       {
+        "key": "rr_too_low",
+        "count": 6,
+        "explanation": {
+          "code": "rr_too_low",
+          "ja_label": "想定RR不足",
+          "plain_ja": "エントリー候補から利確目標までの距離に対して、損切り幅やコストを考えた見返りが小さい状態です。",
+          "operator_hint_ja": "勝率が多少高くても手数料・スリッページ後に期待値が残りにくいのでブロックします。"
+        }
+      },
+      {
         "key": "price_up_oi_down_wait_guard",
         "count": 5,
         "explanation": {
           "code": "price_up_oi_down_wait_guard",
+          "ja_label": "未登録理由コード",
+          "plain_ja": "この理由コードはまだ日本語説明辞書に未登録です。artifact側にはコードをそのまま残しています。",
+          "operator_hint_ja": "頻出する場合は辞書に追加してください。"
+        }
+      },
+      {
+        "key": "oi_confirms_move",
+        "count": 1,
+        "explanation": {
+          "code": "oi_confirms_move",
           "ja_label": "未登録理由コード",
           "plain_ja": "この理由コードはまだ日本語説明辞書に未登録です。artifact側にはコードをそのまま残しています。",
           "operator_hint_ja": "頻出する場合は辞書に追加してください。"
@@ -7465,11 +7483,11 @@
     },
     "shadow_evidence": {
       "status": "pass",
-      "detail": "resolved_rows=1624, minimum_required=3, decisive_rows=54, minimum_decisive_required=1, pending_rows=8, wins=26, losses=28"
+      "detail": "resolved_rows=1651, minimum_required=3, decisive_rows=57, minimum_decisive_required=1, pending_rows=14, wins=29, losses=28"
     },
     "shadow_performance": {
       "status": "fail",
-      "detail": "entered_win_rate=0.48148148148148145, minimum_required=0.5, gross_return_pct=-2.591460002495164, minimum_required_gt=0.0, wins=26, losses=28"
+      "detail": "entered_win_rate=0.5087719298245614, minimum_required=0.5, gross_return_pct=-1.0900356554650075, minimum_required_gt=0.0, wins=29, losses=28"
     },
     "leakage_review": {
       "status": "pass",
