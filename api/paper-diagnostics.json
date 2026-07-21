@@ -1,6 +1,6 @@
 {
   "artifact": "btc_manual_trigger_paper_diagnostics",
-  "generated_at_utc": "2026-07-21T06:40:23Z",
+  "generated_at_utc": "2026-07-21T06:46:23Z",
   "variant_count": 108,
   "paper_account_count": 105,
   "strategy_lane_count": 35,
@@ -5133,9 +5133,9 @@
     "category_rows": [
       {
         "category": "market-fill survivor",
-        "forward_entered_rows": 58,
+        "forward_entered_rows": 59,
         "paper_entries": 0,
-        "paper_minus_forward": -58,
+        "paper_minus_forward": -59,
         "note_ja": "Forwardはmarket-fill survivor候補セット全体のshadow信号、Paperはexit policy別variantの実行件数。1信号が最大3 paper entriesに増える。"
       },
       {
@@ -5172,50 +5172,38 @@
     {
       "kind": "reason_code",
       "reason": "oi_not_confirming",
-      "count": 23,
+      "count": 22,
       "meaning_ja": "価格の方向に対して建玉（OI）の増減が十分についてきていない状態です。上昇/下落に見えても新規参加者の追随が弱く、だましや一時的な戻りの可能性が高いので許可しません。"
     },
     {
       "kind": "reason_code",
       "reason": "funding_not_extreme",
-      "count": 23,
+      "count": 22,
       "meaning_ja": "Fundingが極端に偏っておらず、ロング/ショートの過熱や踏み上げ・投げ売りの燃料が足りない状態です。"
     },
     {
       "kind": "reason_code",
       "reason": "premium_within_cap",
-      "count": 23,
+      "count": 22,
       "meaning_ja": "先物価格の上乗せ/割引が許容範囲内で、歪みが十分に出ていない状態です。"
     },
     {
       "kind": "reason_code",
       "reason": "volatility_normalized",
-      "count": 23,
+      "count": 22,
       "meaning_ja": "値動きの荒さが通常レンジに戻っており、短時間でTPまで伸びる根拠が弱い状態です。"
     },
     {
       "kind": "reason_code",
       "reason": "cheap_trigger_not_met",
-      "count": 21,
+      "count": 20,
       "meaning_ja": "買うなら十分安い位置、売るなら十分高い/戻った位置、という事前の価格条件にまだ到達していない状態です。"
     },
     {
       "kind": "reason_code",
       "reason": "rr_too_low",
-      "count": 12,
+      "count": 11,
       "meaning_ja": "エントリー候補から利確目標までの距離に対して、損切り幅やコストを考えた見返りが小さい状態です。"
-    },
-    {
-      "kind": "permission",
-      "reason": "blocked",
-      "count": 12,
-      "meaning_ja": ""
-    },
-    {
-      "kind": "action",
-      "reason": "skip",
-      "count": 12,
-      "meaning_ja": ""
     },
     {
       "kind": "reason_code",
@@ -5231,7 +5219,19 @@
     },
     {
       "kind": "permission",
+      "reason": "blocked",
+      "count": 11,
+      "meaning_ja": ""
+    },
+    {
+      "kind": "permission",
       "reason": "watch_only",
+      "count": 11,
+      "meaning_ja": ""
+    },
+    {
+      "kind": "action",
+      "reason": "skip",
       "count": 11,
       "meaning_ja": ""
     },
@@ -5242,16 +5242,16 @@
       "meaning_ja": ""
     },
     {
-      "kind": "skip_reason",
-      "reason": "方向優位が弱く環境認定できない / OIの追随が弱く自信度が不足 / 想定RRが閾値未満 / 事前トリガー未達で詳細執行判断に進まない",
-      "count": 10,
-      "meaning_ja": ""
-    },
-    {
       "kind": "reason_code",
       "reason": "price_up_oi_down_wait_guard",
       "count": 9,
       "meaning_ja": "この理由コードはまだ日本語説明辞書に未登録です。artifact側にはコードをそのまま残しています。"
+    },
+    {
+      "kind": "skip_reason",
+      "reason": "方向優位が弱く環境認定できない / OIの追随が弱く自信度が不足 / 想定RRが閾値未満 / 事前トリガー未達で詳細執行判断に進まない",
+      "count": 9,
+      "meaning_ja": ""
     },
     {
       "kind": "skip_reason",
@@ -5262,13 +5262,13 @@
     {
       "kind": "permission",
       "reason": "allowed",
-      "count": 7,
+      "count": 8,
       "meaning_ja": ""
     },
     {
       "kind": "action",
       "reason": "enter",
-      "count": 7,
+      "count": 8,
       "meaning_ja": ""
     },
     {
