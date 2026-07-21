@@ -1,6 +1,6 @@
 {
   "artifact": "btc_manual_trigger_paper_diagnostics",
-  "generated_at_utc": "2026-07-21T04:30:00Z",
+  "generated_at_utc": "2026-07-21T04:35:32Z",
   "variant_count": 108,
   "paper_account_count": 105,
   "strategy_lane_count": 35,
@@ -5133,9 +5133,9 @@
     "category_rows": [
       {
         "category": "market-fill survivor",
-        "forward_entered_rows": 55,
+        "forward_entered_rows": 56,
         "paper_entries": 0,
-        "paper_minus_forward": -55,
+        "paper_minus_forward": -56,
         "note_ja": "Forwardはmarket-fill survivor候補セット全体のshadow信号、Paperはexit policy別variantの実行件数。1信号が最大3 paper entriesに増える。"
       },
       {
@@ -5172,25 +5172,25 @@
     {
       "kind": "reason_code",
       "reason": "oi_not_confirming",
-      "count": 29,
+      "count": 27,
       "meaning_ja": "価格の方向に対して建玉（OI）の増減が十分についてきていない状態です。上昇/下落に見えても新規参加者の追随が弱く、だましや一時的な戻りの可能性が高いので許可しません。"
     },
     {
       "kind": "reason_code",
       "reason": "funding_not_extreme",
-      "count": 29,
+      "count": 27,
       "meaning_ja": "Fundingが極端に偏っておらず、ロング/ショートの過熱や踏み上げ・投げ売りの燃料が足りない状態です。"
     },
     {
       "kind": "reason_code",
       "reason": "premium_within_cap",
-      "count": 29,
+      "count": 27,
       "meaning_ja": "先物価格の上乗せ/割引が許容範囲内で、歪みが十分に出ていない状態です。"
     },
     {
       "kind": "reason_code",
       "reason": "volatility_normalized",
-      "count": 29,
+      "count": 27,
       "meaning_ja": "値動きの荒さが通常レンジに戻っており、短時間でTPまで伸びる根拠が弱い状態です。"
     },
     {
@@ -5202,19 +5202,19 @@
     {
       "kind": "reason_code",
       "reason": "rr_too_low",
-      "count": 20,
+      "count": 18,
       "meaning_ja": "エントリー候補から利確目標までの距離に対して、損切り幅やコストを考えた見返りが小さい状態です。"
     },
     {
       "kind": "permission",
       "reason": "blocked",
-      "count": 20,
+      "count": 18,
       "meaning_ja": ""
     },
     {
       "kind": "action",
       "reason": "skip",
-      "count": 20,
+      "count": 18,
       "meaning_ja": ""
     },
     {
@@ -5260,21 +5260,21 @@
       "meaning_ja": ""
     },
     {
-      "kind": "skip_reason",
-      "reason": "方向優位が弱く環境認定できない / OIの追随が弱く自信度が不足 / 想定RRが閾値未満",
-      "count": 4,
-      "meaning_ja": ""
-    },
-    {
       "kind": "permission",
       "reason": "allowed",
-      "count": 1,
+      "count": 3,
       "meaning_ja": ""
     },
     {
       "kind": "action",
       "reason": "enter",
-      "count": 1,
+      "count": 3,
+      "meaning_ja": ""
+    },
+    {
+      "kind": "skip_reason",
+      "reason": "方向優位が弱く環境認定できない / OIの追随が弱く自信度が不足 / 想定RRが閾値未満",
+      "count": 2,
       "meaning_ja": ""
     }
   ]
