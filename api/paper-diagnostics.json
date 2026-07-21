@@ -1,6 +1,6 @@
 {
   "artifact": "btc_manual_trigger_paper_diagnostics",
-  "generated_at_utc": "2026-07-21T14:55:46Z",
+  "generated_at_utc": "2026-07-21T15:01:27Z",
   "variant_count": 108,
   "paper_account_count": 105,
   "strategy_lane_count": 35,
@@ -5133,9 +5133,9 @@
     "category_rows": [
       {
         "category": "market-fill survivor",
-        "forward_entered_rows": 68,
+        "forward_entered_rows": 69,
         "paper_entries": 0,
-        "paper_minus_forward": -68,
+        "paper_minus_forward": -69,
         "note_ja": "Forwardはmarket-fill survivor候補セット全体のshadow信号、Paperはexit policy別variantの実行件数。1信号が最大3 paper entriesに増える。"
       },
       {
