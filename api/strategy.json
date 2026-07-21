@@ -1,5 +1,5 @@
 {
-  "generated_at_utc": "2026-07-21T14:27:01Z",
+  "generated_at_utc": "2026-07-21T14:36:24Z",
   "summary": {
     "strategy_lane_count": 14,
     "classification_counts": {
@@ -22,10 +22,10 @@
       "blocker_count": 2
     },
     "current_forward_shadow": {
-      "journal_rows": 1692,
-      "resolved_rows": 1684,
-      "pending_rows": 8,
-      "entered_rows": 67,
+      "journal_rows": 1694,
+      "resolved_rows": 1685,
+      "pending_rows": 9,
+      "entered_rows": 68,
       "filled_entered_rows": 66,
       "entered_unfilled_rows": 0,
       "wins": 38,
@@ -34,7 +34,7 @@
       "gross_return_per_filled_entered_trade_pct": 2.5992110838587283,
       "average_return_per_filled_entered_trade_pct": 0.03938198611907164,
       "missed_opportunity_count": 250,
-      "bad_trade_prevention_count": 1368
+      "bad_trade_prevention_count": 1369
     },
     "forward_repair_50_verdict_counts": {
       "reject": 49,
@@ -1732,7 +1732,7 @@
         "bitget_taker_10x_margin_net_pct_est": -125.519299
       },
       "forward": {
-        "rows": 1509,
+        "rows": 1510,
         "allowed_or_entered_rows": 23,
         "promotion_status": "blocked_forward_shadow_not_mature_or_failed"
       },
@@ -1784,7 +1784,7 @@
         "bitget_taker_10x_margin_net_pct_est": -112.694911
       },
       "forward": {
-        "rows": 1510,
+        "rows": 1511,
         "allowed_or_entered_rows": 31,
         "promotion_status": "blocked_forward_shadow_not_mature_or_failed"
       },
@@ -1966,7 +1966,7 @@
         "bitget_taker_10x_margin_net_pct_est": null
       },
       "forward": {
-        "rows": 1510,
+        "rows": 1511,
         "allowed_or_entered_rows": 17,
         "promotion_status": "blocked_forward_shadow_not_mature_or_failed"
       },
@@ -1992,7 +1992,7 @@
         "bitget_taker_10x_margin_net_pct_est": 83.66441
       },
       "forward": {
-        "rows": 1504,
+        "rows": 1505,
         "allowed_or_entered_rows": 3,
         "promotion_status": "blocked_forward_shadow_not_mature_or_failed"
       },
