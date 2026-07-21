@@ -1,6 +1,6 @@
 {
   "candidate_id": "btc_manual_trigger_v1",
-  "generated_at_utc": "2026-07-21T07:05:43Z",
+  "generated_at_utc": "2026-07-21T07:11:59Z",
   "scope": {
     "asset": "BTCUSDT",
     "venue": "binance_perp",
@@ -42,9 +42,9 @@
       "bad_trade_prevention_count": 4863
     },
     "shadow": {
-      "journal_rows": 1658,
+      "journal_rows": 1659,
       "resolved_rows": 1648,
-      "pending_rows": 10,
+      "pending_rows": 11,
       "entered_rows": 60,
       "filled_entered_rows": 57,
       "entered_unfilled_rows": 0,
@@ -5566,27 +5566,27 @@
   "recent_not_allowed_reason_rankings": {
     "recent_n": 30,
     "sample_rows": 30,
-    "not_allowed_rows": 20,
+    "not_allowed_rows": 19,
     "reason_codes": [
       {
         "key": "oi_not_confirming",
-        "count": 20
+        "count": 19
       },
       {
         "key": "funding_not_extreme",
-        "count": 20
+        "count": 19
       },
       {
         "key": "premium_within_cap",
-        "count": 20
+        "count": 19
       },
       {
         "key": "volatility_normalized",
-        "count": 20
+        "count": 19
       },
       {
         "key": "cheap_trigger_not_met",
-        "count": 20
+        "count": 19
       },
       {
         "key": "trend_alignment_long",
@@ -5597,22 +5597,22 @@
         "count": 11
       },
       {
-        "key": "rr_too_low",
+        "key": "price_up_oi_down_wait_guard",
         "count": 9
       },
       {
-        "key": "price_up_oi_down_wait_guard",
-        "count": 9
+        "key": "rr_too_low",
+        "count": 8
       }
     ],
     "skip_reasons": [
       {
-        "key": "方向優位が弱く環境認定できない / OIの追随が弱く自信度が不足 / 想定RRが閾値未満 / 事前トリガー未達で詳細執行判断に進まない",
+        "key": "OIの追随が弱く自信度が不足 / 事前トリガー未達で詳細執行判断に進まない / Price上昇に対してOIが減少しており追随不成立 / 方向性はあるがOI/継続確認不足のため監視継続",
         "count": 9
       },
       {
-        "key": "OIの追随が弱く自信度が不足 / 事前トリガー未達で詳細執行判断に進まない / Price上昇に対してOIが減少しており追随不成立 / 方向性はあるがOI/継続確認不足のため監視継続",
-        "count": 9
+        "key": "方向優位が弱く環境認定できない / OIの追随が弱く自信度が不足 / 想定RRが閾値未満 / 事前トリガー未達で詳細執行判断に進まない",
+        "count": 8
       },
       {
         "key": "OIの追随が弱く自信度が不足 / 事前トリガー未達で詳細執行判断に進まない / 方向性はあるがOI/継続確認不足のため監視継続",
@@ -5626,11 +5626,11 @@
       },
       {
         "key": "allowed",
-        "count": 10
+        "count": 11
       },
       {
         "key": "blocked",
-        "count": 9
+        "count": 8
       }
     ],
     "actions": [
@@ -5640,17 +5640,17 @@
       },
       {
         "key": "enter",
-        "count": 10
+        "count": 11
       },
       {
         "key": "skip",
-        "count": 9
+        "count": 8
       }
     ],
     "reason_codes_explained": [
       {
         "key": "oi_not_confirming",
-        "count": 20,
+        "count": 19,
         "explanation": {
           "code": "oi_not_confirming",
           "ja_label": "OI追随不足",
@@ -5660,7 +5660,7 @@
       },
       {
         "key": "funding_not_extreme",
-        "count": 20,
+        "count": 19,
         "explanation": {
           "code": "funding_not_extreme",
           "ja_label": "Funding極端値なし",
@@ -5670,7 +5670,7 @@
       },
       {
         "key": "premium_within_cap",
-        "count": 20,
+        "count": 19,
         "explanation": {
           "code": "premium_within_cap",
           "ja_label": "現物/先物プレミアムが通常範囲",
@@ -5680,7 +5680,7 @@
       },
       {
         "key": "volatility_normalized",
-        "count": 20,
+        "count": 19,
         "explanation": {
           "code": "volatility_normalized",
           "ja_label": "ボラティリティ通常化",
@@ -5690,7 +5690,7 @@
       },
       {
         "key": "cheap_trigger_not_met",
-        "count": 20,
+        "count": 19,
         "explanation": {
           "code": "cheap_trigger_not_met",
           "ja_label": "安値/押し目トリガー未達",
@@ -5719,16 +5719,6 @@
         }
       },
       {
-        "key": "rr_too_low",
-        "count": 9,
-        "explanation": {
-          "code": "rr_too_low",
-          "ja_label": "想定RR不足",
-          "plain_ja": "エントリー候補から利確目標までの距離に対して、損切り幅やコストを考えた見返りが小さい状態です。",
-          "operator_hint_ja": "勝率が多少高くても手数料・スリッページ後に期待値が残りにくいのでブロックします。"
-        }
-      },
-      {
         "key": "price_up_oi_down_wait_guard",
         "count": 9,
         "explanation": {
@@ -5736,6 +5726,16 @@
           "ja_label": "未登録理由コード",
           "plain_ja": "この理由コードはまだ日本語説明辞書に未登録です。artifact側にはコードをそのまま残しています。",
           "operator_hint_ja": "頻出する場合は辞書に追加してください。"
+        }
+      },
+      {
+        "key": "rr_too_low",
+        "count": 8,
+        "explanation": {
+          "code": "rr_too_low",
+          "ja_label": "想定RR不足",
+          "plain_ja": "エントリー候補から利確目標までの距離に対して、損切り幅やコストを考えた見返りが小さい状態です。",
+          "operator_hint_ja": "勝率が多少高くても手数料・スリッページ後に期待値が残りにくいのでブロックします。"
         }
       }
     ]
