@@ -1,5 +1,5 @@
 {
-  "generated_at_utc": "2026-07-21T16:09:27Z",
+  "generated_at_utc": "2026-07-21T16:21:32Z",
   "summary": {
     "strategy_lane_count": 14,
     "classification_counts": {
@@ -22,17 +22,17 @@
       "blocker_count": 2
     },
     "current_forward_shadow": {
-      "journal_rows": 1702,
-      "resolved_rows": 1691,
+      "journal_rows": 1703,
+      "resolved_rows": 1692,
       "pending_rows": 11,
       "entered_rows": 70,
-      "filled_entered_rows": 66,
+      "filled_entered_rows": 67,
       "entered_unfilled_rows": 0,
       "wins": 38,
-      "losses": 28,
-      "entered_win_rate": 0.5757575757575758,
-      "gross_return_per_filled_entered_trade_pct": 2.5992110838587283,
-      "average_return_per_filled_entered_trade_pct": 0.03938198611907164,
+      "losses": 29,
+      "entered_win_rate": 0.5671641791044776,
+      "gross_return_per_filled_entered_trade_pct": 2.104232604662176,
+      "average_return_per_filled_entered_trade_pct": 0.03140645678600263,
       "missed_opportunity_count": 252,
       "bad_trade_prevention_count": 1373
     },
@@ -1732,7 +1732,7 @@
         "bitget_taker_10x_margin_net_pct_est": -125.519299
       },
       "forward": {
-        "rows": 1516,
+        "rows": 1517,
         "allowed_or_entered_rows": 23,
         "promotion_status": "blocked_forward_shadow_not_mature_or_failed"
       },
@@ -1784,7 +1784,7 @@
         "bitget_taker_10x_margin_net_pct_est": -112.694911
       },
       "forward": {
-        "rows": 1517,
+        "rows": 1518,
         "allowed_or_entered_rows": 31,
         "promotion_status": "blocked_forward_shadow_not_mature_or_failed"
       },
@@ -1966,7 +1966,7 @@
         "bitget_taker_10x_margin_net_pct_est": null
       },
       "forward": {
-        "rows": 1517,
+        "rows": 1518,
         "allowed_or_entered_rows": 17,
         "promotion_status": "blocked_forward_shadow_not_mature_or_failed"
       },
@@ -1992,7 +1992,7 @@
         "bitget_taker_10x_margin_net_pct_est": 83.66441
       },
       "forward": {
-        "rows": 1511,
+        "rows": 1512,
         "allowed_or_entered_rows": 3,
         "promotion_status": "blocked_forward_shadow_not_mature_or_failed"
       },
