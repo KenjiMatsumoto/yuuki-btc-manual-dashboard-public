@@ -1,6 +1,6 @@
 {
   "candidate_id": "btc_manual_trigger_v1",
-  "generated_at_utc": "2026-07-21T15:25:28Z",
+  "generated_at_utc": "2026-07-21T15:31:29Z",
   "scope": {
     "asset": "BTCUSDT",
     "venue": "binance_perp",
@@ -42,9 +42,9 @@
       "bad_trade_prevention_count": 4863
     },
     "shadow": {
-      "journal_rows": 1699,
+      "journal_rows": 1700,
       "resolved_rows": 1688,
-      "pending_rows": 11,
+      "pending_rows": 12,
       "entered_rows": 70,
       "filled_entered_rows": 66,
       "entered_unfilled_rows": 0,
@@ -6180,27 +6180,27 @@
   "recent_not_allowed_reason_rankings": {
     "recent_n": 30,
     "sample_rows": 30,
-    "not_allowed_rows": 22,
+    "not_allowed_rows": 23,
     "reason_codes": [
       {
         "key": "funding_not_extreme",
-        "count": 22
+        "count": 23
       },
       {
         "key": "premium_within_cap",
-        "count": 22
+        "count": 23
       },
       {
         "key": "volatility_normalized",
-        "count": 22
+        "count": 23
       },
       {
         "key": "cheap_trigger_not_met",
-        "count": 19
+        "count": 20
       },
       {
         "key": "trend_alignment_long",
-        "count": 18
+        "count": 19
       },
       {
         "key": "oi_not_confirming",
@@ -6212,7 +6212,7 @@
       },
       {
         "key": "oi_confirms_move",
-        "count": 4
+        "count": 5
       },
       {
         "key": "rr_too_low",
@@ -6226,7 +6226,7 @@
       },
       {
         "key": "事前トリガー未達で詳細執行判断に進まない",
-        "count": 4
+        "count": 5
       },
       {
         "key": "方向優位が弱く環境認定できない / OIの追随が弱く自信度が不足 / 想定RRが閾値未満 / 事前トリガー未達で詳細執行判断に進まない",
@@ -6240,11 +6240,11 @@
     "permissions": [
       {
         "key": "watch_only",
-        "count": 18
+        "count": 19
       },
       {
         "key": "allowed",
-        "count": 8
+        "count": 7
       },
       {
         "key": "blocked",
@@ -6254,11 +6254,11 @@
     "actions": [
       {
         "key": "watch",
-        "count": 18
+        "count": 19
       },
       {
         "key": "enter",
-        "count": 8
+        "count": 7
       },
       {
         "key": "skip",
@@ -6268,7 +6268,7 @@
     "reason_codes_explained": [
       {
         "key": "funding_not_extreme",
-        "count": 22,
+        "count": 23,
         "explanation": {
           "code": "funding_not_extreme",
           "ja_label": "Funding極端値なし",
@@ -6278,7 +6278,7 @@
       },
       {
         "key": "premium_within_cap",
-        "count": 22,
+        "count": 23,
         "explanation": {
           "code": "premium_within_cap",
           "ja_label": "現物/先物プレミアムが通常範囲",
@@ -6288,7 +6288,7 @@
       },
       {
         "key": "volatility_normalized",
-        "count": 22,
+        "count": 23,
         "explanation": {
           "code": "volatility_normalized",
           "ja_label": "ボラティリティ通常化",
@@ -6298,7 +6298,7 @@
       },
       {
         "key": "cheap_trigger_not_met",
-        "count": 19,
+        "count": 20,
         "explanation": {
           "code": "cheap_trigger_not_met",
           "ja_label": "安値/押し目トリガー未達",
@@ -6308,7 +6308,7 @@
       },
       {
         "key": "trend_alignment_long",
-        "count": 18,
+        "count": 19,
         "explanation": {
           "code": "trend_alignment_long",
           "ja_label": "未登録理由コード",
@@ -6338,7 +6338,7 @@
       },
       {
         "key": "oi_confirms_move",
-        "count": 4,
+        "count": 5,
         "explanation": {
           "code": "oi_confirms_move",
           "ja_label": "未登録理由コード",
