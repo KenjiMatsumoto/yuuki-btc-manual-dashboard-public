@@ -34,6 +34,7 @@
     .progress-fill { height:100%; background:linear-gradient(90deg, #3b82f6, var(--ok)); }
     .weekly-highlights { margin:12px 0; padding:10px 12px; border:1px solid var(--line); border-radius:10px; background:#0d1425; }
     .weekly-highlights ul { margin:6px 0 0 20px; padding:0; }
+    .json-block { white-space:pre-wrap; overflow-wrap:anywhere; background:#090f1c; border:1px solid var(--line); border-radius:10px; padding:10px; font-size:12px; }
     @media (max-width:720px) { .progress-item { grid-template-columns:1fr; gap:4px; } }
   </style>
 </head>
@@ -55,6 +56,10 @@
     <section class="card" id="officialCleanForward">
       <div class="k">公式成績(clean-forward)</div>
       <div class="muted">cutover: <code>2026-07-16T00:43:37Z</code> / レーン別の公式成績を読み込み中</div>
+    </section>
+    <section class="card" id="weeklyReview">
+      <div class="k">週次レビュー（producer転記）</div>
+      <div class="muted">yuuki_weekly_review_v1 の4項目を読み込み中</div>
     </section>
     <section class="card" id="connectionNotice">
       <div class="k">URL / 接続確認</div>
@@ -170,6 +175,25 @@ function renderOfficialCleanForward(c){
   ];
   document.getElementById('officialCleanForward').innerHTML = `<div class="k">公式成績（clean-forward）</div><h2 style="margin-top:4px">現役: 研究選定済み / Paper観測中 / live未承認</h2><div class="note"><b>主実験: wave2 vs multiview系(同一シグナルのexit比較)。両者のclosed 20件で優劣判定。</b><br><span class="muted">経緯注記: Wave 2のOOS比率ゲート未達(0.519)は採用判断ではなく実験開始までの経緯です。この比較実験は新規判定対象2レーンとは別管理です。</span></div><div class="note">cutover ${htmlEscape(c.cutover_utc)}。現役11戦略レーンだけを公式合計に含め、Base v1は退役・参考へ分離。公式集計はexit variantの重複を除外。r2_w2 / w12_f1は合算せず、各closed 20件で個別判定します。</div><div class="grid"><div><div class="k">現役戦略レーン</div><div class="v">${num(active.strategy_lane_count)}</div></div><div><div class="k">ユニークentry</div><div class="v">${num(active.unique_entries)}</div></div><div><div class="k">closed</div><div class="v">${num(active.closed_trades)}</div></div><div><div class="k">W-L</div><div class="v">${num(active.wins)}-${num(active.losses)}</div></div><div><div class="k">realized PnL</div><div class="v">${Number(active.realized_pnl_usdt||0) >= 0 ? '+' : ''}${yen(active.realized_pnl_usdt)} USDT</div></div></div><h3>判定対象2戦略レーンの個別進捗</h3><div class="progress-stack">${progress.map(progressBar).join('')}</div><div class="weekly-highlights"><b>今週の見どころ（自動生成）</b><ul>${highlights.map(x=>`<li>${htmlEscape(x)}</li>`).join('')}</ul></div><div class="table-wrap"><table><thead><tr><th>現役戦略レーン / 共有シグナル群</th><th>unique entries</th><th>closed</th><th>W-L</th><th>realized PnL</th><th>状態 / 進捗</th></tr></thead><tbody>${rows}</tbody></table></div><h3>退役・参考（公式合計・採用判断に不算入）</h3><div class="muted">Base v1はstate保持、broker更新停止。旧会計混在累計 -1,151.9 USDT / 9W-15Lは参考値で、現役合計に含めません。</div><div class="table-wrap"><table><thead><tr><th>退役戦略レーン</th><th>unique entries</th><th>closed</th><th>W-L</th><th>realized PnL</th><th>状態</th></tr></thead><tbody>${retiredRows || '<tr><td colspan="6">退役参考なし</td></tr>'}</tbody></table></div>`;
 }
+function renderWeeklyReview(w){
+  const root = document.getElementById('weeklyReview');
+  if(!w || w.schema_version !== 'yuuki_weekly_review_v1' || !w.sections){
+    root.innerHTML = '<div id="weeklyReviewError" class="bad">週次レビューschemaを確認できません</div>';
+    return;
+  }
+  const s = w.sections;
+  const lanes = Array.isArray(s.clean_forward_lanes) ? s.clean_forward_lanes : [];
+  const blocked = Array.isArray(s.blocked_reason_counts) ? s.blocked_reason_counts : [];
+  const settled = s.settled_experiments && typeof s.settled_experiments === 'object' ? s.settled_experiments : {count:0, rows:[]};
+  const settledRows = Array.isArray(settled.rows) ? settled.rows : [];
+  const prior = Array.isArray(s.prior_bt_adjudications) ? s.prior_bt_adjudications : [];
+  const laneRows = lanes.map(r => `<tr><td>${htmlEscape(r.display_label || r.lane || '-')}</td><td>${htmlEscape(r.lane || '-')}</td><td>${num(r.unique_entries)}</td><td>${num(r.closed_trades)}</td><td>${num(r.open_positions)}</td><td>${num(r.wins)}-${num(r.losses)}</td><td>${yen(r.realized_pnl_usdt)}</td></tr>`).join('');
+  const blockedRows = blocked.map(r => `<tr><td>${htmlEscape(r.reason_code || '-')}</td><td>${num(r.count)}</td></tr>`).join('');
+  const experimentRows = settledRows.map(r => `<tr><td>${htmlEscape(r.run_date || '-')}</td><td>${htmlEscape(r.schema_version || '-')}</td><td>${htmlEscape(r.selected_variant || '-')}</td><td>${num(r.qualified_variant_count)}</td><td>${htmlEscape(r.verdict || '-')}</td><td>${htmlEscape(r.source_path || '-')}</td></tr>`).join('');
+  const windowStart = w.window?.start_utc || '-';
+  const windowEnd = w.window?.end_exclusive_utc || '-';
+  root.innerHTML = `<div class="k">週次レビュー（producer転記）</div><h2 style="margin-top:4px">${htmlEscape(w.review_date || '-')} / schema ${htmlEscape(w.schema_version)}</h2><div class="note">対象期間(UTC): ${htmlEscape(windowStart)} 以上 / ${htmlEscape(windowEnd)} 未満<br><span class="muted">producer出力の数値・コード・原文のみ。閾値再計算なし。生成時刻: ${htmlEscape(w.generated_at_utc || '-')}</span></div><h3>1. clean-forward レーン別スナップショット</h3><div class="table-wrap"><table><thead><tr><th>label</th><th>lane</th><th>entries</th><th>closed</th><th>open</th><th>W-L</th><th>realized PnL (USDT)</th></tr></thead><tbody>${laneRows || '<tr><td colspan="7" class="muted">該当行なし</td></tr>'}</tbody></table></div><h3>2. 不許可理由件数</h3><div class="table-wrap"><table><thead><tr><th>reason_code</th><th>count</th></tr></thead><tbody>${blockedRows || '<tr><td colspan="2" class="muted">該当行なし</td></tr>'}</tbody></table></div><h3>3. 実験決着artifact</h3><div>件数: <b>${num(settled.count)}</b></div><div class="table-wrap"><table><thead><tr><th>run_date</th><th>schema</th><th>selected_variant</th><th>qualified</th><th>verdict</th><th>source</th></tr></thead><tbody>${experimentRows || '<tr><td colspan="6" class="muted">該当行なし</td></tr>'}</tbody></table></div><h3>4. 前週BT判定（原文転記）</h3><pre class="json-block">${htmlEscape(JSON.stringify(prior, null, 2))}</pre>`;
+}
 async function getJson(path){ const r = await fetch(apiUrl(path) + '?t=' + Date.now()); if(!r.ok) throw new Error(path + ' ' + r.status); return await r.json(); }
 async function loadAll(manual=false){
   const metaPromise = getJson('api/meta.json').then(meta => {
@@ -177,6 +201,9 @@ async function loadAll(manual=false){
     document.getElementById('serverRefresh').textContent = meta.last_refresh_ok ? '正常' : ('エラー: ' + (meta.last_refresh_error || '不明'));
   }).catch(e => {
     document.getElementById('serverRefresh').textContent = 'meta読み込みエラー: ' + e.message;
+  });
+  const weeklyReviewPromise = getJson('api/weekly-review').then(renderWeeklyReview).catch(e => {
+    document.getElementById('weeklyReview').innerHTML = `<div class="k">週次レビュー（producer転記）</div><div id="weeklyReviewError" class="warn">週次レビュー未生成 / 読み込みエラー: ${htmlEscape(e.message)}</div>`;
   });
   let artifactError = null;
   try {
@@ -194,7 +221,7 @@ async function loadAll(manual=false){
   } catch(e) {
     artifactError = e;
   }
-  await metaPromise;
+  await Promise.all([metaPromise, weeklyReviewPromise]);
   if (artifactError) {
     document.getElementById('serverRefresh').textContent += ` / artifact読み込みエラー: ${artifactError.message}`;
   }
