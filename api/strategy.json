@@ -1,5 +1,5 @@
 {
-  "generated_at_utc": "2026-07-21T05:40:35Z",
+  "generated_at_utc": "2026-07-21T05:46:16Z",
   "summary": {
     "strategy_lane_count": 14,
     "classification_counts": {
@@ -22,9 +22,9 @@
       "blocker_count": 2
     },
     "current_forward_shadow": {
-      "journal_rows": 1650,
+      "journal_rows": 1651,
       "resolved_rows": 1639,
-      "pending_rows": 11,
+      "pending_rows": 12,
       "entered_rows": 57,
       "filled_entered_rows": 54,
       "entered_unfilled_rows": 0,
