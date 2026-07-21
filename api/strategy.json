@@ -1,5 +1,5 @@
 {
-  "generated_at_utc": "2026-07-21T09:56:52Z",
+  "generated_at_utc": "2026-07-21T10:02:59Z",
   "summary": {
     "strategy_lane_count": 14,
     "classification_counts": {
@@ -22,18 +22,18 @@
       "blocker_count": 2
     },
     "current_forward_shadow": {
-      "journal_rows": 1674,
-      "resolved_rows": 1665,
-      "pending_rows": 9,
+      "journal_rows": 1675,
+      "resolved_rows": 1667,
+      "pending_rows": 8,
       "entered_rows": 66,
-      "filled_entered_rows": 63,
+      "filled_entered_rows": 64,
       "entered_unfilled_rows": 0,
-      "wins": 35,
+      "wins": 36,
       "losses": 28,
-      "entered_win_rate": 0.5555555555555556,
-      "gross_return_per_filled_entered_trade_pct": 2.297040991213933,
-      "average_return_per_filled_entered_trade_pct": 0.03646096811450687,
-      "missed_opportunity_count": 237,
+      "entered_win_rate": 0.5625,
+      "gross_return_per_filled_entered_trade_pct": 2.439559380317855,
+      "average_return_per_filled_entered_trade_pct": 0.038118115317466485,
+      "missed_opportunity_count": 238,
       "bad_trade_prevention_count": 1365
     },
     "forward_repair_50_verdict_counts": {
@@ -1732,7 +1732,7 @@
         "bitget_taker_10x_margin_net_pct_est": -125.519299
       },
       "forward": {
-        "rows": 1493,
+        "rows": 1494,
         "allowed_or_entered_rows": 23,
         "promotion_status": "blocked_forward_shadow_not_mature_or_failed"
       },
@@ -1784,7 +1784,7 @@
         "bitget_taker_10x_margin_net_pct_est": -112.694911
       },
       "forward": {
-        "rows": 1494,
+        "rows": 1495,
         "allowed_or_entered_rows": 31,
         "promotion_status": "blocked_forward_shadow_not_mature_or_failed"
       },
@@ -1966,7 +1966,7 @@
         "bitget_taker_10x_margin_net_pct_est": null
       },
       "forward": {
-        "rows": 1494,
+        "rows": 1495,
         "allowed_or_entered_rows": 17,
         "promotion_status": "blocked_forward_shadow_not_mature_or_failed"
       },
@@ -1992,7 +1992,7 @@
         "bitget_taker_10x_margin_net_pct_est": 83.66441
       },
       "forward": {
-        "rows": 1488,
+        "rows": 1489,
         "allowed_or_entered_rows": 3,
         "promotion_status": "blocked_forward_shadow_not_mature_or_failed"
       },
