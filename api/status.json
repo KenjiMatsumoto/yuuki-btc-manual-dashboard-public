@@ -1,6 +1,6 @@
 {
   "candidate_id": "btc_manual_trigger_v1",
-  "generated_at_utc": "2026-07-21T07:35:40Z",
+  "generated_at_utc": "2026-07-21T07:41:40Z",
   "scope": {
     "asset": "BTCUSDT",
     "venue": "binance_perp",
@@ -42,9 +42,9 @@
       "bad_trade_prevention_count": 4863
     },
     "shadow": {
-      "journal_rows": 1662,
+      "journal_rows": 1663,
       "resolved_rows": 1650,
-      "pending_rows": 12,
+      "pending_rows": 13,
       "entered_rows": 62,
       "filled_entered_rows": 57,
       "entered_unfilled_rows": 0,
@@ -7309,43 +7309,43 @@
   "recent_not_allowed_reason_rankings": {
     "recent_n": 30,
     "sample_rows": 30,
-    "not_allowed_rows": 16,
+    "not_allowed_rows": 15,
     "reason_codes": [
       {
         "key": "oi_not_confirming",
-        "count": 16
+        "count": 15
       },
       {
         "key": "funding_not_extreme",
-        "count": 16
+        "count": 15
       },
       {
         "key": "premium_within_cap",
-        "count": 16
+        "count": 15
       },
       {
         "key": "volatility_normalized",
-        "count": 16
+        "count": 15
       },
       {
         "key": "cheap_trigger_not_met",
-        "count": 16
-      },
-      {
-        "key": "trend_alignment_long",
-        "count": 8
-      },
-      {
-        "key": "score_below_allowed_threshold",
-        "count": 8
+        "count": 15
       },
       {
         "key": "rr_too_low",
         "count": 8
       },
       {
+        "key": "trend_alignment_long",
+        "count": 7
+      },
+      {
+        "key": "score_below_allowed_threshold",
+        "count": 7
+      },
+      {
         "key": "price_up_oi_down_wait_guard",
-        "count": 6
+        "count": 5
       }
     ],
     "skip_reasons": [
@@ -7355,7 +7355,7 @@
       },
       {
         "key": "OIの追随が弱く自信度が不足 / 事前トリガー未達で詳細執行判断に進まない / Price上昇に対してOIが減少しており追随不成立 / 方向性はあるがOI/継続確認不足のため監視継続",
-        "count": 6
+        "count": 5
       },
       {
         "key": "OIの追随が弱く自信度が不足 / 事前トリガー未達で詳細執行判断に進まない / 方向性はあるがOI/継続確認不足のため監視継続",
@@ -7365,35 +7365,35 @@
     "permissions": [
       {
         "key": "allowed",
-        "count": 14
-      },
-      {
-        "key": "watch_only",
-        "count": 8
+        "count": 15
       },
       {
         "key": "blocked",
         "count": 8
+      },
+      {
+        "key": "watch_only",
+        "count": 7
       }
     ],
     "actions": [
       {
         "key": "enter",
-        "count": 14
-      },
-      {
-        "key": "watch",
-        "count": 8
+        "count": 15
       },
       {
         "key": "skip",
         "count": 8
+      },
+      {
+        "key": "watch",
+        "count": 7
       }
     ],
     "reason_codes_explained": [
       {
         "key": "oi_not_confirming",
-        "count": 16,
+        "count": 15,
         "explanation": {
           "code": "oi_not_confirming",
           "ja_label": "OI追随不足",
@@ -7403,7 +7403,7 @@
       },
       {
         "key": "funding_not_extreme",
-        "count": 16,
+        "count": 15,
         "explanation": {
           "code": "funding_not_extreme",
           "ja_label": "Funding極端値なし",
@@ -7413,7 +7413,7 @@
       },
       {
         "key": "premium_within_cap",
-        "count": 16,
+        "count": 15,
         "explanation": {
           "code": "premium_within_cap",
           "ja_label": "現物/先物プレミアムが通常範囲",
@@ -7423,7 +7423,7 @@
       },
       {
         "key": "volatility_normalized",
-        "count": 16,
+        "count": 15,
         "explanation": {
           "code": "volatility_normalized",
           "ja_label": "ボラティリティ通常化",
@@ -7433,32 +7433,12 @@
       },
       {
         "key": "cheap_trigger_not_met",
-        "count": 16,
+        "count": 15,
         "explanation": {
           "code": "cheap_trigger_not_met",
           "ja_label": "安値/押し目トリガー未達",
           "plain_ja": "買うなら十分安い位置、売るなら十分高い/戻った位置、という事前の価格条件にまだ到達していない状態です。",
           "operator_hint_ja": "方向感だけで飛び乗らず、有利な位置まで待つための理由です。"
-        }
-      },
-      {
-        "key": "trend_alignment_long",
-        "count": 8,
-        "explanation": {
-          "code": "trend_alignment_long",
-          "ja_label": "未登録理由コード",
-          "plain_ja": "この理由コードはまだ日本語説明辞書に未登録です。artifact側にはコードをそのまま残しています。",
-          "operator_hint_ja": "頻出する場合は辞書に追加してください。"
-        }
-      },
-      {
-        "key": "score_below_allowed_threshold",
-        "count": 8,
-        "explanation": {
-          "code": "score_below_allowed_threshold",
-          "ja_label": "未登録理由コード",
-          "plain_ja": "この理由コードはまだ日本語説明辞書に未登録です。artifact側にはコードをそのまま残しています。",
-          "operator_hint_ja": "頻出する場合は辞書に追加してください。"
         }
       },
       {
@@ -7472,8 +7452,28 @@
         }
       },
       {
+        "key": "trend_alignment_long",
+        "count": 7,
+        "explanation": {
+          "code": "trend_alignment_long",
+          "ja_label": "未登録理由コード",
+          "plain_ja": "この理由コードはまだ日本語説明辞書に未登録です。artifact側にはコードをそのまま残しています。",
+          "operator_hint_ja": "頻出する場合は辞書に追加してください。"
+        }
+      },
+      {
+        "key": "score_below_allowed_threshold",
+        "count": 7,
+        "explanation": {
+          "code": "score_below_allowed_threshold",
+          "ja_label": "未登録理由コード",
+          "plain_ja": "この理由コードはまだ日本語説明辞書に未登録です。artifact側にはコードをそのまま残しています。",
+          "operator_hint_ja": "頻出する場合は辞書に追加してください。"
+        }
+      },
+      {
         "key": "price_up_oi_down_wait_guard",
-        "count": 6,
+        "count": 5,
         "explanation": {
           "code": "price_up_oi_down_wait_guard",
           "ja_label": "未登録理由コード",
