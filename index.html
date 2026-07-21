@@ -202,7 +202,7 @@ async function loadAll(manual=false){
   }).catch(e => {
     document.getElementById('serverRefresh').textContent = 'meta読み込みエラー: ' + e.message;
   });
-  const weeklyReviewPromise = getJson('api/weekly-review').then(renderWeeklyReview).catch(e => {
+  const weeklyReviewPromise = getJson('api/weekly-review.json').then(renderWeeklyReview).catch(e => {
     document.getElementById('weeklyReview').innerHTML = `<div class="k">週次レビュー（producer転記）</div><div id="weeklyReviewError" class="warn">週次レビュー未生成 / 読み込みエラー: ${htmlEscape(e.message)}</div>`;
   });
   let artifactError = null;

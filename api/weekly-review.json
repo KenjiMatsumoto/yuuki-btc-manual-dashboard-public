@@ -1,0 +1,1274 @@
+{
+  "generated_at_utc": "2026-07-20T23:56:49Z",
+  "policy": {
+    "producer_only": true,
+    "runtime_state_written": false,
+    "strategy_predicates_changed": false,
+    "thresholds_recomputed": false
+  },
+  "review_date": "2026-07-20",
+  "schema_version": "yuuki_weekly_review_v1",
+  "sections": {
+    "blocked_reason_counts": [
+      {
+        "count": 437,
+        "reason_code": "funding_not_extreme"
+      },
+      {
+        "count": 437,
+        "reason_code": "oi_not_confirming"
+      },
+      {
+        "count": 437,
+        "reason_code": "premium_within_cap"
+      },
+      {
+        "count": 437,
+        "reason_code": "rr_too_low"
+      },
+      {
+        "count": 437,
+        "reason_code": "volatility_normalized"
+      },
+      {
+        "count": 340,
+        "reason_code": "cheap_trigger_not_met"
+      }
+    ],
+    "clean_forward_lanes": [
+      {
+        "closed_trades": 7,
+        "display_label": "y12 価格上昇・OI低下後の解消待ち Long",
+        "lane": "manual_trigger_yuuki_candidate_paper_y12_priceup_oidown_resolve_wait_long",
+        "losses": 5,
+        "open_positions": 0,
+        "realized_pnl_usdt": -196.87223683,
+        "unique_entries": 7,
+        "wins": 2
+      },
+      {
+        "closed_trades": 8,
+        "display_label": "y17 London false dip回復 Long",
+        "lane": "manual_trigger_yuuki_candidate_paper_y17_london_false_dip_recovery_long",
+        "losses": 4,
+        "open_positions": 0,
+        "realized_pnl_usdt": -20.8649601,
+        "unique_entries": 8,
+        "wins": 4
+      },
+      {
+        "closed_trades": 8,
+        "display_label": "y19 London流動性継続 Long",
+        "lane": "manual_trigger_yuuki_candidate_paper_y19_london_liquidity_continuation_long",
+        "losses": 5,
+        "open_positions": 0,
+        "realized_pnl_usdt": -82.34804202,
+        "unique_entries": 8,
+        "wins": 3
+      },
+      {
+        "closed_trades": 7,
+        "display_label": "y20 London no-trade veto",
+        "lane": "manual_trigger_yuuki_candidate_paper_y20_london_no_trade_veto",
+        "losses": 4,
+        "open_positions": 0,
+        "realized_pnl_usdt": -135.44017426,
+        "unique_entries": 7,
+        "wins": 3
+      },
+      {
+        "closed_trades": 1,
+        "display_label": "London非混雑 Short clean shadow",
+        "lane": "manual_trigger_yuuki_london_short_not_crowded_clean_shadow",
+        "losses": 1,
+        "open_positions": 0,
+        "realized_pnl_usdt": -146.33976514,
+        "unique_entries": 1,
+        "wins": 0
+      },
+      {
+        "closed_trades": 7,
+        "display_label": "multiview 基準",
+        "lane": "manual_trigger_yuuki_multiview",
+        "losses": 4,
+        "open_positions": 0,
+        "realized_pnl_usdt": -135.44017426,
+        "unique_entries": 7,
+        "wins": 3
+      },
+      {
+        "closed_trades": 0,
+        "display_label": "u01 weak impulse unlock",
+        "lane": "manual_trigger_yuuki_premortem_unlock_u01_weak_impulse_unlock",
+        "losses": 0,
+        "open_positions": 0,
+        "realized_pnl_usdt": 0.0,
+        "unique_entries": 0,
+        "wins": 0
+      },
+      {
+        "closed_trades": 5,
+        "display_label": "r2_w2 London低vol gate除去",
+        "lane": "manual_trigger_yuuki_r2_w2_london_late_low_vol_gate_loo",
+        "losses": 3,
+        "open_positions": 0,
+        "realized_pnl_usdt": -246.74510833,
+        "unique_entries": 5,
+        "wins": 2
+      },
+      {
+        "closed_trades": 0,
+        "display_label": "w12_f1 清算フラッシュ反発 Long",
+        "lane": "manual_trigger_yuuki_w12_f1_flush_rebound_long",
+        "losses": 0,
+        "open_positions": 0,
+        "realized_pnl_usdt": 0.0,
+        "unique_entries": 0,
+        "wins": 0
+      },
+      {
+        "closed_trades": 7,
+        "display_label": "Wave 1 帯指値・original pullback",
+        "lane": "manual_trigger_yuuki_wave1_zone_limit_original_pullback",
+        "losses": 4,
+        "open_positions": 0,
+        "realized_pnl_usdt": -134.71275656,
+        "unique_entries": 7,
+        "wins": 3
+      },
+      {
+        "closed_trades": 5,
+        "display_label": "Wave 2 帯指値・TP far",
+        "lane": "manual_trigger_yuuki_wave2_zone_limit_tp_far",
+        "losses": 3,
+        "open_positions": 0,
+        "realized_pnl_usdt": -246.74510833,
+        "unique_entries": 5,
+        "wins": 2
+      }
+    ],
+    "prior_bt_adjudications": [
+      {
+        "artifact": {
+          "artifact_role": "operator_supplied_fixed_adjudication",
+          "calculation_policy": "selection values are frozen as designated; source observations are copied without recomputation",
+          "criteria_source": "kenjii_preregistered_r2_2_criteria",
+          "decision": {
+            "f2_base_passer": "leave_one_out__london_late_low_vol_gate",
+            "f3_wave2_passer": "leave_one_out__london_late_low_vol_gate",
+            "qualified_variant_count": 1,
+            "selected_variant": "leave_one_out__london_late_low_vol_gate",
+            "verdict": "freeze_one_variant_for_parallel_forward_paper_wiring"
+          },
+          "run_date": "20260713",
+          "schema_version": "yuuki_multiview_r2_w_final_adjudication_v1",
+          "scope_guards": {
+            "no_bt_recalculation": true,
+            "no_existing_lane_replacement": true,
+            "no_strategy_rule_change": true,
+            "paper_only": true
+          },
+          "source_observations": {
+            "f2_base": {
+              "path": "data/validation/yuuki_multiview_gate_decomposition_r2_1_20260713.json",
+              "reference_row": {
+                "evaluation_contract_hash": "5ea629a93e75e3452673c7b0b267c8b23f366bb66aa7c25382389c96c14861af",
+                "fold_metrics": [
+                  {
+                    "fold": 1,
+                    "test": {
+                      "gross_pnl_pct": 37.7694759741,
+                      "losses": 95,
+                      "net_bps_per_trade": 11.4932209494,
+                      "net_pnl_pct": 26.3194759741,
+                      "positive_active_windows": 70,
+                      "trades": 229,
+                      "wins": 134
+                    },
+                    "train": {
+                      "gross_pnl_pct": 25.2250217653,
+                      "losses": 65,
+                      "net_bps_per_trade": 10.8647935631,
+                      "net_pnl_pct": 17.2750217653,
+                      "positive_active_windows": 47,
+                      "trades": 159,
+                      "wins": 94
+                    }
+                  },
+                  {
+                    "fold": 2,
+                    "test": {
+                      "gross_pnl_pct": 18.1860295969,
+                      "losses": 103,
+                      "net_bps_per_trade": 3.1919052238,
+                      "net_pnl_pct": 7.0860295969,
+                      "positive_active_windows": 62,
+                      "trades": 222,
+                      "wins": 119
+                    },
+                    "train": {
+                      "gross_pnl_pct": 62.9944977394,
+                      "losses": 160,
+                      "net_bps_per_trade": 11.2356952936,
+                      "net_pnl_pct": 43.5944977394,
+                      "positive_active_windows": 117,
+                      "trades": 388,
+                      "wins": 228
+                    }
+                  },
+                  {
+                    "fold": 3,
+                    "test": {
+                      "gross_pnl_pct": 16.4360866824,
+                      "losses": 84,
+                      "net_bps_per_trade": 3.7425992991,
+                      "net_pnl_pct": 7.0360866824,
+                      "positive_active_windows": 58,
+                      "trades": 188,
+                      "wins": 104
+                    },
+                    "train": {
+                      "gross_pnl_pct": 81.1805273362,
+                      "losses": 263,
+                      "net_bps_per_trade": 8.3082831699,
+                      "net_pnl_pct": 50.6805273362,
+                      "positive_active_windows": 179,
+                      "trades": 610,
+                      "wins": 347
+                    }
+                  },
+                  {
+                    "fold": 4,
+                    "test": {
+                      "gross_pnl_pct": 14.3608040276,
+                      "losses": 97,
+                      "net_bps_per_trade": 1.2985982577,
+                      "net_pnl_pct": 2.9608040276,
+                      "positive_active_windows": 65,
+                      "trades": 228,
+                      "wins": 131
+                    },
+                    "train": {
+                      "gross_pnl_pct": 97.6166140186,
+                      "losses": 347,
+                      "net_bps_per_trade": 7.2326583983,
+                      "net_pnl_pct": 57.7166140186,
+                      "positive_active_windows": 237,
+                      "trades": 798,
+                      "wins": 451
+                    }
+                  }
+                ],
+                "full_sample": {
+                  "gross_pnl_pct": 132.0607997458,
+                  "losses": 520,
+                  "net_bps_per_trade": 5.9231430724,
+                  "net_pnl_pct": 71.6107997458,
+                  "positive_active_windows": 369,
+                  "trades": 1209,
+                  "wins": 689
+                },
+                "holdout": {
+                  "gross_pnl_pct": 20.0833816996,
+                  "losses": 76,
+                  "net_bps_per_trade": 5.9745255189,
+                  "net_pnl_pct": 10.9333816996,
+                  "positive_active_windows": 67,
+                  "trades": 183,
+                  "wins": 107
+                },
+                "kind": "overlay",
+                "min_score": 4,
+                "omit_gate_id": null,
+                "oos_active_windows": 5,
+                "positive_oos_active_windows": 5,
+                "selected_period": {
+                  "duration_days": 2122.75,
+                  "duration_months": 69.742705,
+                  "end_utc": "2026-06-30T16:00:00Z",
+                  "start_utc": "2020-09-06T22:00:00Z"
+                },
+                "variant_id": "overlay_min_score_4"
+              },
+              "selected_row": {
+                "evaluation_contract_hash": "5ea629a93e75e3452673c7b0b267c8b23f366bb66aa7c25382389c96c14861af",
+                "fold_metrics": [
+                  {
+                    "fold": 1,
+                    "test": {
+                      "gross_pnl_pct": 41.4550249199,
+                      "losses": 100,
+                      "net_bps_per_trade": 12.059681037,
+                      "net_pnl_pct": 29.3050249199,
+                      "positive_active_windows": 71,
+                      "trades": 243,
+                      "wins": 143
+                    },
+                    "train": {
+                      "gross_pnl_pct": 27.032586134,
+                      "losses": 70,
+                      "net_bps_per_trade": 10.7166198454,
+                      "net_pnl_pct": 18.432586134,
+                      "positive_active_windows": 48,
+                      "trades": 172,
+                      "wins": 102
+                    }
+                  },
+                  {
+                    "fold": 2,
+                    "test": {
+                      "gross_pnl_pct": 21.0073282365,
+                      "losses": 104,
+                      "net_bps_per_trade": 4.2137404546,
+                      "net_pnl_pct": 9.6073282365,
+                      "positive_active_windows": 64,
+                      "trades": 228,
+                      "wins": 124
+                    },
+                    "train": {
+                      "gross_pnl_pct": 68.487611054,
+                      "losses": 170,
+                      "net_bps_per_trade": 11.5030388082,
+                      "net_pnl_pct": 47.737611054,
+                      "positive_active_windows": 119,
+                      "trades": 415,
+                      "wins": 245
+                    }
+                  },
+                  {
+                    "fold": 3,
+                    "test": {
+                      "gross_pnl_pct": 19.0420064531,
+                      "losses": 87,
+                      "net_bps_per_trade": 4.6171749763,
+                      "net_pnl_pct": 9.1420064531,
+                      "positive_active_windows": 62,
+                      "trades": 198,
+                      "wins": 111
+                    },
+                    "train": {
+                      "gross_pnl_pct": 89.4949392905,
+                      "losses": 274,
+                      "net_bps_per_trade": 8.9183420358,
+                      "net_pnl_pct": 57.3449392905,
+                      "positive_active_windows": 183,
+                      "trades": 643,
+                      "wins": 369
+                    }
+                  },
+                  {
+                    "fold": 4,
+                    "test": {
+                      "gross_pnl_pct": 15.3716189356,
+                      "losses": 100,
+                      "net_bps_per_trade": 1.5133978541,
+                      "net_pnl_pct": 3.5716189356,
+                      "positive_active_windows": 66,
+                      "trades": 236,
+                      "wins": 136
+                    },
+                    "train": {
+                      "gross_pnl_pct": 108.5369457436,
+                      "losses": 361,
+                      "net_bps_per_trade": 7.9057010397,
+                      "net_pnl_pct": 66.4869457436,
+                      "positive_active_windows": 245,
+                      "trades": 841,
+                      "wins": 480
+                    }
+                  }
+                ],
+                "full_sample": {
+                  "gross_pnl_pct": 146.5091791684,
+                  "losses": 539,
+                  "net_bps_per_trade": 6.5543516694,
+                  "net_pnl_pct": 83.1091791684,
+                  "positive_active_windows": 380,
+                  "trades": 1268,
+                  "wins": 729
+                },
+                "holdout": {
+                  "gross_pnl_pct": 22.6006144892,
+                  "losses": 78,
+                  "net_bps_per_trade": 6.8327824551,
+                  "net_pnl_pct": 13.0506144892,
+                  "positive_active_windows": 69,
+                  "trades": 191,
+                  "wins": 113
+                },
+                "kind": "overlay",
+                "min_score": 4,
+                "omit_gate_id": "london_late_low_vol_gate",
+                "oos_active_windows": 5,
+                "positive_oos_active_windows": 5,
+                "selected_period": {
+                  "duration_days": 2122.75,
+                  "duration_months": 69.742705,
+                  "end_utc": "2026-06-30T16:00:00Z",
+                  "start_utc": "2020-09-06T22:00:00Z"
+                },
+                "variant_id": "leave_one_out__london_late_low_vol_gate"
+              },
+              "sha256": "13a5411cbef216c01bfea655fa43502a1215873c634b9556d8c8ca8d8ae60029"
+            },
+            "f3_wave2": {
+              "path": "data/validation/yuuki_multiview_wave2_gate_ablation_20260713.json",
+              "reference_row": {
+                "evaluation_contract_hash": "5ea629a93e75e3452673c7b0b267c8b23f366bb66aa7c25382389c96c14861af",
+                "fold_metrics": [
+                  {
+                    "fold": 1,
+                    "test": {
+                      "gross_pnl_pct": 42.0498396135,
+                      "losses": 114,
+                      "net_bps_per_trade": 13.3623753771,
+                      "net_pnl_pct": 30.5998396135,
+                      "positive_active_windows": 63,
+                      "trades": 229,
+                      "wins": 115
+                    },
+                    "train": {
+                      "gross_pnl_pct": 29.8397411262,
+                      "losses": 83,
+                      "net_bps_per_trade": 13.7671327838,
+                      "net_pnl_pct": 21.8897411262,
+                      "positive_active_windows": 41,
+                      "trades": 159,
+                      "wins": 76
+                    }
+                  },
+                  {
+                    "fold": 2,
+                    "test": {
+                      "gross_pnl_pct": 17.4956239984,
+                      "losses": 127,
+                      "net_bps_per_trade": 2.880911711,
+                      "net_pnl_pct": 6.3956239984,
+                      "positive_active_windows": 59,
+                      "trades": 222,
+                      "wins": 95
+                    },
+                    "train": {
+                      "gross_pnl_pct": 71.8895807396,
+                      "losses": 197,
+                      "net_bps_per_trade": 13.5282424587,
+                      "net_pnl_pct": 52.4895807396,
+                      "positive_active_windows": 104,
+                      "trades": 388,
+                      "wins": 191
+                    }
+                  },
+                  {
+                    "fold": 3,
+                    "test": {
+                      "gross_pnl_pct": 19.7444830114,
+                      "losses": 103,
+                      "net_bps_per_trade": 5.5023845806,
+                      "net_pnl_pct": 10.3444830114,
+                      "positive_active_windows": 53,
+                      "trades": 188,
+                      "wins": 85
+                    },
+                    "train": {
+                      "gross_pnl_pct": 89.3852047381,
+                      "losses": 324,
+                      "net_bps_per_trade": 9.6533122521,
+                      "net_pnl_pct": 58.8852047381,
+                      "positive_active_windows": 163,
+                      "trades": 610,
+                      "wins": 286
+                    }
+                  },
+                  {
+                    "fold": 4,
+                    "test": {
+                      "gross_pnl_pct": 22.2918946522,
+                      "losses": 117,
+                      "net_bps_per_trade": 4.7771467773,
+                      "net_pnl_pct": 10.8918946522,
+                      "positive_active_windows": 54,
+                      "trades": 228,
+                      "wins": 111
+                    },
+                    "train": {
+                      "gross_pnl_pct": 109.1296877495,
+                      "losses": 427,
+                      "net_bps_per_trade": 8.6753994674,
+                      "net_pnl_pct": 69.2296877495,
+                      "positive_active_windows": 216,
+                      "trades": 798,
+                      "wins": 371
+                    }
+                  }
+                ],
+                "full_sample": {
+                  "gross_pnl_pct": 149.2489605719,
+                  "losses": 642,
+                  "net_bps_per_trade": 7.3448271772,
+                  "net_pnl_pct": 88.7989605719,
+                  "positive_active_windows": 324,
+                  "trades": 1209,
+                  "wins": 567
+                },
+                "holdout": {
+                  "gross_pnl_pct": 17.8273781702,
+                  "losses": 98,
+                  "net_bps_per_trade": 4.741736705,
+                  "net_pnl_pct": 8.6773781702,
+                  "positive_active_windows": 54,
+                  "trades": 183,
+                  "wins": 85
+                },
+                "kind": "overlay",
+                "min_score": 4,
+                "omit_gate_id": null,
+                "oos_active_windows": 5,
+                "positive_oos_active_windows": 5,
+                "selected_period": {
+                  "duration_days": 2122.75,
+                  "duration_months": 69.742705,
+                  "end_utc": "2026-06-30T16:00:00Z",
+                  "start_utc": "2020-09-06T22:00:00Z"
+                },
+                "variant_id": "overlay_min_score_4"
+              },
+              "selected_row": {
+                "evaluation_contract_hash": "5ea629a93e75e3452673c7b0b267c8b23f366bb66aa7c25382389c96c14861af",
+                "fold_metrics": [
+                  {
+                    "fold": 1,
+                    "test": {
+                      "gross_pnl_pct": 46.3733435992,
+                      "losses": 121,
+                      "net_bps_per_trade": 14.0836804935,
+                      "net_pnl_pct": 34.2233435992,
+                      "positive_active_windows": 64,
+                      "trades": 243,
+                      "wins": 122
+                    },
+                    "train": {
+                      "gross_pnl_pct": 31.8199807661,
+                      "losses": 90,
+                      "net_bps_per_trade": 13.4999888175,
+                      "net_pnl_pct": 23.2199807661,
+                      "positive_active_windows": 43,
+                      "trades": 172,
+                      "wins": 82
+                    }
+                  },
+                  {
+                    "fold": 2,
+                    "test": {
+                      "gross_pnl_pct": 16.5198758168,
+                      "losses": 131,
+                      "net_bps_per_trade": 2.2455595688,
+                      "net_pnl_pct": 5.1198758168,
+                      "positive_active_windows": 60,
+                      "trades": 228,
+                      "wins": 97
+                    },
+                    "train": {
+                      "gross_pnl_pct": 78.1933243653,
+                      "losses": 211,
+                      "net_bps_per_trade": 13.8417649073,
+                      "net_pnl_pct": 57.4433243653,
+                      "positive_active_windows": 107,
+                      "trades": 415,
+                      "wins": 204
+                    }
+                  },
+                  {
+                    "fold": 3,
+                    "test": {
+                      "gross_pnl_pct": 23.1387588872,
+                      "losses": 107,
+                      "net_bps_per_trade": 6.6862418622,
+                      "net_pnl_pct": 13.2387588872,
+                      "positive_active_windows": 56,
+                      "trades": 198,
+                      "wins": 91
+                    },
+                    "train": {
+                      "gross_pnl_pct": 94.7132001822,
+                      "losses": 342,
+                      "net_bps_per_trade": 9.7298911636,
+                      "net_pnl_pct": 62.5632001822,
+                      "positive_active_windows": 167,
+                      "trades": 643,
+                      "wins": 301
+                    }
+                  },
+                  {
+                    "fold": 4,
+                    "test": {
+                      "gross_pnl_pct": 23.8997753439,
+                      "losses": 121,
+                      "net_bps_per_trade": 5.1270234508,
+                      "net_pnl_pct": 12.0997753439,
+                      "positive_active_windows": 55,
+                      "trades": 236,
+                      "wins": 115
+                    },
+                    "train": {
+                      "gross_pnl_pct": 117.8519590694,
+                      "losses": 449,
+                      "net_bps_per_trade": 9.0133126123,
+                      "net_pnl_pct": 75.8019590694,
+                      "positive_active_windows": 223,
+                      "trades": 841,
+                      "wins": 392
+                    }
+                  }
+                ],
+                "full_sample": {
+                  "gross_pnl_pct": 162.8217359783,
+                  "losses": 671,
+                  "net_bps_per_trade": 7.8408309131,
+                  "net_pnl_pct": 99.4217359783,
+                  "positive_active_windows": 334,
+                  "trades": 1268,
+                  "wins": 597
+                },
+                "holdout": {
+                  "gross_pnl_pct": 21.070001565,
+                  "losses": 101,
+                  "net_bps_per_trade": 6.0314144319,
+                  "net_pnl_pct": 11.520001565,
+                  "positive_active_windows": 56,
+                  "trades": 191,
+                  "wins": 90
+                },
+                "kind": "overlay",
+                "min_score": 4,
+                "omit_gate_id": "london_late_low_vol_gate",
+                "oos_active_windows": 5,
+                "positive_oos_active_windows": 5,
+                "selected_period": {
+                  "duration_days": 2122.75,
+                  "duration_months": 69.742705,
+                  "end_utc": "2026-06-30T16:00:00Z",
+                  "start_utc": "2020-09-06T22:00:00Z"
+                },
+                "variant_id": "leave_one_out__london_late_low_vol_gate"
+              },
+              "sha256": "ba3a5d96d2fe0474698d7187af5a304a7dfdf9c5519d6fbd625d54993f0d561f"
+            }
+          },
+          "w2_wiring_contract": {
+            "exit_policies": [
+              "expiry_close",
+              "tp_sl_only",
+              "tp_sl_or_breakeven"
+            ],
+            "external_orders_forbidden": true,
+            "lane_count": 1,
+            "paper_account_count_after": 33,
+            "paper_account_count_before": 30,
+            "paper_account_delta": 3,
+            "pending_order_notifications": "unchanged",
+            "variant_id": "leave_one_out__london_late_low_vol_gate"
+          }
+        },
+        "source_path": "yuuki_multiview_r2_w_final_adjudication_20260713.json"
+      },
+      {
+        "artifact": {
+          "artifact_role": "operator_supplied_fixed_adjudication",
+          "calculation_policy": "selection is frozen as designated; W12 source observations are copied without recomputation",
+          "criteria_source": "operator_supplied_w12_w_active_task_f1_selection",
+          "decision": {
+            "not_selected_variants": [
+              "F2"
+            ],
+            "qualified_variant_count": 1,
+            "selected_variant": "F1",
+            "verdict": "freeze_f1_for_parallel_forward_shadow_and_paper_wiring"
+          },
+          "pass_fail_evaluation_performed": false,
+          "provenance_notes": [
+            "W12 source JSON actual sha256 is computed from committed bytes and is the transfer source for this artifact.",
+            "The pre-existing W12 markdown records a different JSON sha256; it is not edited because dated artifacts are immutable.",
+            "No independent acceptance threshold or pass/fail test is introduced by this artifact."
+          ],
+          "run_date": "20260717",
+          "schema_version": "yuuki_flush_rebound_w12_w_final_adjudication_v1",
+          "scope_guards": {
+            "no_bt_recalculation": true,
+            "no_existing_lane_replacement": true,
+            "no_signal_threshold_change": true,
+            "paper_only": true,
+            "w12_dated_artifacts_immutable": true
+          },
+          "source_observations": {
+            "path": "data/validation/yuuki_flush_rebound_w12_20260717.json",
+            "sha256": "077ba15771ca1040307ad89ac452d10c2a2a6a35cfaca19c7619e1dbd94af71a",
+            "source_promotion_judgment": "not_performed",
+            "source_verdict": "not_performed",
+            "variant_order": [
+              "F1",
+              "F2"
+            ],
+            "variants": [
+              {
+                "entry_signal_count": 241,
+                "entry_year_distribution": {
+                  "2020": 30,
+                  "2021": 80,
+                  "2022": 50,
+                  "2023": 33,
+                  "2024": 25,
+                  "2025": 16,
+                  "2026": 7
+                },
+                "fold_metrics": [
+                  {
+                    "fold": 1,
+                    "test": {
+                      "breakeven": 0,
+                      "gross_loss_abs_pct": 31.515649881,
+                      "gross_profit_pct": 29.3750333896,
+                      "losses": 19,
+                      "max_drawdown_pct": 11.5312817818,
+                      "net_bps_per_trade": -5.6332012932,
+                      "net_pnl_pct": -2.1406164914,
+                      "profit_factor": 0.9320776662,
+                      "profit_factor_defined": true,
+                      "settlement_reasons": {
+                        "expiry_mark_to_market": 21,
+                        "stop_loss": 12,
+                        "take_profit": 5
+                      },
+                      "settlements": 38,
+                      "win_rate": 0.5,
+                      "wins": 19
+                    },
+                    "train": {
+                      "breakeven": 0,
+                      "gross_loss_abs_pct": 87.7527149602,
+                      "gross_profit_pct": 105.2226938222,
+                      "losses": 46,
+                      "max_drawdown_pct": 13.1380112051,
+                      "net_bps_per_trade": 18.3894514337,
+                      "net_pnl_pct": 17.469978862,
+                      "profit_factor": 1.1990819187,
+                      "profit_factor_defined": true,
+                      "settlement_reasons": {
+                        "expiry_mark_to_market": 50,
+                        "stop_loss": 34,
+                        "take_profit": 11
+                      },
+                      "settlements": 95,
+                      "win_rate": 0.5157894737,
+                      "wins": 49
+                    }
+                  },
+                  {
+                    "fold": 2,
+                    "test": {
+                      "breakeven": 0,
+                      "gross_loss_abs_pct": 17.2194631359,
+                      "gross_profit_pct": 28.8038984918,
+                      "losses": 19,
+                      "max_drawdown_pct": 5.5469607981,
+                      "net_bps_per_trade": 26.3282621726,
+                      "net_pnl_pct": 11.584435356,
+                      "profit_factor": 1.6727524119,
+                      "profit_factor_defined": true,
+                      "settlement_reasons": {
+                        "expiry_mark_to_market": 19,
+                        "stop_loss": 13,
+                        "take_profit": 12
+                      },
+                      "settlements": 44,
+                      "win_rate": 0.5681818182,
+                      "wins": 25
+                    },
+                    "train": {
+                      "breakeven": 0,
+                      "gross_loss_abs_pct": 119.2683648412,
+                      "gross_profit_pct": 134.5977272118,
+                      "losses": 65,
+                      "max_drawdown_pct": 13.146088683,
+                      "net_bps_per_trade": 11.5258363689,
+                      "net_pnl_pct": 15.3293623706,
+                      "profit_factor": 1.1285283184,
+                      "profit_factor_defined": true,
+                      "settlement_reasons": {
+                        "expiry_mark_to_market": 71,
+                        "stop_loss": 46,
+                        "take_profit": 16
+                      },
+                      "settlements": 133,
+                      "win_rate": 0.5112781955,
+                      "wins": 68
+                    }
+                  },
+                  {
+                    "fold": 3,
+                    "test": {
+                      "breakeven": 0,
+                      "gross_loss_abs_pct": 13.7133600698,
+                      "gross_profit_pct": 25.730632089,
+                      "losses": 13,
+                      "max_drawdown_pct": 2.8108505193,
+                      "net_bps_per_trade": 38.7653936106,
+                      "net_pnl_pct": 12.0172720193,
+                      "profit_factor": 1.8763185651,
+                      "profit_factor_defined": true,
+                      "settlement_reasons": {
+                        "expiry_mark_to_market": 14,
+                        "stop_loss": 11,
+                        "take_profit": 6
+                      },
+                      "settlements": 31,
+                      "win_rate": 0.5806451613,
+                      "wins": 18
+                    },
+                    "train": {
+                      "breakeven": 0,
+                      "gross_loss_abs_pct": 136.487827977,
+                      "gross_profit_pct": 163.4016257036,
+                      "losses": 84,
+                      "max_drawdown_pct": 13.146088683,
+                      "net_bps_per_trade": 15.2055354387,
+                      "net_pnl_pct": 26.9137977266,
+                      "profit_factor": 1.1971882631,
+                      "profit_factor_defined": true,
+                      "settlement_reasons": {
+                        "expiry_mark_to_market": 90,
+                        "stop_loss": 59,
+                        "take_profit": 28
+                      },
+                      "settlements": 177,
+                      "win_rate": 0.5254237288,
+                      "wins": 93
+                    }
+                  },
+                  {
+                    "fold": 4,
+                    "test": {
+                      "breakeven": 0,
+                      "gross_loss_abs_pct": 12.8866645232,
+                      "gross_profit_pct": 18.4306420883,
+                      "losses": 9,
+                      "max_drawdown_pct": 5.3726076964,
+                      "net_bps_per_trade": 32.6116327358,
+                      "net_pnl_pct": 5.5439775651,
+                      "profit_factor": 1.4302104362,
+                      "profit_factor_defined": true,
+                      "settlement_reasons": {
+                        "expiry_mark_to_market": 7,
+                        "stop_loss": 6,
+                        "take_profit": 4
+                      },
+                      "settlements": 17,
+                      "win_rate": 0.4705882353,
+                      "wins": 8
+                    },
+                    "train": {
+                      "breakeven": 0,
+                      "gross_loss_abs_pct": 150.2011880468,
+                      "gross_profit_pct": 189.1322577926,
+                      "losses": 97,
+                      "max_drawdown_pct": 13.146088683,
+                      "net_bps_per_trade": 18.7168604547,
+                      "net_pnl_pct": 38.9310697458,
+                      "profit_factor": 1.2591928217,
+                      "profit_factor_defined": true,
+                      "settlement_reasons": {
+                        "expiry_mark_to_market": 104,
+                        "stop_loss": 70,
+                        "take_profit": 34
+                      },
+                      "settlements": 208,
+                      "win_rate": 0.5336538462,
+                      "wins": 111
+                    }
+                  }
+                ],
+                "full_sample": {
+                  "breakeven": 0,
+                  "gross_loss_abs_pct": 167.539209449,
+                  "gross_profit_pct": 214.5248472787,
+                  "losses": 112,
+                  "max_drawdown_pct": 13.146088683,
+                  "net_bps_per_trade": 19.4961152821,
+                  "net_pnl_pct": 46.9856378298,
+                  "profit_factor": 1.2804456222,
+                  "profit_factor_defined": true,
+                  "settlement_reasons": {
+                    "expiry_mark_to_market": 119,
+                    "stop_loss": 81,
+                    "take_profit": 41
+                  },
+                  "settlements": 241,
+                  "win_rate": 0.5352697095,
+                  "wins": 129
+                },
+                "holdout": {
+                  "breakeven": 0,
+                  "gross_loss_abs_pct": 4.4513568789,
+                  "gross_profit_pct": 6.9619473978,
+                  "losses": 6,
+                  "max_drawdown_pct": 2.2053426388,
+                  "net_bps_per_trade": 15.6911907427,
+                  "net_pnl_pct": 2.5105905188,
+                  "profit_factor": 1.56400567,
+                  "profit_factor_defined": true,
+                  "settlement_reasons": {
+                    "expiry_mark_to_market": 8,
+                    "stop_loss": 5,
+                    "take_profit": 3
+                  },
+                  "settlements": 16,
+                  "win_rate": 0.625,
+                  "wins": 10
+                },
+                "ignored_by_cooldown": 261,
+                "no_op": false,
+                "raw_signal_count": 502,
+                "side": "long",
+                "signal_fire_year_distribution": {
+                  "2020": 59,
+                  "2021": 173,
+                  "2022": 103,
+                  "2023": 68,
+                  "2024": 50,
+                  "2025": 37,
+                  "2026": 12
+                },
+                "thresholds": {
+                  "oi_change_24h_lte": -0.05,
+                  "ret_4h_lte": -0.015
+                },
+                "trades_per_day": 0.1132518797,
+                "unsettled_reason_counts": {},
+                "unsettled_signal_count": 0,
+                "variant_id": "F1"
+              },
+              {
+                "entry_signal_count": 89,
+                "entry_year_distribution": {
+                  "2020": 16,
+                  "2021": 35,
+                  "2022": 16,
+                  "2023": 10,
+                  "2024": 7,
+                  "2025": 4,
+                  "2026": 1
+                },
+                "fold_metrics": [
+                  {
+                    "fold": 1,
+                    "test": {
+                      "breakeven": 0,
+                      "gross_loss_abs_pct": 14.0848620565,
+                      "gross_profit_pct": 5.689792185,
+                      "losses": 6,
+                      "max_drawdown_pct": 8.9612798934,
+                      "net_bps_per_trade": -76.3188170139,
+                      "net_pnl_pct": -8.3950698715,
+                      "profit_factor": 0.4039650628,
+                      "profit_factor_defined": true,
+                      "settlement_reasons": {
+                        "expiry_mark_to_market": 6,
+                        "stop_loss": 5
+                      },
+                      "settlements": 11,
+                      "win_rate": 0.4545454545,
+                      "wins": 5
+                    },
+                    "train": {
+                      "breakeven": 0,
+                      "gross_loss_abs_pct": 53.8598295541,
+                      "gross_profit_pct": 58.5971073668,
+                      "losses": 23,
+                      "max_drawdown_pct": 14.8621575069,
+                      "net_bps_per_trade": 10.0793144951,
+                      "net_pnl_pct": 4.7372778127,
+                      "profit_factor": 1.0879556778,
+                      "profit_factor_defined": true,
+                      "settlement_reasons": {
+                        "expiry_mark_to_market": 24,
+                        "stop_loss": 19,
+                        "take_profit": 4
+                      },
+                      "settlements": 47,
+                      "win_rate": 0.5106382979,
+                      "wins": 24
+                    }
+                  },
+                  {
+                    "fold": 2,
+                    "test": {
+                      "breakeven": 0,
+                      "gross_loss_abs_pct": 6.1234375503,
+                      "gross_profit_pct": 10.2866712298,
+                      "losses": 5,
+                      "max_drawdown_pct": 2.1395110477,
+                      "net_bps_per_trade": 29.737383425,
+                      "net_pnl_pct": 4.1632336795,
+                      "profit_factor": 1.6798850556,
+                      "profit_factor_defined": true,
+                      "settlement_reasons": {
+                        "expiry_mark_to_market": 7,
+                        "stop_loss": 5,
+                        "take_profit": 2
+                      },
+                      "settlements": 14,
+                      "win_rate": 0.6428571429,
+                      "wins": 9
+                    },
+                    "train": {
+                      "breakeven": 0,
+                      "gross_loss_abs_pct": 67.9446916106,
+                      "gross_profit_pct": 64.2868995518,
+                      "losses": 29,
+                      "max_drawdown_pct": 15.2046453752,
+                      "net_bps_per_trade": -6.3065380324,
+                      "net_pnl_pct": -3.6577920588,
+                      "profit_factor": 0.9461651533,
+                      "profit_factor_defined": true,
+                      "settlement_reasons": {
+                        "expiry_mark_to_market": 30,
+                        "stop_loss": 24,
+                        "take_profit": 4
+                      },
+                      "settlements": 58,
+                      "win_rate": 0.5,
+                      "wins": 29
+                    }
+                  },
+                  {
+                    "fold": 3,
+                    "test": {
+                      "breakeven": 0,
+                      "gross_loss_abs_pct": 4.0712637923,
+                      "gross_profit_pct": 12.4079120149,
+                      "losses": 2,
+                      "max_drawdown_pct": 4.0712637923,
+                      "net_bps_per_trade": 92.6294246951,
+                      "net_pnl_pct": 8.3366482226,
+                      "profit_factor": 3.0476806829,
+                      "profit_factor_defined": true,
+                      "settlement_reasons": {
+                        "expiry_mark_to_market": 4,
+                        "stop_loss": 2,
+                        "take_profit": 3
+                      },
+                      "settlements": 9,
+                      "win_rate": 0.7777777778,
+                      "wins": 7
+                    },
+                    "train": {
+                      "breakeven": 0,
+                      "gross_loss_abs_pct": 74.0681291608,
+                      "gross_profit_pct": 74.5735707815,
+                      "losses": 34,
+                      "max_drawdown_pct": 16.7779464011,
+                      "net_bps_per_trade": 0.702002251,
+                      "net_pnl_pct": 0.5054416207,
+                      "profit_factor": 1.0068240095,
+                      "profit_factor_defined": true,
+                      "settlement_reasons": {
+                        "expiry_mark_to_market": 37,
+                        "stop_loss": 29,
+                        "take_profit": 6
+                      },
+                      "settlements": 72,
+                      "win_rate": 0.5277777778,
+                      "wins": 38
+                    }
+                  },
+                  {
+                    "fold": 4,
+                    "test": {
+                      "breakeven": 0,
+                      "gross_loss_abs_pct": 3.5023368973,
+                      "gross_profit_pct": 9.0849337207,
+                      "losses": 2,
+                      "max_drawdown_pct": 3.5023368973,
+                      "net_bps_per_trade": 93.0432803887,
+                      "net_pnl_pct": 5.5825968233,
+                      "profit_factor": 2.5939633984,
+                      "profit_factor_defined": true,
+                      "settlement_reasons": {
+                        "expiry_mark_to_market": 3,
+                        "stop_loss": 2,
+                        "take_profit": 1
+                      },
+                      "settlements": 6,
+                      "win_rate": 0.6666666667,
+                      "wins": 4
+                    },
+                    "train": {
+                      "breakeven": 0,
+                      "gross_loss_abs_pct": 78.1393929532,
+                      "gross_profit_pct": 86.9814827964,
+                      "losses": 36,
+                      "max_drawdown_pct": 16.7779464011,
+                      "net_bps_per_trade": 10.9161603003,
+                      "net_pnl_pct": 8.8420898432,
+                      "profit_factor": 1.1131579029,
+                      "profit_factor_defined": true,
+                      "settlement_reasons": {
+                        "expiry_mark_to_market": 41,
+                        "stop_loss": 31,
+                        "take_profit": 9
+                      },
+                      "settlements": 81,
+                      "win_rate": 0.5555555556,
+                      "wins": 45
+                    }
+                  }
+                ],
+                "full_sample": {
+                  "breakeven": 0,
+                  "gross_loss_abs_pct": 83.1998402933,
+                  "gross_profit_pct": 96.2124932913,
+                  "losses": 39,
+                  "max_drawdown_pct": 16.7779464011,
+                  "net_bps_per_trade": 14.6209584247,
+                  "net_pnl_pct": 13.012652998,
+                  "profit_factor": 1.1564023795,
+                  "profit_factor_defined": true,
+                  "settlement_reasons": {
+                    "expiry_mark_to_market": 45,
+                    "stop_loss": 34,
+                    "take_profit": 10
+                  },
+                  "settlements": 89,
+                  "win_rate": 0.5617977528,
+                  "wins": 50
+                },
+                "holdout": {
+                  "breakeven": 0,
+                  "gross_loss_abs_pct": 1.5581104428,
+                  "gross_profit_pct": 0.1460767742,
+                  "losses": 1,
+                  "max_drawdown_pct": 1.5581104428,
+                  "net_bps_per_trade": -70.6016834309,
+                  "net_pnl_pct": -1.4120336686,
+                  "profit_factor": 0.093752516,
+                  "profit_factor_defined": true,
+                  "settlement_reasons": {
+                    "expiry_mark_to_market": 1,
+                    "stop_loss": 1
+                  },
+                  "settlements": 2,
+                  "win_rate": 0.5,
+                  "wins": 1
+                },
+                "ignored_by_cooldown": 98,
+                "no_op": false,
+                "raw_signal_count": 187,
+                "side": "long",
+                "signal_fire_year_distribution": {
+                  "2020": 34,
+                  "2021": 82,
+                  "2022": 26,
+                  "2023": 19,
+                  "2024": 16,
+                  "2025": 9,
+                  "2026": 1
+                },
+                "thresholds": {
+                  "oi_change_24h_lte": -0.075,
+                  "ret_4h_lte": -0.02
+                },
+                "trades_per_day": 0.0418233083,
+                "unsettled_reason_counts": {},
+                "unsettled_signal_count": 0,
+                "variant_id": "F2"
+              }
+            ]
+          },
+          "w2_wiring_contract": {
+            "broker_exit_policy_variants": [
+              "tp1_full",
+              "rr_1_5_full",
+              "tp1_partial_rr_runner_be"
+            ],
+            "execution": {
+              "entry_fill": "market_taker",
+              "expiry_accounting": "expiry_mark_to_market",
+              "expiry_minutes": 240,
+              "fee_bps_per_side": 2.5,
+              "stop_loss_atr_multiple": 1.1,
+              "take_profit_atr_multiple": 1.76,
+              "take_profit_fraction": 1.0,
+              "venue_lock": "mexc"
+            },
+            "exit_policies": [
+              "expiry_close",
+              "tp_sl_only",
+              "tp_sl_or_breakeven"
+            ],
+            "external_orders_forbidden": true,
+            "lane": "manual_trigger_yuuki_flush_rebound_w12_f1",
+            "lane_count": 1,
+            "paper_account_count_after": 36,
+            "paper_account_count_before": 33,
+            "paper_account_delta": 3,
+            "pending_order_notifications": "unchanged",
+            "side": "LONG",
+            "signal": {
+              "entry_cooldown_minutes": 240,
+              "oi_change_24h_lte": -0.05,
+              "ret_4h_lte": -0.015,
+              "sampling": "hourly_on_the_hour",
+              "single_open_position": true
+            },
+            "variant_id": "F1"
+          }
+        },
+        "source_path": "yuuki_flush_rebound_w12_w_final_adjudication_20260717.json"
+      }
+    ],
+    "settled_experiments": {
+      "count": 2,
+      "rows": [
+        {
+          "qualified_variant_count": 1,
+          "run_date": "20260713",
+          "schema_version": "yuuki_multiview_r2_w_final_adjudication_v1",
+          "selected_variant": "leave_one_out__london_late_low_vol_gate",
+          "source_path": "yuuki_multiview_r2_w_final_adjudication_20260713.json",
+          "verdict": "freeze_one_variant_for_parallel_forward_paper_wiring"
+        },
+        {
+          "qualified_variant_count": 1,
+          "run_date": "20260717",
+          "schema_version": "yuuki_flush_rebound_w12_w_final_adjudication_v1",
+          "selected_variant": "F1",
+          "source_path": "yuuki_flush_rebound_w12_w_final_adjudication_20260717.json",
+          "verdict": "freeze_f1_for_parallel_forward_shadow_and_paper_wiring"
+        }
+      ]
+    }
+  },
+  "sources": {
+    "adjudications": [
+      {
+        "path": "yuuki_flush_rebound_w12_w_final_adjudication_20260717.json",
+        "sha256": "705828c7035c0ef1a9057a59d9f3cee7e3408580e9d0ad376065b651b73d9aa9"
+      },
+      {
+        "path": "yuuki_multiview_r2_w_final_adjudication_20260713.json",
+        "sha256": "5e7521d7152b3a2c5742e912aeeed34ec0fdacfb88f5b099ca52836123ce304d"
+      }
+    ],
+    "paper_diagnostics": {
+      "payload_sha256": "ac863c360fdd99fac99033d1f75196faf31bb1e57bc4740de036a28fc2bc1c79",
+      "producer": "scripts.serve_btc_manual_trigger_dashboard.build_paper_diagnostics"
+    },
+    "shadow_journal": {
+      "path": "shadow_journal.jsonl",
+      "sha256": "b1fb1a9e829547d33e6811e66987de6f231bcbaaf501cb4cb753eab35bd68e82"
+    }
+  },
+  "window": {
+    "end_exclusive_utc": "2026-07-20T00:00:00Z",
+    "start_utc": "2026-07-13T00:00:00Z"
+  }
+}
