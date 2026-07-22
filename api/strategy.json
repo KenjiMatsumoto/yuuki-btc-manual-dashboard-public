@@ -1,5 +1,5 @@
 {
-  "generated_at_utc": "2026-07-22T15:44:53Z",
+  "generated_at_utc": "2026-07-22T15:51:09Z",
   "summary": {
     "strategy_lane_count": 14,
     "classification_counts": {
@@ -22,8 +22,8 @@
       "blocker_count": 1
     },
     "current_forward_shadow": {
-      "journal_rows": 1795,
-      "resolved_rows": 1787,
+      "journal_rows": 1796,
+      "resolved_rows": 1788,
       "pending_rows": 8,
       "entered_rows": 70,
       "filled_entered_rows": 70,
@@ -33,7 +33,7 @@
       "entered_win_rate": 0.5428571428571428,
       "gross_return_per_filled_entered_trade_pct": 1.034976131324954,
       "average_return_per_filled_entered_trade_pct": 0.014785373304642196,
-      "missed_opportunity_count": 252,
+      "missed_opportunity_count": 253,
       "bad_trade_prevention_count": 1465
     },
     "forward_repair_50_verdict_counts": {
@@ -1732,7 +1732,7 @@
         "bitget_taker_10x_margin_net_pct_est": -125.519299
       },
       "forward": {
-        "rows": 1602,
+        "rows": 1603,
         "allowed_or_entered_rows": 23,
         "promotion_status": "blocked_forward_shadow_not_mature_or_failed"
       },
@@ -1784,8 +1784,8 @@
         "bitget_taker_10x_margin_net_pct_est": -112.694911
       },
       "forward": {
-        "rows": 1603,
-        "allowed_or_entered_rows": 31,
+        "rows": 1604,
+        "allowed_or_entered_rows": 32,
         "promotion_status": "blocked_forward_shadow_not_mature_or_failed"
       },
       "decision_ja": "継続価値あり/現時点採用不可。frozen forward-shadowとして観察開始。ただし20 closed rows等のgate未達までは採用不可。"
@@ -1966,8 +1966,8 @@
         "bitget_taker_10x_margin_net_pct_est": null
       },
       "forward": {
-        "rows": 1603,
-        "allowed_or_entered_rows": 17,
+        "rows": 1604,
+        "allowed_or_entered_rows": 18,
         "promotion_status": "blocked_forward_shadow_not_mature_or_failed"
       },
       "decision_ja": "tp_sl_onlyを独立freezeしたforward/paper観察レーン。TP/SL未達のexpiryは勝敗化せず、cost ledger付きpaperで別途観察。採用不可。"
@@ -1992,7 +1992,7 @@
         "bitget_taker_10x_margin_net_pct_est": 83.66441
       },
       "forward": {
-        "rows": 1597,
+        "rows": 1598,
         "allowed_or_entered_rows": 3,
         "promotion_status": "blocked_forward_shadow_not_mature_or_failed"
       },
