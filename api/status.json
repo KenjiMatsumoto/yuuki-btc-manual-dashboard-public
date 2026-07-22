@@ -1,6 +1,6 @@
 {
   "candidate_id": "btc_manual_trigger_v1",
-  "generated_at_utc": "2026-07-22T03:53:07Z",
+  "generated_at_utc": "2026-07-22T03:59:08Z",
   "scope": {
     "asset": "BTCUSDT",
     "venue": "binance_perp",
