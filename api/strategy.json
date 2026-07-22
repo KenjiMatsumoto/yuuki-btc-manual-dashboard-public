@@ -1,5 +1,5 @@
 {
-  "generated_at_utc": "2026-07-22T22:57:40Z",
+  "generated_at_utc": "2026-07-22T23:03:40Z",
   "summary": {
     "strategy_lane_count": 14,
     "classification_counts": {
@@ -22,9 +22,9 @@
       "blocker_count": 1
     },
     "current_forward_shadow": {
-      "journal_rows": 1823,
+      "journal_rows": 1824,
       "resolved_rows": 1816,
-      "pending_rows": 7,
+      "pending_rows": 8,
       "entered_rows": 70,
       "filled_entered_rows": 70,
       "entered_unfilled_rows": 0,
@@ -1732,7 +1732,7 @@
         "bitget_taker_10x_margin_net_pct_est": -125.519299
       },
       "forward": {
-        "rows": 1629,
+        "rows": 1630,
         "allowed_or_entered_rows": 23,
         "promotion_status": "blocked_forward_shadow_not_mature_or_failed"
       },
@@ -1784,7 +1784,7 @@
         "bitget_taker_10x_margin_net_pct_est": -112.694911
       },
       "forward": {
-        "rows": 1630,
+        "rows": 1631,
         "allowed_or_entered_rows": 32,
         "promotion_status": "blocked_forward_shadow_not_mature_or_failed"
       },
@@ -1966,7 +1966,7 @@
         "bitget_taker_10x_margin_net_pct_est": null
       },
       "forward": {
-        "rows": 1630,
+        "rows": 1631,
         "allowed_or_entered_rows": 18,
         "promotion_status": "blocked_forward_shadow_not_mature_or_failed"
       },
@@ -1992,7 +1992,7 @@
         "bitget_taker_10x_margin_net_pct_est": 83.66441
       },
       "forward": {
-        "rows": 1624,
+        "rows": 1625,
         "allowed_or_entered_rows": 3,
         "promotion_status": "blocked_forward_shadow_not_mature_or_failed"
       },
