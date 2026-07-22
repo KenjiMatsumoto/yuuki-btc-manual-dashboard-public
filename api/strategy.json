@@ -1,5 +1,5 @@
 {
-  "generated_at_utc": "2026-07-22T14:05:02Z",
+  "generated_at_utc": "2026-07-22T14:11:03Z",
   "summary": {
     "strategy_lane_count": 14,
     "classification_counts": {
@@ -1732,7 +1732,7 @@
         "bitget_taker_10x_margin_net_pct_est": -125.519299
       },
       "forward": {
-        "rows": 1596,
+        "rows": 1597,
         "allowed_or_entered_rows": 23,
         "promotion_status": "blocked_forward_shadow_not_mature_or_failed"
       },
@@ -1784,7 +1784,7 @@
         "bitget_taker_10x_margin_net_pct_est": -112.694911
       },
       "forward": {
-        "rows": 1597,
+        "rows": 1598,
         "allowed_or_entered_rows": 31,
         "promotion_status": "blocked_forward_shadow_not_mature_or_failed"
       },
@@ -1966,7 +1966,7 @@
         "bitget_taker_10x_margin_net_pct_est": null
       },
       "forward": {
-        "rows": 1597,
+        "rows": 1598,
         "allowed_or_entered_rows": 17,
         "promotion_status": "blocked_forward_shadow_not_mature_or_failed"
       },
@@ -1992,7 +1992,7 @@
         "bitget_taker_10x_margin_net_pct_est": 83.66441
       },
       "forward": {
-        "rows": 1591,
+        "rows": 1592,
         "allowed_or_entered_rows": 3,
         "promotion_status": "blocked_forward_shadow_not_mature_or_failed"
       },
