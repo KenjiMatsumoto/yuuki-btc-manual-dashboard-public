@@ -1,6 +1,6 @@
 {
   "artifact": "btc_manual_trigger_paper_diagnostics",
-  "generated_at_utc": "2026-07-22T15:00:54Z",
+  "generated_at_utc": "2026-07-22T15:07:06Z",
   "variant_count": 108,
   "paper_account_count": 105,
   "strategy_lane_count": 35,
@@ -5196,19 +5196,19 @@
     {
       "kind": "reason_code",
       "reason": "rr_too_low",
-      "count": 22,
+      "count": 23,
       "meaning_ja": "エントリー候補から利確目標までの距離に対して、損切り幅やコストを考えた見返りが小さい状態です。"
     },
     {
       "kind": "permission",
       "reason": "blocked",
-      "count": 22,
+      "count": 23,
       "meaning_ja": ""
     },
     {
       "kind": "action",
       "reason": "skip",
-      "count": 22,
+      "count": 23,
       "meaning_ja": ""
     },
     {
@@ -5220,7 +5220,7 @@
     {
       "kind": "skip_reason",
       "reason": "方向優位が弱く環境認定できない / OIの追随が弱く自信度が不足 / 想定RRが閾値未満 / 事前トリガー未達で詳細執行判断に進まない",
-      "count": 13,
+      "count": 14,
       "meaning_ja": ""
     },
     {
@@ -5232,31 +5232,25 @@
     {
       "kind": "reason_code",
       "reason": "trend_alignment_short",
-      "count": 8,
+      "count": 7,
       "meaning_ja": "この理由コードはまだ日本語説明辞書に未登録です。artifact側にはコードをそのまま残しています。"
     },
     {
       "kind": "reason_code",
       "reason": "score_below_allowed_threshold",
-      "count": 8,
+      "count": 7,
       "meaning_ja": "この理由コードはまだ日本語説明辞書に未登録です。artifact側にはコードをそのまま残しています。"
     },
     {
       "kind": "permission",
       "reason": "watch_only",
-      "count": 8,
+      "count": 7,
       "meaning_ja": ""
     },
     {
       "kind": "action",
       "reason": "watch",
-      "count": 8,
-      "meaning_ja": ""
-    },
-    {
-      "kind": "skip_reason",
-      "reason": "OIの追随が弱く自信度が不足 / 事前トリガー未達で詳細執行判断に進まない / 方向性はあるがOI/継続確認不足のため監視継続",
-      "count": 4,
+      "count": 7,
       "meaning_ja": ""
     },
     {
@@ -5264,6 +5258,12 @@
       "reason": "london_compression_guard",
       "count": 3,
       "meaning_ja": "この理由コードはまだ日本語説明辞書に未登録です。artifact側にはコードをそのまま残しています。"
+    },
+    {
+      "kind": "skip_reason",
+      "reason": "OIの追随が弱く自信度が不足 / 事前トリガー未達で詳細執行判断に進まない / 方向性はあるがOI/継続確認不足のため監視継続",
+      "count": 3,
+      "meaning_ja": ""
     },
     {
       "kind": "skip_reason",
