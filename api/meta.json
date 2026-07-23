@@ -1,15 +1,15 @@
 {
   "manual_root": "private source snapshot",
   "refresh_seconds": 60,
-  "last_refresh_at": 1784774743.0232894,
+  "last_refresh_at": 1784775103.1897013,
   "last_refresh_ok": true,
   "last_refresh_error": null,
   "runtime_health": {
     "status": "healthy_no_trade",
     "classification_ja": "正常稼働・取引なし",
     "runtime_healthy": true,
-    "latest_tick_utc": "2026-07-23T02:44:52Z",
-    "tick_age_minutes": 0.9,
+    "latest_tick_utc": "2026-07-23T02:51:54Z",
+    "tick_age_minutes": 0.0,
     "tick_fresh": true,
     "broker_present": true,
     "broker_run_healthy": true,
@@ -27,6 +27,6 @@
     "source_repo": "KenjiMatsumoto/btc-manual-trigger-strategy (private)",
     "source_head": "6f17c743ffc7cda25f560ca7ccc39fb0bdf34818",
     "publisher": "KenjiMatsumoto/yuuki-btc-manual-dashboard-public",
-    "published_at_utc": "2026-07-23T02:45:43Z"
+    "published_at_utc": "2026-07-23T02:51:54Z"
   }
 }
