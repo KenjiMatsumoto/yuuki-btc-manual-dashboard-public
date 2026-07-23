@@ -1,6 +1,6 @@
 {
   "artifact": "btc_manual_trigger_paper_diagnostics",
-  "generated_at_utc": "2026-07-23T15:06:57Z",
+  "generated_at_utc": "2026-07-23T15:12:58Z",
   "variant_count": 5,
   "paper_account_count": 5,
   "strategy_lane_count": 4,
@@ -236,18 +236,18 @@
   "empty_legacy_state_count": 0,
   "candidate_count": 0,
   "pnl_breakdown": {
-    "closed_trades": 0,
-    "wins": 0,
+    "closed_trades": 1,
+    "wins": 1,
     "losses": 0,
-    "realized_pnl_usdt": 0,
-    "realized_exit_pnl_usdt": 0,
-    "entry_fee_usdt": 0,
-    "avg_win_usdt": 0.0,
+    "realized_pnl_usdt": 77.23697625,
+    "realized_exit_pnl_usdt": 82.23697625,
+    "entry_fee_usdt": 5.0,
+    "avg_win_usdt": 77.23697625,
     "avg_loss_usdt": 0.0,
     "profit_factor": null,
     "payoff_ratio": null,
-    "decided_win_rate": null,
-    "max_win_usdt": 0.0,
+    "decided_win_rate": 1.0,
+    "max_win_usdt": 77.23697625,
     "max_loss_usdt": 0.0
   },
   "clean_forward_summary": {
@@ -271,20 +271,20 @@
     "unique_entries": 1,
     "duplicate_variant_entries_excluded": 0,
     "duplicate_shared_signal_entries_excluded": 0,
-    "representative_closed_trades": 0,
-    "representative_wins": 0,
+    "representative_closed_trades": 1,
+    "representative_wins": 1,
     "representative_losses": 0,
-    "representative_open_positions": 1,
-    "representative_realized_pnl_usdt": 0,
+    "representative_open_positions": 0,
+    "representative_realized_pnl_usdt": 77.23697625,
     "official_active_summary": {
       "strategy_lane_count": 11,
       "display_row_count": 7,
       "unique_entries": 1,
-      "closed_trades": 0,
-      "open_positions": 1,
-      "wins": 0,
+      "closed_trades": 1,
+      "open_positions": 0,
+      "wins": 1,
       "losses": 0,
-      "realized_pnl_usdt": 0
+      "realized_pnl_usdt": 77.23697625
     },
     "official_active_lane_rows": [
       {
@@ -364,11 +364,11 @@
         "short_label": "premortem_unlock_u01_weak_impulse_unlock",
         "display_label": "u01 weak impulse unlock",
         "unique_entries": 1,
-        "closed_trades": 0,
-        "open_positions": 1,
-        "wins": 0,
+        "closed_trades": 1,
+        "open_positions": 0,
+        "wins": 1,
         "losses": 0,
-        "realized_pnl_usdt": 0,
+        "realized_pnl_usdt": 77.23697625,
         "representative_variants": [
           "tp1_full"
         ]
@@ -548,11 +548,11 @@
         "short_label": "premortem_unlock_u01_weak_impulse_unlock",
         "display_label": "u01 weak impulse unlock",
         "unique_entries": 1,
-        "closed_trades": 0,
-        "open_positions": 1,
-        "wins": 0,
+        "closed_trades": 1,
+        "open_positions": 0,
+        "wins": 1,
         "losses": 0,
-        "realized_pnl_usdt": 0,
+        "realized_pnl_usdt": 77.23697625,
         "representative_variants": [
           "tp1_full"
         ]
@@ -697,21 +697,57 @@
     }
   },
   "focus_breakdown": {
-    "closed_trades": 0,
-    "wins": 0,
+    "closed_trades": 1,
+    "wins": 1,
     "losses": 0,
-    "realized_pnl_usdt": 0,
-    "realized_exit_pnl_usdt": 0,
-    "entry_fee_usdt": 0,
-    "avg_win_usdt": 0.0,
+    "realized_pnl_usdt": 77.23697625,
+    "realized_exit_pnl_usdt": 82.23697625,
+    "entry_fee_usdt": 5.0,
+    "avg_win_usdt": 77.23697625,
     "avg_loss_usdt": 0.0,
     "profit_factor": null,
     "payoff_ratio": null,
-    "decided_win_rate": null,
-    "max_win_usdt": 0.0,
+    "decided_win_rate": 1.0,
+    "max_win_usdt": 77.23697625,
     "max_loss_usdt": 0.0,
-    "worst_trades": [],
-    "best_trades": []
+    "worst_trades": [
+      {
+        "lane": "manual_trigger_yuuki_premortem_unlock_u01_weak_impulse_unlock",
+        "short_label": "premortem_unlock_u01_weak_impulse_unlock",
+        "exit_policy_variant": "tp1_full",
+        "side": "short",
+        "exit_time_utc": "2026-07-23T14:45:00Z",
+        "exit_reason": "tp1",
+        "realized_pnl_usdt": 77.23697625,
+        "realized_exit_pnl_usdt": 82.23697625,
+        "entry_fee_allocated_usdt": 5.0,
+        "return_on_notional_pct": 0.41118488,
+        "reason_codes": [
+          "u01_weak_impulse_unlock_add",
+          "active_premortem_vetoes=london_weak_impulse_veto",
+          "non_premortem_allow=True"
+        ]
+      }
+    ],
+    "best_trades": [
+      {
+        "lane": "manual_trigger_yuuki_premortem_unlock_u01_weak_impulse_unlock",
+        "short_label": "premortem_unlock_u01_weak_impulse_unlock",
+        "exit_policy_variant": "tp1_full",
+        "side": "short",
+        "exit_time_utc": "2026-07-23T14:45:00Z",
+        "exit_reason": "tp1",
+        "realized_pnl_usdt": 77.23697625,
+        "realized_exit_pnl_usdt": 82.23697625,
+        "entry_fee_allocated_usdt": 5.0,
+        "return_on_notional_pct": 0.41118488,
+        "reason_codes": [
+          "u01_weak_impulse_unlock_add",
+          "active_premortem_vetoes=london_weak_impulse_veto",
+          "non_premortem_allow=True"
+        ]
+      }
+    ]
   },
   "market_fill_survivor_summary": {
     "category": "market-fill survivor",
@@ -783,18 +819,18 @@
       "avg_win_loss_gap_usdt": 0.0
     },
     {
-      "closed_trades": 0,
-      "wins": 0,
+      "closed_trades": 1,
+      "wins": 1,
       "losses": 0,
-      "realized_pnl_usdt": 0,
-      "realized_exit_pnl_usdt": 0,
-      "entry_fee_usdt": 0,
-      "avg_win_usdt": 0.0,
+      "realized_pnl_usdt": 77.23697625,
+      "realized_exit_pnl_usdt": 82.23697625,
+      "entry_fee_usdt": 5.0,
+      "avg_win_usdt": 77.23697625,
       "avg_loss_usdt": 0.0,
       "profit_factor": null,
       "payoff_ratio": null,
-      "decided_win_rate": null,
-      "max_win_usdt": 0.0,
+      "decided_win_rate": 1.0,
+      "max_win_usdt": 77.23697625,
       "max_loss_usdt": 0.0,
       "category": "u01 weak impulse unlock（Paper観測中）",
       "accounts": 1,
@@ -806,7 +842,7 @@
       "variant_count": 1,
       "entries": 1,
       "accounting_note_ja": "カテゴリ合算PnL/WR/Feeは非表示。variant別=口座単位のみ参照。",
-      "avg_win_loss_gap_usdt": 0.0
+      "avg_win_loss_gap_usdt": 77.23697625
     },
     {
       "closed_trades": 0,
@@ -850,27 +886,33 @@
       "paper_state_status": "active_broker_updated",
       "paper_state_note_ja": "",
       "exit_policy_variant": "tp1_full",
-      "side": "-",
+      "side": "short",
       "entries": 1,
-      "open_positions": 1,
-      "closed_trades": 0,
+      "open_positions": 0,
+      "closed_trades": 1,
       "closed_progress_target": 20,
-      "closed_progress_label": "0/20",
-      "wins": 0,
+      "closed_progress_label": "1/20",
+      "wins": 1,
       "losses": 0,
       "profit_factor": null,
       "payoff_ratio": null,
-      "decided_win_rate": null,
+      "decided_win_rate": 1.0,
       "partial_tp1_wins": 0,
-      "realized_pnl_usdt": 0,
-      "realized_exit_pnl_usdt": 0,
-      "avg_win_usdt": 0.0,
+      "realized_pnl_usdt": 77.23697625,
+      "realized_exit_pnl_usdt": 82.23697625,
+      "avg_win_usdt": 77.23697625,
       "avg_loss_usdt": 0.0,
-      "max_win_usdt": 0.0,
+      "max_win_usdt": 77.23697625,
       "max_loss_usdt": 0.0,
-      "entry_fee_usdt": 0,
-      "exit_reasons": [],
-      "reason_codes": []
+      "entry_fee_usdt": 5.0,
+      "exit_reasons": [
+        "tp1"
+      ],
+      "reason_codes": [
+        "active_premortem_vetoes=london_weak_impulse_veto",
+        "non_premortem_allow=True",
+        "u01_weak_impulse_unlock_add"
+      ]
     },
     {
       "lane": "manual_trigger_yuuki_london_short_not_crowded_clean_shadow",
@@ -1070,61 +1112,61 @@
     {
       "kind": "reason_code",
       "reason": "oi_not_confirming",
-      "count": 24,
+      "count": 23,
       "meaning_ja": "価格の方向に対して建玉（OI）の増減が十分についてきていない状態です。上昇/下落に見えても新規参加者の追随が弱く、だましや一時的な戻りの可能性が高いので許可しません。"
     },
     {
       "kind": "reason_code",
       "reason": "cheap_trigger_not_met",
-      "count": 23,
+      "count": 22,
       "meaning_ja": "買うなら十分安い位置、売るなら十分高い/戻った位置、という事前の価格条件にまだ到達していない状態です。"
     },
     {
       "kind": "reason_code",
       "reason": "rr_too_low",
-      "count": 21,
+      "count": 20,
       "meaning_ja": "エントリー候補から利確目標までの距離に対して、損切り幅やコストを考えた見返りが小さい状態です。"
     },
     {
       "kind": "permission",
       "reason": "blocked",
-      "count": 21,
+      "count": 20,
       "meaning_ja": ""
     },
     {
       "kind": "action",
       "reason": "skip",
-      "count": 21,
+      "count": 20,
       "meaning_ja": ""
     },
     {
       "kind": "skip_reason",
       "reason": "方向優位が弱く環境認定できない / OIの追随が弱く自信度が不足 / 想定RRが閾値未満 / 事前トリガー未達で詳細執行判断に進まない",
-      "count": 20,
+      "count": 19,
       "meaning_ja": ""
     },
     {
       "kind": "reason_code",
       "reason": "trend_alignment_short",
-      "count": 5,
+      "count": 6,
       "meaning_ja": "この理由コードはまだ日本語説明辞書に未登録です。artifact側にはコードをそのまま残しています。"
     },
     {
       "kind": "reason_code",
       "reason": "london_compression_guard",
-      "count": 5,
+      "count": 6,
       "meaning_ja": "この理由コードはまだ日本語説明辞書に未登録です。artifact側にはコードをそのまま残しています。"
     },
     {
       "kind": "permission",
       "reason": "watch_only",
-      "count": 5,
+      "count": 6,
       "meaning_ja": ""
     },
     {
       "kind": "action",
       "reason": "watch",
-      "count": 5,
+      "count": 6,
       "meaning_ja": ""
     },
     {
@@ -1146,21 +1188,21 @@
       "meaning_ja": "この理由コードはまだ日本語説明辞書に未登録です。artifact側にはコードをそのまま残しています。"
     },
     {
+      "kind": "reason_code",
+      "reason": "oi_confirms_move",
+      "count": 3,
+      "meaning_ja": "この理由コードはまだ日本語説明辞書に未登録です。artifact側にはコードをそのまま残しています。"
+    },
+    {
       "kind": "skip_reason",
       "reason": "OIの追随が弱く自信度が不足 / 事前トリガー未達で詳細執行判断に進まない / London時間の低ボラ圧縮でだましを警戒 / 方向性はあるがOI/継続確認不足のため監視継続",
       "count": 3,
       "meaning_ja": ""
     },
     {
-      "kind": "reason_code",
-      "reason": "oi_confirms_move",
-      "count": 2,
-      "meaning_ja": "この理由コードはまだ日本語説明辞書に未登録です。artifact側にはコードをそのまま残しています。"
-    },
-    {
       "kind": "skip_reason",
       "reason": "London時間の低ボラ圧縮でだましを警戒",
-      "count": 2,
+      "count": 3,
       "meaning_ja": ""
     },
     {
