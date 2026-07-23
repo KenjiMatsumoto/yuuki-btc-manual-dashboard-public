@@ -1,6 +1,6 @@
 {
   "candidate_id": "btc_manual_trigger_v1",
-  "generated_at_utc": "2026-07-23T21:12:34Z",
+  "generated_at_utc": "2026-07-23T21:18:37Z",
   "scope": {
     "asset": "BTCUSDT",
     "venue": "binance_perp",
@@ -16,7 +16,7 @@
       "remaining": 0
     },
     "shadow_resolved_rows": {
-      "current": 1906,
+      "current": 1907,
       "required": 3,
       "ratio": 1.0,
       "remaining": 0
@@ -42,8 +42,8 @@
       "bad_trade_prevention_count": 4863
     },
     "shadow": {
-      "journal_rows": 1913,
-      "resolved_rows": 1906,
+      "journal_rows": 1914,
+      "resolved_rows": 1907,
       "pending_rows": 7,
       "entered_rows": 73,
       "filled_entered_rows": 73,
@@ -54,7 +54,7 @@
       "gross_return_per_filled_entered_trade_pct": 1.5630891023576332,
       "average_return_per_filled_entered_trade_pct": 0.021412179484351142,
       "missed_opportunity_count": 275,
-      "bad_trade_prevention_count": 1558
+      "bad_trade_prevention_count": 1559
     },
     "readiness": {
       "verdict": "blocked",
@@ -77,7 +77,7 @@
       "tp1_partial_rr_runner_be"
     ],
     "external_orders": 0,
-    "generated_at_utc": "2026-07-23T21:02:09Z",
+    "generated_at_utc": "2026-07-23T21:17:00Z",
     "group_summaries": {
       "diagnostic": {
         "accounting_note_ja": "合計PnL/勝敗/Feeは戦略=口座単位でのみ評価する。複数戦略をまとめたPnL/勝敗/Feeは表示しない。",
@@ -148,12 +148,12 @@
         "exit_policy_variant": "tp1_full",
         "expiry_fallback_note_ja": "tp1_fullはexpiryで時価決着。RR/partial系はTP/SL/RR未達ならno-outcomeとして勝敗に数えない。",
         "external_orders": 0,
-        "generated_at_utc": "2026-07-23T21:02:09Z",
+        "generated_at_utc": "2026-07-23T21:17:00Z",
         "inception_utc": "2026-07-23T11:37:23Z",
         "lane": "manual_trigger_yuuki_multiview",
         "last_exit_decisions": [],
-        "last_mark_price": 65117.7,
-        "last_mark_time_utc": "2026-07-23T21:01:04Z",
+        "last_mark_price": 65021.8,
+        "last_mark_time_utc": "2026-07-23T21:15:59Z",
         "liquidation_risk_20x_closes": 0,
         "liquidation_risk_closes": 0,
         "losses": 0,
@@ -198,12 +198,12 @@
         "exit_policy_variant": "tp1_partial_rr_runner_be",
         "expiry_fallback_note_ja": "tp1_fullはexpiryで時価決着。RR/partial系はTP/SL/RR未達ならno-outcomeとして勝敗に数えない。",
         "external_orders": 0,
-        "generated_at_utc": "2026-07-23T21:02:09Z",
+        "generated_at_utc": "2026-07-23T21:17:00Z",
         "inception_utc": "2026-07-23T11:37:23Z",
         "lane": "manual_trigger_yuuki_multiview",
         "last_exit_decisions": [],
-        "last_mark_price": 65117.7,
-        "last_mark_time_utc": "2026-07-23T21:01:04Z",
+        "last_mark_price": 65021.8,
+        "last_mark_time_utc": "2026-07-23T21:15:59Z",
         "liquidation_risk_20x_closes": 0,
         "liquidation_risk_closes": 0,
         "losses": 0,
@@ -248,12 +248,12 @@
         "exit_policy_variant": "tp1_full",
         "expiry_fallback_note_ja": "tp1_fullはexpiryで時価決着。RR/partial系はTP/SL/RR未達ならno-outcomeとして勝敗に数えない。",
         "external_orders": 0,
-        "generated_at_utc": "2026-07-23T21:02:09Z",
+        "generated_at_utc": "2026-07-23T21:17:00Z",
         "inception_utc": "2026-07-23T11:37:23Z",
         "lane": "manual_trigger_yuuki_london_short_not_crowded_clean_shadow",
         "last_exit_decisions": [],
-        "last_mark_price": 65117.7,
-        "last_mark_time_utc": "2026-07-23T21:01:13Z",
+        "last_mark_price": 65021.8,
+        "last_mark_time_utc": "2026-07-23T21:16:09Z",
         "liquidation_risk_20x_closes": 0,
         "liquidation_risk_closes": 0,
         "losses": 0,
@@ -298,12 +298,12 @@
         "exit_policy_variant": "tp1_full",
         "expiry_fallback_note_ja": "tp1_fullはexpiryで時価決着。RR/partial系はTP/SL/RR未達ならno-outcomeとして勝敗に数えない。",
         "external_orders": 0,
-        "generated_at_utc": "2026-07-23T21:02:09Z",
+        "generated_at_utc": "2026-07-23T21:17:00Z",
         "inception_utc": "2026-07-23T11:37:23Z",
         "lane": "manual_trigger_yuuki_premortem_unlock_u01_weak_impulse_unlock",
         "last_exit_decisions": [],
-        "last_mark_price": 65117.7,
-        "last_mark_time_utc": "2026-07-23T21:01:04Z",
+        "last_mark_price": 65021.8,
+        "last_mark_time_utc": "2026-07-23T21:15:59Z",
         "liquidation_risk_20x_closes": 0,
         "liquidation_risk_closes": 0,
         "losses": 1,
@@ -351,12 +351,12 @@
         "exit_policy_variant": "tp1_full",
         "expiry_fallback_note_ja": "tp1_fullはexpiryで時価決着。RR/partial系はTP/SL/RR未達ならno-outcomeとして勝敗に数えない。",
         "external_orders": 0,
-        "generated_at_utc": "2026-07-23T21:02:09Z",
+        "generated_at_utc": "2026-07-23T21:17:00Z",
         "inception_utc": "2026-07-23T11:37:23Z",
         "lane": "manual_trigger_yuuki_w12_f1_flush_rebound_long",
         "last_exit_decisions": [],
-        "last_mark_price": 65117.7,
-        "last_mark_time_utc": "2026-07-23T21:01:04Z",
+        "last_mark_price": 65021.8,
+        "last_mark_time_utc": "2026-07-23T21:15:59Z",
         "liquidation_risk_20x_closes": 0,
         "liquidation_risk_closes": 0,
         "losses": 0,
@@ -422,23 +422,23 @@
   "recent_not_allowed_reason_rankings": {
     "recent_n": 30,
     "sample_rows": 30,
-    "not_allowed_rows": 25,
+    "not_allowed_rows": 26,
     "reason_codes": [
       {
         "key": "funding_not_extreme",
-        "count": 25
+        "count": 26
       },
       {
         "key": "premium_within_cap",
-        "count": 25
+        "count": 26
       },
       {
         "key": "volatility_normalized",
-        "count": 25
+        "count": 26
       },
       {
         "key": "oi_not_confirming",
-        "count": 19
+        "count": 20
       },
       {
         "key": "trend_alignment_short",
@@ -454,7 +454,7 @@
       },
       {
         "key": "rr_too_low",
-        "count": 7
+        "count": 8
       },
       {
         "key": "oi_confirms_move",
@@ -480,7 +480,7 @@
       },
       {
         "key": "方向優位が弱く環境認定できない / OIの追随が弱く自信度が不足 / 想定RRが閾値未満",
-        "count": 2
+        "count": 3
       },
       {
         "key": "OIの追随が弱く自信度が不足 / 方向性はあるがOI/継続確認不足のため監視継続",
@@ -494,11 +494,11 @@
       },
       {
         "key": "blocked",
-        "count": 7
+        "count": 8
       },
       {
         "key": "allowed",
-        "count": 5
+        "count": 4
       }
     ],
     "actions": [
@@ -508,17 +508,17 @@
       },
       {
         "key": "skip",
-        "count": 7
+        "count": 8
       },
       {
         "key": "enter",
-        "count": 5
+        "count": 4
       }
     ],
     "reason_codes_explained": [
       {
         "key": "funding_not_extreme",
-        "count": 25,
+        "count": 26,
         "explanation": {
           "code": "funding_not_extreme",
           "ja_label": "Funding極端値なし",
@@ -528,7 +528,7 @@
       },
       {
         "key": "premium_within_cap",
-        "count": 25,
+        "count": 26,
         "explanation": {
           "code": "premium_within_cap",
           "ja_label": "現物/先物プレミアムが通常範囲",
@@ -538,7 +538,7 @@
       },
       {
         "key": "volatility_normalized",
-        "count": 25,
+        "count": 26,
         "explanation": {
           "code": "volatility_normalized",
           "ja_label": "ボラティリティ通常化",
@@ -548,7 +548,7 @@
       },
       {
         "key": "oi_not_confirming",
-        "count": 19,
+        "count": 20,
         "explanation": {
           "code": "oi_not_confirming",
           "ja_label": "OI追随不足",
@@ -588,7 +588,7 @@
       },
       {
         "key": "rr_too_low",
-        "count": 7,
+        "count": 8,
         "explanation": {
           "code": "rr_too_low",
           "ja_label": "想定RR不足",
