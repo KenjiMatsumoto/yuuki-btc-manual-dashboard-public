@@ -1,6 +1,6 @@
 {
   "candidate_id": "btc_manual_trigger_v1",
-  "generated_at_utc": "2026-07-23T09:25:40Z",
+  "generated_at_utc": "2026-07-23T09:31:28Z",
   "scope": {
     "asset": "BTCUSDT",
     "venue": "binance_perp",
@@ -42,9 +42,9 @@
       "bad_trade_prevention_count": 4863
     },
     "shadow": {
-      "journal_rows": 1864,
+      "journal_rows": 1865,
       "resolved_rows": 1856,
-      "pending_rows": 8,
+      "pending_rows": 9,
       "entered_rows": 70,
       "filled_entered_rows": 70,
       "entered_unfilled_rows": 0,
@@ -5586,7 +5586,7 @@
       },
       {
         "key": "cheap_trigger_not_met",
-        "count": 27
+        "count": 28
       },
       {
         "key": "rr_too_low",
@@ -5603,19 +5603,19 @@
     ],
     "skip_reasons": [
       {
+        "key": "方向優位が弱く環境認定できない / OIの追随が弱く自信度が不足 / 想定RRが閾値未満 / 事前トリガー未達で詳細執行判断に進まない",
+        "count": 14
+      },
+      {
         "key": "OIの追随が弱く自信度が不足 / 事前トリガー未達で詳細執行判断に進まない / 方向性はあるがOI/継続確認不足のため監視継続",
         "count": 14
       },
       {
-        "key": "方向優位が弱く環境認定できない / OIの追随が弱く自信度が不足 / 想定RRが閾値未満 / 事前トリガー未達で詳細執行判断に進まない",
-        "count": 13
+        "key": "OIの追随が弱く自信度が不足 / 方向性はあるがOI/継続確認不足のため監視継続",
+        "count": 1
       },
       {
         "key": "方向優位が弱く環境認定できない / OIの追随が弱く自信度が不足 / 想定RRが閾値未満",
-        "count": 2
-      },
-      {
-        "key": "OIの追随が弱く自信度が不足 / 方向性はあるがOI/継続確認不足のため監視継続",
         "count": 1
       }
     ],
@@ -5682,7 +5682,7 @@
       },
       {
         "key": "cheap_trigger_not_met",
-        "count": 27,
+        "count": 28,
         "explanation": {
           "code": "cheap_trigger_not_met",
           "ja_label": "安値/押し目トリガー未達",
