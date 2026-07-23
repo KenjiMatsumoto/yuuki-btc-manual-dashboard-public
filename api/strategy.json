@@ -1,5 +1,5 @@
 {
-  "generated_at_utc": "2026-07-23T21:57:35Z",
+  "generated_at_utc": "2026-07-23T22:08:38Z",
   "summary": {
     "strategy_lane_count": 14,
     "classification_counts": {
@@ -22,8 +22,8 @@
       "blocker_count": 1
     },
     "current_forward_shadow": {
-      "journal_rows": 1916,
-      "resolved_rows": 1909,
+      "journal_rows": 1917,
+      "resolved_rows": 1910,
       "pending_rows": 7,
       "entered_rows": 73,
       "filled_entered_rows": 73,
@@ -34,7 +34,7 @@
       "gross_return_per_filled_entered_trade_pct": 1.5630891023576332,
       "average_return_per_filled_entered_trade_pct": 0.021412179484351142,
       "missed_opportunity_count": 275,
-      "bad_trade_prevention_count": 1561
+      "bad_trade_prevention_count": 1562
     },
     "forward_repair_50_verdict_counts": {
       "reject": 49,
@@ -1732,7 +1732,7 @@
         "bitget_taker_10x_margin_net_pct_est": -125.519299
       },
       "forward": {
-        "rows": 1713,
+        "rows": 1714,
         "allowed_or_entered_rows": 23,
         "promotion_status": "blocked_forward_shadow_not_mature_or_failed"
       },
@@ -1784,7 +1784,7 @@
         "bitget_taker_10x_margin_net_pct_est": -112.694911
       },
       "forward": {
-        "rows": 1715,
+        "rows": 1716,
         "allowed_or_entered_rows": 34,
         "promotion_status": "blocked_forward_shadow_not_mature_or_failed"
       },
@@ -1966,7 +1966,7 @@
         "bitget_taker_10x_margin_net_pct_est": null
       },
       "forward": {
-        "rows": 1715,
+        "rows": 1716,
         "allowed_or_entered_rows": 19,
         "promotion_status": "blocked_forward_shadow_not_mature_or_failed"
       },
@@ -1992,7 +1992,7 @@
         "bitget_taker_10x_margin_net_pct_est": 83.66441
       },
       "forward": {
-        "rows": 1708,
+        "rows": 1709,
         "allowed_or_entered_rows": 3,
         "promotion_status": "blocked_forward_shadow_not_mature_or_failed"
       },
