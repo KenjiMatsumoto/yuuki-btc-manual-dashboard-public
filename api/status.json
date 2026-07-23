@@ -1,6 +1,6 @@
 {
   "candidate_id": "btc_manual_trigger_v1",
-  "generated_at_utc": "2026-07-23T04:49:18Z",
+  "generated_at_utc": "2026-07-23T04:55:02Z",
   "scope": {
     "asset": "BTCUSDT",
     "venue": "binance_perp",
@@ -16,7 +16,7 @@
       "remaining": 0
     },
     "shadow_resolved_rows": {
-      "current": 1838,
+      "current": 1839,
       "required": 3,
       "ratio": 1.0,
       "remaining": 0
@@ -42,8 +42,8 @@
       "bad_trade_prevention_count": 4863
     },
     "shadow": {
-      "journal_rows": 1845,
-      "resolved_rows": 1838,
+      "journal_rows": 1846,
+      "resolved_rows": 1839,
       "pending_rows": 7,
       "entered_rows": 70,
       "filled_entered_rows": 70,
@@ -53,7 +53,7 @@
       "entered_win_rate": 0.5428571428571428,
       "gross_return_per_filled_entered_trade_pct": 1.034976131324954,
       "average_return_per_filled_entered_trade_pct": 0.014785373304642196,
-      "missed_opportunity_count": 256,
+      "missed_opportunity_count": 257,
       "bad_trade_prevention_count": 1512
     },
     "readiness": {
@@ -5590,25 +5590,25 @@
       },
       {
         "key": "rr_too_low",
-        "count": 21
+        "count": 20
       },
       {
         "key": "trend_alignment_short",
-        "count": 9
+        "count": 10
       },
       {
         "key": "score_below_allowed_threshold",
-        "count": 9
+        "count": 10
       }
     ],
     "skip_reasons": [
       {
         "key": "方向優位が弱く環境認定できない / OIの追随が弱く自信度が不足 / 想定RRが閾値未満 / 事前トリガー未達で詳細執行判断に進まない",
-        "count": 17
+        "count": 16
       },
       {
         "key": "OIの追随が弱く自信度が不足 / 事前トリガー未達で詳細執行判断に進まない / 方向性はあるがOI/継続確認不足のため監視継続",
-        "count": 8
+        "count": 9
       },
       {
         "key": "方向優位が弱く環境認定できない / OIの追随が弱く自信度が不足 / 想定RRが閾値未満",
@@ -5622,21 +5622,21 @@
     "permissions": [
       {
         "key": "blocked",
-        "count": 21
+        "count": 20
       },
       {
         "key": "watch_only",
-        "count": 9
+        "count": 10
       }
     ],
     "actions": [
       {
         "key": "skip",
-        "count": 21
+        "count": 20
       },
       {
         "key": "watch",
-        "count": 9
+        "count": 10
       }
     ],
     "reason_codes_explained": [
@@ -5692,7 +5692,7 @@
       },
       {
         "key": "rr_too_low",
-        "count": 21,
+        "count": 20,
         "explanation": {
           "code": "rr_too_low",
           "ja_label": "想定RR不足",
@@ -5702,7 +5702,7 @@
       },
       {
         "key": "trend_alignment_short",
-        "count": 9,
+        "count": 10,
         "explanation": {
           "code": "trend_alignment_short",
           "ja_label": "未登録理由コード",
@@ -5712,7 +5712,7 @@
       },
       {
         "key": "score_below_allowed_threshold",
-        "count": 9,
+        "count": 10,
         "explanation": {
           "code": "score_below_allowed_threshold",
           "ja_label": "未登録理由コード",
