@@ -1,6 +1,6 @@
 {
   "candidate_id": "btc_manual_trigger_v1",
-  "generated_at_utc": "2026-07-23T16:44:09Z",
+  "generated_at_utc": "2026-07-23T16:50:07Z",
   "scope": {
     "asset": "BTCUSDT",
     "venue": "binance_perp",
@@ -16,7 +16,7 @@
       "remaining": 0
     },
     "shadow_resolved_rows": {
-      "current": 1887,
+      "current": 1888,
       "required": 3,
       "ratio": 1.0,
       "remaining": 0
@@ -42,8 +42,8 @@
       "bad_trade_prevention_count": 4863
     },
     "shadow": {
-      "journal_rows": 1896,
-      "resolved_rows": 1887,
+      "journal_rows": 1897,
+      "resolved_rows": 1888,
       "pending_rows": 9,
       "entered_rows": 73,
       "filled_entered_rows": 72,
@@ -53,7 +53,7 @@
       "entered_win_rate": 0.5416666666666666,
       "gross_return_per_filled_entered_trade_pct": 1.345679026865454,
       "average_return_per_filled_entered_trade_pct": 0.018689986484242416,
-      "missed_opportunity_count": 267,
+      "missed_opportunity_count": 268,
       "bad_trade_prevention_count": 1548
     },
     "readiness": {
@@ -77,7 +77,7 @@
       "tp1_partial_rr_runner_be"
     ],
     "external_orders": 0,
-    "generated_at_utc": "2026-07-23T16:32:10Z",
+    "generated_at_utc": "2026-07-23T16:47:02Z",
     "group_summaries": {
       "diagnostic": {
         "accounting_note_ja": "合計PnL/勝敗/Feeは戦略=口座単位でのみ評価する。複数戦略をまとめたPnL/勝敗/Feeは表示しない。",
@@ -143,12 +143,12 @@
         "decided_wins": 0,
         "entries": 1,
         "entry_cutover_utc": "2026-07-23T11:11:16Z",
-        "equity_usdt": 10007.67035082,
+        "equity_usdt": 10031.04578872,
         "events": [],
         "exit_policy_variant": "tp1_full",
         "expiry_fallback_note_ja": "tp1_fullはexpiryで時価決着。RR/partial系はTP/SL/RR未達ならno-outcomeとして勝敗に数えない。",
         "external_orders": 0,
-        "generated_at_utc": "2026-07-23T16:32:10Z",
+        "generated_at_utc": "2026-07-23T16:47:02Z",
         "inception_utc": "2026-07-23T11:37:23Z",
         "lane": "manual_trigger_yuuki_multiview",
         "last_exit_decisions": [
@@ -158,13 +158,13 @@
             "exit_rule": "expiry_close",
             "expiry_time_utc": "2026-07-23T18:16:50Z",
             "lane": "manual_trigger_yuuki_multiview",
-            "mark_price": 64797.1,
-            "mark_time_utc": "2026-07-23T16:31:52Z",
+            "mark_price": 64721.3,
+            "mark_time_utc": "2026-07-23T16:46:01Z",
             "paper_state_lane": "manual_trigger_yuuki_multiview__tp1_full",
-            "pnl_usdt_if_closed_now": 12.67035082,
+            "pnl_usdt_if_closed_now": 36.04578872,
             "position_id": "manual_trigger_yuuki_multiview|2026-07-23T16:00:00Z|enter|short",
             "reason": "no_exit_condition_met",
-            "return_on_notional_pct_if_closed_now": 0.06335175,
+            "return_on_notional_pct_if_closed_now": 0.18022894,
             "rr_target": null,
             "side": "short",
             "stop_loss": 65249.4515,
@@ -174,8 +174,8 @@
             "trigger_price": null
           }
         ],
-        "last_mark_price": 64797.1,
-        "last_mark_time_utc": "2026-07-23T16:31:52Z",
+        "last_mark_price": 64721.3,
+        "last_mark_time_utc": "2026-07-23T16:46:01Z",
         "liquidation_risk_20x_closes": 0,
         "liquidation_risk_closes": 0,
         "losses": 0,
@@ -197,10 +197,11 @@
             "expiry_source": "trade_template.expiry_minutes",
             "expiry_time_utc": "2026-07-23T18:16:50Z",
             "lane": "manual_trigger_yuuki_multiview",
+            "last_scanned_bar_time_utc": "2026-07-23T16:30:00Z",
             "leverage": 20.0,
             "leverage_label": "20x",
             "margin_usdt": 1000.0,
-            "mark_price": 64797.1,
+            "mark_price": 64721.3,
             "notional_usdt": 20000.0,
             "paper_state_lane": "manual_trigger_yuuki_multiview__tp1_full",
             "partial_tp1_taken": false,
@@ -215,7 +216,7 @@
               "yuuki_multiview_consensus_enabled",
               "yuuki_multiview_consensus_met"
             ],
-            "return_on_notional_pct": 0.06335175,
+            "return_on_notional_pct": 0.18022894,
             "rr_target": null,
             "side": "short",
             "signal_id": "manual_trigger_yuuki_multiview|2026-07-23T16:00:00Z|enter|short",
@@ -226,7 +227,7 @@
             "tp1": 64566.0125,
             "tp2": 64277.625,
             "tp_final": 63989.2375,
-            "unrealized_pnl_usdt": 12.67035082
+            "unrealized_pnl_usdt": 36.04578872
           }
         ],
         "open_positions": 1,
@@ -250,7 +251,7 @@
         "sizing_note_ja": "margin_usdt * leverage",
         "state_epoch": "yuuki_premortem_v2_20260723",
         "strategy_label_ja": "yuuki_multiview",
-        "unrealized_pnl_usdt": 12.67035082,
+        "unrealized_pnl_usdt": 36.04578872,
         "wins": 0
       },
       {
@@ -262,12 +263,12 @@
         "decided_wins": 0,
         "entries": 1,
         "entry_cutover_utc": "2026-07-23T11:11:16Z",
-        "equity_usdt": 10007.67035082,
+        "equity_usdt": 10031.04578872,
         "events": [],
         "exit_policy_variant": "tp1_partial_rr_runner_be",
         "expiry_fallback_note_ja": "tp1_fullはexpiryで時価決着。RR/partial系はTP/SL/RR未達ならno-outcomeとして勝敗に数えない。",
         "external_orders": 0,
-        "generated_at_utc": "2026-07-23T16:32:10Z",
+        "generated_at_utc": "2026-07-23T16:47:02Z",
         "inception_utc": "2026-07-23T11:37:23Z",
         "lane": "manual_trigger_yuuki_multiview",
         "last_exit_decisions": [
@@ -277,13 +278,13 @@
             "exit_rule": "expiry_close",
             "expiry_time_utc": "2026-07-23T18:16:50Z",
             "lane": "manual_trigger_yuuki_multiview",
-            "mark_price": 64797.1,
-            "mark_time_utc": "2026-07-23T16:31:52Z",
+            "mark_price": 64721.3,
+            "mark_time_utc": "2026-07-23T16:46:01Z",
             "paper_state_lane": "manual_trigger_yuuki_multiview__tp1_partial_rr_runner_be",
-            "pnl_usdt_if_closed_now": 12.67035082,
+            "pnl_usdt_if_closed_now": 36.04578872,
             "position_id": "manual_trigger_yuuki_multiview|2026-07-23T16:00:00Z|enter|short",
             "reason": "no_exit_condition_met",
-            "return_on_notional_pct_if_closed_now": 0.06335175,
+            "return_on_notional_pct_if_closed_now": 0.18022894,
             "rr_target": 64261.82275,
             "side": "short",
             "stop_loss": 65249.4515,
@@ -293,8 +294,8 @@
             "trigger_price": null
           }
         ],
-        "last_mark_price": 64797.1,
-        "last_mark_time_utc": "2026-07-23T16:31:52Z",
+        "last_mark_price": 64721.3,
+        "last_mark_time_utc": "2026-07-23T16:46:01Z",
         "liquidation_risk_20x_closes": 0,
         "liquidation_risk_closes": 0,
         "losses": 0,
@@ -316,10 +317,11 @@
             "expiry_source": "trade_template.expiry_minutes",
             "expiry_time_utc": "2026-07-23T18:16:50Z",
             "lane": "manual_trigger_yuuki_multiview",
+            "last_scanned_bar_time_utc": "2026-07-23T16:30:00Z",
             "leverage": 20.0,
             "leverage_label": "20x",
             "margin_usdt": 1000.0,
-            "mark_price": 64797.1,
+            "mark_price": 64721.3,
             "notional_usdt": 20000.0,
             "paper_state_lane": "manual_trigger_yuuki_multiview__tp1_partial_rr_runner_be",
             "partial_tp1_taken": false,
@@ -334,7 +336,7 @@
               "yuuki_multiview_consensus_enabled",
               "yuuki_multiview_consensus_met"
             ],
-            "return_on_notional_pct": 0.06335175,
+            "return_on_notional_pct": 0.18022894,
             "rr_target": 64261.82275,
             "side": "short",
             "signal_id": "manual_trigger_yuuki_multiview|2026-07-23T16:00:00Z|enter|short",
@@ -345,7 +347,7 @@
             "tp1": 64566.0125,
             "tp2": 64277.625,
             "tp_final": 63989.2375,
-            "unrealized_pnl_usdt": 12.67035082
+            "unrealized_pnl_usdt": 36.04578872
           }
         ],
         "open_positions": 1,
@@ -369,7 +371,7 @@
         "sizing_note_ja": "margin_usdt * leverage",
         "state_epoch": "yuuki_premortem_v2_20260723",
         "strategy_label_ja": "yuuki_multiview",
-        "unrealized_pnl_usdt": 12.67035082,
+        "unrealized_pnl_usdt": 36.04578872,
         "wins": 0
       },
       {
@@ -386,12 +388,12 @@
         "exit_policy_variant": "tp1_full",
         "expiry_fallback_note_ja": "tp1_fullはexpiryで時価決着。RR/partial系はTP/SL/RR未達ならno-outcomeとして勝敗に数えない。",
         "external_orders": 0,
-        "generated_at_utc": "2026-07-23T16:32:10Z",
+        "generated_at_utc": "2026-07-23T16:47:02Z",
         "inception_utc": "2026-07-23T11:37:23Z",
         "lane": "manual_trigger_yuuki_london_short_not_crowded_clean_shadow",
         "last_exit_decisions": [],
-        "last_mark_price": 64797.1,
-        "last_mark_time_utc": "2026-07-23T16:31:16Z",
+        "last_mark_price": 64721.3,
+        "last_mark_time_utc": "2026-07-23T16:46:10Z",
         "liquidation_risk_20x_closes": 0,
         "liquidation_risk_closes": 0,
         "losses": 0,
@@ -431,12 +433,12 @@
         "decided_wins": 1,
         "entries": 2,
         "entry_cutover_utc": "2026-07-23T11:11:16Z",
-        "equity_usdt": 10081.70246265,
+        "equity_usdt": 10105.08164962,
         "events": [],
         "exit_policy_variant": "tp1_full",
         "expiry_fallback_note_ja": "tp1_fullはexpiryで時価決着。RR/partial系はTP/SL/RR未達ならno-outcomeとして勝敗に数えない。",
         "external_orders": 0,
-        "generated_at_utc": "2026-07-23T16:32:10Z",
+        "generated_at_utc": "2026-07-23T16:47:02Z",
         "inception_utc": "2026-07-23T11:37:23Z",
         "lane": "manual_trigger_yuuki_premortem_unlock_u01_weak_impulse_unlock",
         "last_exit_decisions": [
@@ -446,13 +448,13 @@
             "exit_rule": "expiry_close",
             "expiry_time_utc": "2026-07-23T17:31:04Z",
             "lane": "manual_trigger_yuuki_premortem_unlock_u01_weak_impulse_unlock",
-            "mark_price": 64797.1,
-            "mark_time_utc": "2026-07-23T16:31:07Z",
+            "mark_price": 64721.3,
+            "mark_time_utc": "2026-07-23T16:46:01Z",
             "paper_state_lane": "manual_trigger_yuuki_premortem_unlock_u01_weak_impulse_unlock__tp1_full",
-            "pnl_usdt_if_closed_now": 9.4654864,
+            "pnl_usdt_if_closed_now": 32.84467337,
             "position_id": "manual_trigger_yuuki_premortem_unlock_u01_weak_impulse_unlock|2026-07-23T15:15:00Z|enter|short",
             "reason": "no_exit_condition_met",
-            "return_on_notional_pct_if_closed_now": 0.04732743,
+            "return_on_notional_pct_if_closed_now": 0.16422337,
             "rr_target": null,
             "side": "short",
             "stop_loss": 65239.3095,
@@ -462,8 +464,8 @@
             "trigger_price": null
           }
         ],
-        "last_mark_price": 64797.1,
-        "last_mark_time_utc": "2026-07-23T16:31:07Z",
+        "last_mark_price": 64721.3,
+        "last_mark_time_utc": "2026-07-23T16:46:01Z",
         "liquidation_risk_20x_closes": 0,
         "liquidation_risk_closes": 0,
         "losses": 0,
@@ -486,11 +488,11 @@
             "expiry_source": "trade_template.expiry_minutes",
             "expiry_time_utc": "2026-07-23T17:31:04Z",
             "lane": "manual_trigger_yuuki_premortem_unlock_u01_weak_impulse_unlock",
-            "last_scanned_bar_time_utc": "2026-07-23T16:15:00Z",
+            "last_scanned_bar_time_utc": "2026-07-23T16:30:00Z",
             "leverage": 20.0,
             "leverage_label": "20x",
             "margin_usdt": 1000.0,
-            "mark_price": 64797.1,
+            "mark_price": 64721.3,
             "notional_usdt": 20000.0,
             "paper_state_lane": "manual_trigger_yuuki_premortem_unlock_u01_weak_impulse_unlock__tp1_full",
             "partial_tp1_taken": false,
@@ -501,7 +503,7 @@
               "active_premortem_vetoes=london_weak_impulse_veto",
               "non_premortem_allow=True"
             ],
-            "return_on_notional_pct": 0.04732743,
+            "return_on_notional_pct": 0.16422337,
             "rr_target": null,
             "side": "short",
             "signal_id": "manual_trigger_yuuki_premortem_unlock_u01_weak_impulse_unlock|2026-07-23T15:15:00Z|enter|short",
@@ -512,7 +514,7 @@
             "tp1": 64555.3667,
             "tp2": 64266.7333,
             "tp_final": 63978.1,
-            "unrealized_pnl_usdt": 9.4654864
+            "unrealized_pnl_usdt": 32.84467337
           }
         ],
         "open_positions": 1,
@@ -538,7 +540,7 @@
         "sizing_note_ja": "margin_usdt * leverage",
         "state_epoch": "yuuki_premortem_v2_20260723",
         "strategy_label_ja": "manual_trigger_yuuki_premortem_unlock_u01_weak_impulse_unlock",
-        "unrealized_pnl_usdt": 9.4654864,
+        "unrealized_pnl_usdt": 32.84467337,
         "wins": 1
       },
       {
@@ -555,12 +557,12 @@
         "exit_policy_variant": "tp1_full",
         "expiry_fallback_note_ja": "tp1_fullはexpiryで時価決着。RR/partial系はTP/SL/RR未達ならno-outcomeとして勝敗に数えない。",
         "external_orders": 0,
-        "generated_at_utc": "2026-07-23T16:32:10Z",
+        "generated_at_utc": "2026-07-23T16:47:02Z",
         "inception_utc": "2026-07-23T11:37:23Z",
         "lane": "manual_trigger_yuuki_w12_f1_flush_rebound_long",
         "last_exit_decisions": [],
-        "last_mark_price": 64797.1,
-        "last_mark_time_utc": "2026-07-23T16:31:07Z",
+        "last_mark_price": 64721.3,
+        "last_mark_time_utc": "2026-07-23T16:46:01Z",
         "liquidation_risk_20x_closes": 0,
         "liquidation_risk_closes": 0,
         "losses": 0,
@@ -650,29 +652,29 @@
       },
       {
         "key": "rr_too_low",
-        "count": 13
+        "count": 12
       },
       {
         "key": "trend_alignment_short",
-        "count": 11
+        "count": 12
       },
       {
         "key": "london_compression_guard",
         "count": 9
       },
       {
-        "key": "oi_confirms_move",
+        "key": "score_below_allowed_threshold",
         "count": 6
       },
       {
-        "key": "score_below_allowed_threshold",
-        "count": 5
+        "key": "oi_confirms_move",
+        "count": 6
       }
     ],
     "skip_reasons": [
       {
         "key": "方向優位が弱く環境認定できない / OIの追随が弱く自信度が不足 / 想定RRが閾値未満 / 事前トリガー未達で詳細執行判断に進まない",
-        "count": 12
+        "count": 11
       },
       {
         "key": "London時間の低ボラ圧縮でだましを警戒",
@@ -684,7 +686,7 @@
       },
       {
         "key": "OIの追随が弱く自信度が不足 / 事前トリガー未達で詳細執行判断に進まない / 方向性はあるがOI/継続確認不足のため監視継続",
-        "count": 2
+        "count": 3
       },
       {
         "key": "方向優位が弱く環境認定できない / OIの追随が弱く自信度が不足 / 想定RRが閾値未満",
@@ -694,11 +696,11 @@
     "permissions": [
       {
         "key": "blocked",
-        "count": 13
+        "count": 12
       },
       {
         "key": "watch_only",
-        "count": 11
+        "count": 12
       },
       {
         "key": "allowed",
@@ -708,11 +710,11 @@
     "actions": [
       {
         "key": "skip",
-        "count": 13
+        "count": 12
       },
       {
         "key": "watch",
-        "count": 11
+        "count": 12
       },
       {
         "key": "enter",
@@ -772,7 +774,7 @@
       },
       {
         "key": "rr_too_low",
-        "count": 13,
+        "count": 12,
         "explanation": {
           "code": "rr_too_low",
           "ja_label": "想定RR不足",
@@ -782,7 +784,7 @@
       },
       {
         "key": "trend_alignment_short",
-        "count": 11,
+        "count": 12,
         "explanation": {
           "code": "trend_alignment_short",
           "ja_label": "未登録理由コード",
@@ -801,20 +803,20 @@
         }
       },
       {
-        "key": "oi_confirms_move",
+        "key": "score_below_allowed_threshold",
         "count": 6,
         "explanation": {
-          "code": "oi_confirms_move",
+          "code": "score_below_allowed_threshold",
           "ja_label": "未登録理由コード",
           "plain_ja": "この理由コードはまだ日本語説明辞書に未登録です。artifact側にはコードをそのまま残しています。",
           "operator_hint_ja": "頻出する場合は辞書に追加してください。"
         }
       },
       {
-        "key": "score_below_allowed_threshold",
-        "count": 5,
+        "key": "oi_confirms_move",
+        "count": 6,
         "explanation": {
-          "code": "score_below_allowed_threshold",
+          "code": "oi_confirms_move",
           "ja_label": "未登録理由コード",
           "plain_ja": "この理由コードはまだ日本語説明辞書に未登録です。artifact側にはコードをそのまま残しています。",
           "operator_hint_ja": "頻出する場合は辞書に追加してください。"
