@@ -173,7 +173,7 @@ function renderOfficialCleanForward(c){
     noEntry.length ? `${noEntry.join(' / ')} はclosed 0件です。発火・entry条件を継続観測します。` : '判定対象2レーンともclean-forward決着が発生しています。',
     `現役11戦略レーンの公式合計は ${num(active.closed_trades)} closed、${num(active.wins)}-${num(active.losses)}、${Number(active.realized_pnl_usdt||0) >= 0 ? '+' : ''}${yen(active.realized_pnl_usdt)} USDTです。`,
   ];
-  document.getElementById('officialCleanForward').innerHTML = `<div class="k">公式成績（clean-forward）</div><h2 style="margin-top:4px">現役: 研究選定済み / Paper観測中 / live未承認</h2><div class="note"><b>主実験: wave2 vs multiview系(同一シグナルのexit比較)。両者のclosed 20件で優劣判定。</b><br><span class="muted">経緯注記: Wave 2のOOS比率ゲート未達(0.519)は採用判断ではなく実験開始までの経緯です。この比較実験は新規判定対象2レーンとは別管理です。</span></div><div class="note">cutover ${htmlEscape(c.cutover_utc)}。現役11戦略レーンだけを公式合計に含め、Base v1は退役・参考へ分離。公式集計はexit variantの重複を除外。r2_w2 / w12_f1は合算せず、各closed 20件で個別判定します。</div><div class="grid"><div><div class="k">現役戦略レーン</div><div class="v">${num(active.strategy_lane_count)}</div></div><div><div class="k">ユニークentry</div><div class="v">${num(active.unique_entries)}</div></div><div><div class="k">closed</div><div class="v">${num(active.closed_trades)}</div></div><div><div class="k">W-L</div><div class="v">${num(active.wins)}-${num(active.losses)}</div></div><div><div class="k">realized PnL</div><div class="v">${Number(active.realized_pnl_usdt||0) >= 0 ? '+' : ''}${yen(active.realized_pnl_usdt)} USDT</div></div></div><h3>判定対象2戦略レーンの個別進捗</h3><div class="progress-stack">${progress.map(progressBar).join('')}</div><div class="weekly-highlights"><b>今週の見どころ（自動生成）</b><ul>${highlights.map(x=>`<li>${htmlEscape(x)}</li>`).join('')}</ul></div><div class="table-wrap"><table><thead><tr><th>現役戦略レーン / 共有シグナル群</th><th>unique entries</th><th>closed</th><th>W-L</th><th>realized PnL</th><th>状態 / 進捗</th></tr></thead><tbody>${rows}</tbody></table></div><h3>退役・参考（公式合計・採用判断に不算入）</h3><div class="muted">Base v1はstate保持、broker更新停止。旧会計混在累計 -1,151.9 USDT / 9W-15Lは参考値で、現役合計に含めません。</div><div class="table-wrap"><table><thead><tr><th>退役戦略レーン</th><th>unique entries</th><th>closed</th><th>W-L</th><th>realized PnL</th><th>状態</th></tr></thead><tbody>${retiredRows || '<tr><td colspan="6">退役参考なし</td></tr>'}</tbody></table></div>`;
+  document.getElementById('officialCleanForward').innerHTML = `<div class="k">旧epoch成績（clean-forward参考・現行判定対象外）</div><h2 style="margin-top:4px">旧epoch当時: 研究選定済み / Paper観測履歴 / 現行判定対象外</h2><div class="note"><b>主実験: wave2 vs multiview系(同一シグナルのexit比較)。両者のclosed 20件で優劣判定。</b><br><span class="muted">経緯注記: Wave 2のOOS比率ゲート未達(0.519)は採用判断ではなく実験開始までの経緯です。この比較実験は新規判定対象2レーンとは別管理です。</span></div><div class="note">cutover ${htmlEscape(c.cutover_utc)}。旧epoch当時の11戦略レーンだけを履歴合計に含め、Base v1は退役・参考へ分離。公式集計はexit variantの重複を除外。r2_w2 / w12_f1は合算せず、各closed 20件で個別判定します。</div><div class="grid"><div><div class="k">現役戦略レーン</div><div class="v">${num(active.strategy_lane_count)}</div></div><div><div class="k">ユニークentry</div><div class="v">${num(active.unique_entries)}</div></div><div><div class="k">closed</div><div class="v">${num(active.closed_trades)}</div></div><div><div class="k">W-L</div><div class="v">${num(active.wins)}-${num(active.losses)}</div></div><div><div class="k">realized PnL</div><div class="v">${Number(active.realized_pnl_usdt||0) >= 0 ? '+' : ''}${yen(active.realized_pnl_usdt)} USDT</div></div></div><h3>判定対象2戦略レーンの個別進捗</h3><div class="progress-stack">${progress.map(progressBar).join('')}</div><div class="weekly-highlights"><b>今週の見どころ（自動生成）</b><ul>${highlights.map(x=>`<li>${htmlEscape(x)}</li>`).join('')}</ul></div><div class="table-wrap"><table><thead><tr><th>現役戦略レーン / 共有シグナル群</th><th>unique entries</th><th>closed</th><th>W-L</th><th>realized PnL</th><th>状態 / 進捗</th></tr></thead><tbody>${rows}</tbody></table></div><h3>退役・参考（公式合計・採用判断に不算入）</h3><div class="muted">Base v1はstate保持、broker更新停止。旧会計混在累計 -1,151.9 USDT / 9W-15Lは参考値で、現役合計に含めません。</div><div class="table-wrap"><table><thead><tr><th>退役戦略レーン</th><th>unique entries</th><th>closed</th><th>W-L</th><th>realized PnL</th><th>状態</th></tr></thead><tbody>${retiredRows || '<tr><td colspan="6">退役参考なし</td></tr>'}</tbody></table></div>`;
 }
 function renderWeeklyReview(w){
   const root = document.getElementById('weeklyReview');
@@ -211,7 +211,7 @@ async function loadAll(manual=false){
       getJson('api/status.json'), getJson('api/strategy.json'), getJson('api/paper-ready.json'), getJson('api/paper-diagnostics.json')
     ]);
     renderOfficialCleanForward(paperDiagnostics.clean_forward_summary || {});
-    renderDecisionSummary(status, strategy, paperReady, paperDiagnostics.clean_forward_summary || {});
+    renderDecisionSummary(status, strategy, paperReady, paperDiagnostics);
     renderLanes(status, strategy, paperReady, paperDiagnostics);
     renderPaperBroker(status, paperDiagnostics);
     renderPaperDiagnostics(status, strategy, paperReady, paperDiagnostics);
@@ -238,23 +238,22 @@ function renderRuntimeHealth(h){
     <span>active Paper口座: ${num(h.active_paper_lane_count)}</span>
     <span>今回tick: ${tradeActivity}</span>`;
 }
-function renderDecisionSummary(status, strategy, paperReady, cleanForward){
+function renderDecisionSummary(status, strategy, paperReady, paperDiagnostics){
   const p = status.paper_broker || {};
-  const c = cleanForward || {};
-  const active = c.official_active_summary || {};
-  const progressRows = c.decision_target_progress || [];
-  const targetByLane = new Map(progressRows.map(row => [row.lane, row]));
-  const targetRows = [
-    ['manual_trigger_yuuki_r2_w2_london_late_low_vol_gate_loo', 'r2_w2'],
-    ['manual_trigger_yuuki_w12_f1_flush_rebound_long', 'w12_f1'],
-  ].map(([lane, short]) => {
-    const row = targetByLane.get(lane) || {closed_trades:0, target_closed_trades:20, remaining_closed_trades:20, decision_ready:false};
-    const verdict = row.decision_ready ? '個別判定可能' : 'Paper観測継続';
-    return `<tr><td><b>${short}</b></td><td>${num(row.closed_trades)}/${num(row.target_closed_trades || 20)}</td><td>${num(row.remaining_closed_trades)}件</td><td class="${row.decision_ready ? 'ok' : 'warn'}">${verdict}</td></tr>`;
-  }).join('');
-  const signedPnl = Number(active.realized_pnl_usdt || 0);
-  const headline = `${num(active.unique_entries)} / ${num(active.closed_trades)} / ${num(active.wins)}-${num(active.losses)} / ${signedPnl >= 0 ? '+' : ''}${yen(signedPnl)} USDT`;
-  document.getElementById('decision').innerHTML = `<div class="card"><div class="k">現時点の運用判断</div><h2 class="warn">Paper観測継続 / live未承認</h2><div class="grid"><div><div class="k">現役11戦略レーン公式合計（Entry数 / Closed数 / W-L / Realized PnL）</div><div class="v">${headline}</div><div class="muted">公式合計は運用状況の表示であり、2つの判定対象を合算して採否判定しません。</div></div><div><div class="k">外部発注</div><div class="v ${(p.external_orders || 0) === 0 ? 'ok' : 'warn'}">${num(p.external_orders || 0)} 件</div></div></div><h3>新規判定対象（各レーンclosed 20件で個別判定）</h3><div class="table-wrap"><table><thead><tr><th>戦略レーン</th><th>closed/20</th><th>判定まで残り</th><th>現在の状態</th></tr></thead><tbody>${targetRows}</tbody></table></div><div class="muted"><b>退役・参考:</b> Base v1。market-fill / 対照群 / multiview共有シグナル群は比較・参考表示で、新規判定対象に含めません。</div></div>`;
+  const d = paperDiagnostics || {};
+  const program = d.current_paper_program || {};
+  const rows = Array.isArray(d.variant_rows) ? d.variant_rows : [];
+  const totals = rows.reduce((acc, row) => {
+    acc.entries += Number(row.entries || 0);
+    acc.closed += Number(row.closed_trades || 0);
+    acc.wins += Number(row.wins || 0);
+    acc.losses += Number(row.losses || 0);
+    acc.pnl += Number(row.realized_pnl_usdt || 0);
+    return acc;
+  }, {entries:0, closed:0, wins:0, losses:0, pnl:0});
+  const headline = `${num(totals.entries)} / ${num(totals.closed)} / ${num(totals.wins)}-${num(totals.losses)} / ${totals.pnl >= 0 ? '+' : ''}${yen(totals.pnl)} USDT`;
+  const activeRows = (program.active_accounts || []).map(row => `<tr><td><b>${htmlEscape(row.lane || '-')}</b></td><td>${htmlEscape(row.exit_policy_variant || '-')}</td><td>${htmlEscape(row.role || row.reason_ja || '-')}</td></tr>`).join('');
+  document.getElementById('decision').innerHTML = `<div class="card"><div class="k">現時点の運用判断</div><h2 class="warn">Paper観測継続 / live未承認</h2><div class="grid"><div><div class="k">新epoch現役Paper口座合計（Entry数 / Closed数 / W-L / Realized PnL）</div><div class="v">${headline}</div><div class="muted">epoch ${htmlEscape(program.state_epoch || '-')}。旧epoch成績は合算せず、現役${num(program.active_strategy_count)}戦略・${num(program.active_account_count)}口座だけを判定対象にします。</div></div><div><div class="k">外部発注</div><div class="v ${(p.external_orders || 0) === 0 ? 'ok' : 'warn'}">${num(p.external_orders || 0)} 件</div></div></div><h3>現役Paper口座（新epoch）</h3><div class="table-wrap"><table><thead><tr><th>戦略レーン</th><th>exit variant</th><th>役割</th></tr></thead><tbody>${activeRows || '<tr><td colspan="3" class="muted">現役口座なし</td></tr>'}</tbody></table></div><div class="muted">停止・入替対象は下段の Current Paper Program に理由付きで表示。旧clean-forwardは証跡専用で、現行PnL・採否判定には使いません。</div></div>`;
 }
 function paperLaneCategory(l){
   const lane = l.lane || '';
@@ -375,6 +374,11 @@ function renderPaperDiagnostics(status, strategy, paperReady, diag){
   const p = status.paper_broker || {}; diag = diag || {};
   const b = diag.focus_breakdown || diag.pnl_breakdown || {};
   const f = diag.forward_paper_gap || {};
+  const program = diag.current_paper_program || {};
+  const activeRows = (program.active_accounts || program.active_strategies || []).map(x => `<tr><td><b>${htmlEscape(x.label_ja || x.lane || '-')}</b><br><span class="muted">${htmlEscape(x.lane || '-')}</span></td><td>${htmlEscape(exitPolicyLabel(x.exit_policy_variant))}</td><td>${htmlEscape(x.reason_ja || x.role || '-')}</td></tr>`).join('');
+  const parkedRows = (program.parked_strategies || []).map(x => `<tr><td><b>${htmlEscape(x.label_ja || x.lane || '-')}</b><br><span class="muted">${htmlEscape(x.lane || '-')}</span></td><td>${htmlEscape(x.status || x.reason || 'parked')}</td><td>${htmlEscape(x.reason_ja || '-')}</td></tr>`).join('');
+  const changeRows = Object.entries(program.changes_from_legacy || {}).map(([k,v]) => `<tr><td>${htmlEscape(k)}</td><td>${htmlEscape(v)}</td></tr>`).join('');
+  const failureRows = (program.premortem_failure_modes || []).map(x => `<tr><td><b>${htmlEscape(x.id || '-')} ${htmlEscape(x.title_ja || '')}</b></td><td>${htmlEscape(x.observed || '-')}</td><td>${htmlEscape(x.mitigation || '-')}</td></tr>`).join('');
   const laneRows = (diag.variant_rows || []).slice(0, 80).map(x => `<tr><td><b>${htmlEscape(x.display_label || x.short_label || '戦略レーン')}</b><br><span class="muted">${htmlEscape(exitPolicyLabel(x.exit_policy_variant))} / ${htmlEscape(x.side || '-')} / ${htmlEscape(x.category || '-')}</span></td><td>${num(x.entries)} / ${num(x.closed_trades)}</td><td>${htmlEscape(x.closed_progress_label || '-')}</td><td>${decidedWrText(x)}</td><td>${x.profit_factor == null ? '-' : num(x.profit_factor)} / ${x.payoff_ratio == null ? '-' : num(x.payoff_ratio)}</td><td class="${paperDiagSeverity(x)}">${yen(x.realized_pnl_usdt)}</td><td>${yen(x.avg_win_usdt)} / ${yen(x.avg_loss_usdt)}</td><td>${yen(x.max_win_usdt)} / ${yen(x.max_loss_usdt)}</td><td>${htmlEscape((x.exit_reasons || []).join(', ') || '-')}</td><td>${htmlEscape((x.reason_codes || []).join(', ') || '-')}</td></tr>`).join('');
   const worstRows = (b.worst_trades || []).map(t => `<tr><td>${htmlEscape(t.exit_time_utc || '-')}<br><span class="muted">${htmlEscape(t.short_label || t.lane || '-')}</span></td><td>${htmlEscape(t.exit_policy_variant || '-')}</td><td>${htmlEscape(t.side || '-')}</td><td>${yen(t.realized_pnl_usdt)}</td><td>${pct(t.return_on_notional_pct)}</td><td>${htmlEscape(t.exit_reason || '-')}</td><td>${htmlEscape((t.reason_codes || []).join(', ') || '-')}</td></tr>`).join('');
   const bestRows = (b.best_trades || []).map(t => `<tr><td>${htmlEscape(t.exit_time_utc || '-')}<br><span class="muted">${htmlEscape(t.short_label || t.lane || '-')}</span></td><td>${htmlEscape(t.exit_policy_variant || '-')}</td><td>${htmlEscape(t.side || '-')}</td><td>${yen(t.realized_pnl_usdt)}</td><td>${pct(t.return_on_notional_pct)}</td><td>${htmlEscape(t.exit_reason || '-')}</td><td>${htmlEscape((t.reason_codes || []).join(', ') || '-')}</td></tr>`).join('');
@@ -382,7 +386,22 @@ function renderPaperDiagnostics(status, strategy, paperReady, diag){
   const categoryRows = (diag.category_breakdown || []).map(x => `<tr><td>${htmlEscape(x.category)}</td><td>${num(x.accounts ?? x.variant_count ?? 0)}</td><td>${num(x.active_accounts || 0)}</td><td>${num(x.parked_accounts || 0)}</td><td>${num(x.entries || 0)}</td><td>${num(x.closed_trades)}</td><td><span class="muted">分類合算しない</span></td></tr>`).join('');
   const skipRows = (diag.skip_reason_rows || []).slice(0,12).map(x => `<tr><td>${htmlEscape(x.kind)}</td><td>${htmlEscape(x.reason)}</td><td>${num(x.count)}</td><td>${htmlEscape(x.meaning_ja || '')}</td></tr>`).join('');
   document.getElementById('paperDiagnostics').innerHTML = `
-    <div class="note bad"><b>参考: 旧会計混在(phantom決済含む・判断に使わない)</b><br>以下はPaper口座（戦略レーン×exit variant）単位の旧累計表示です。複数戦略/分類をまたぐPnL・勝率・Feeは合算せず、expiry_minutesだけの強制決着もPaper勝敗にしません。</div>
+    <div class="note ${program.registry_loaded && program.premortem_loaded ? 'ok' : 'bad'}"><b>現行Paper運用 / Current Paper Program</b><br>state epoch: <code>${htmlEscape(program.state_epoch || '-')}</code> / entry cutover: ${htmlEscape(program.entry_cutover_utc || '-')}<br><span class="muted">registry: ${htmlEscape(program.runtime_registry_json || '未読込')} / premortem: ${htmlEscape(program.premortem_artifact || '未読込')}</span></div>
+    <div class="grid">
+      <div><div class="k">現役戦略 / Active</div><div class="v ok">${num(program.active_strategy_count || 0)}戦略 / ${num(program.active_account_count || 0)}口座</div><div class="muted">registry記載口座だけをbroker更新。</div></div>
+      <div><div class="k">停止戦略 / Parked</div><div class="v warn">${num(program.parked_strategy_count || 0)}</div><div class="muted">legacy evidenceは保持、新epochでは更新しない。</div></div>
+      <div><div class="k">entry変更</div><div class="v">cutover</div><div class="muted">${htmlEscape(program.entry_change_note_ja || 'cutover以前のsignalを新epochへ持ち込まない。')}</div></div>
+      <div><div class="k">exit変更</div><div class="v">registry指定</div><div class="muted">${htmlEscape(program.exit_change_note_ja || 'exit variantはregistry記載口座だけを更新。')}</div></div>
+    </div>
+    <h3>現役Paper口座（新epoch更新対象）</h3>
+    <div class="table-wrap"><table><thead><tr><th>戦略 / canonical lane</th><th>exit</th><th>採用理由</th></tr></thead><tbody>${activeRows || '<tr><td colspan="3">現役戦略なし / registry未読込</td></tr>'}</tbody></table></div>
+    <h3>停止・入替対象（legacy evidence保持）</h3>
+    <div class="table-wrap"><table><thead><tr><th>戦略 / canonical lane</th><th>状態</th><th>停止理由</th></tr></thead><tbody>${parkedRows || '<tr><td colspan="3">停止戦略なし / registry未読込</td></tr>'}</tbody></table></div>
+    <div class="grid">
+      <div><div class="k">旧運用からの変更</div><div class="table-wrap"><table><thead><tr><th>項目</th><th>変更内容</th></tr></thead><tbody>${changeRows || '<tr><td colspan="2">変更情報なし</td></tr>'}</tbody></table></div></div>
+      <div><div class="k">プレモータム要因 / Failure Modes</div><div class="table-wrap"><table><thead><tr><th>要因</th><th>旧実測</th><th>対策</th></tr></thead><tbody>${failureRows || '<tr><td colspan="3">premortem未読込</td></tr>'}</tbody></table></div></div>
+    </div>
+    <div class="note warn"><b>以下は口座別診断</b><br>新epochでは現役口座のみを表示します。epoch未設定のlegacy aggregateでは旧rootを読みます。複数戦略/分類をまたぐPnL・勝率・Feeは合算しません。</div>
     <div class="grid">
       <div><div class="k">active Paper口座数</div><div class="v">${num(diag.active_paper_account_count ?? diag.active_paper_variant_count ?? diag.market_fill_survivor_summary?.variants ?? 0)}</div><div class="muted">Paper broker更新はmarket-fill survivor + BT/OOS済みclean shadow + 参照基準。closed&gt;=20で劣化比較開始。</div></div>
       <div><div class="k">評価単位</div><div class="v warn">Paper口座別</div><div class="muted">候補・exit policyを混ぜず、戦略レーン×exit variantの口座単位だけを見る。</div></div>
