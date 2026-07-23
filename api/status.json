@@ -1,6 +1,6 @@
 {
   "candidate_id": "btc_manual_trigger_v1",
-  "generated_at_utc": "2026-07-23T16:20:07Z",
+  "generated_at_utc": "2026-07-23T16:26:11Z",
   "scope": {
     "asset": "BTCUSDT",
     "venue": "binance_perp",
@@ -42,9 +42,9 @@
       "bad_trade_prevention_count": 4863
     },
     "shadow": {
-      "journal_rows": 1894,
+      "journal_rows": 1895,
       "resolved_rows": 1886,
-      "pending_rows": 8,
+      "pending_rows": 9,
       "entered_rows": 73,
       "filled_entered_rows": 72,
       "entered_unfilled_rows": 0,
@@ -672,11 +672,11 @@
       },
       {
         "key": "rr_too_low",
-        "count": 15
+        "count": 14
       },
       {
         "key": "trend_alignment_short",
-        "count": 9
+        "count": 10
       },
       {
         "key": "london_compression_guard",
@@ -688,13 +688,13 @@
       },
       {
         "key": "score_below_allowed_threshold",
-        "count": 3
+        "count": 4
       }
     ],
     "skip_reasons": [
       {
         "key": "方向優位が弱く環境認定できない / OIの追随が弱く自信度が不足 / 想定RRが閾値未満 / 事前トリガー未達で詳細執行判断に進まない",
-        "count": 14
+        "count": 13
       },
       {
         "key": "London時間の低ボラ圧縮でだましを警戒",
@@ -707,16 +707,20 @@
       {
         "key": "方向優位が弱く環境認定できない / OIの追随が弱く自信度が不足 / 想定RRが閾値未満",
         "count": 1
+      },
+      {
+        "key": "OIの追随が弱く自信度が不足 / 事前トリガー未達で詳細執行判断に進まない / 方向性はあるがOI/継続確認不足のため監視継続",
+        "count": 1
       }
     ],
     "permissions": [
       {
         "key": "blocked",
-        "count": 15
+        "count": 14
       },
       {
         "key": "watch_only",
-        "count": 9
+        "count": 10
       },
       {
         "key": "allowed",
@@ -726,11 +730,11 @@
     "actions": [
       {
         "key": "skip",
-        "count": 15
+        "count": 14
       },
       {
         "key": "watch",
-        "count": 9
+        "count": 10
       },
       {
         "key": "enter",
@@ -790,7 +794,7 @@
       },
       {
         "key": "rr_too_low",
-        "count": 15,
+        "count": 14,
         "explanation": {
           "code": "rr_too_low",
           "ja_label": "想定RR不足",
@@ -800,7 +804,7 @@
       },
       {
         "key": "trend_alignment_short",
-        "count": 9,
+        "count": 10,
         "explanation": {
           "code": "trend_alignment_short",
           "ja_label": "未登録理由コード",
@@ -830,7 +834,7 @@
       },
       {
         "key": "score_below_allowed_threshold",
-        "count": 3,
+        "count": 4,
         "explanation": {
           "code": "score_below_allowed_threshold",
           "ja_label": "未登録理由コード",
