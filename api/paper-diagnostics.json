@@ -1,6 +1,6 @@
 {
   "artifact": "btc_manual_trigger_paper_diagnostics",
-  "generated_at_utc": "2026-07-23T16:14:03Z",
+  "generated_at_utc": "2026-07-23T16:20:07Z",
   "variant_count": 5,
   "paper_account_count": 5,
   "strategy_lane_count": 4,
@@ -267,21 +267,21 @@
       "live_status": "live未承認",
       "retired": "退役・参考"
     },
-    "raw_variant_entries": 2,
-    "unique_entries": 2,
-    "duplicate_variant_entries_excluded": 0,
+    "raw_variant_entries": 4,
+    "unique_entries": 3,
+    "duplicate_variant_entries_excluded": 1,
     "duplicate_shared_signal_entries_excluded": 0,
     "representative_closed_trades": 1,
     "representative_wins": 1,
     "representative_losses": 0,
-    "representative_open_positions": 1,
+    "representative_open_positions": 2,
     "representative_realized_pnl_usdt": 77.23697625,
     "official_active_summary": {
       "strategy_lane_count": 11,
       "display_row_count": 7,
-      "unique_entries": 2,
+      "unique_entries": 3,
       "closed_trades": 1,
-      "open_positions": 1,
+      "open_positions": 2,
       "wins": 1,
       "losses": 0,
       "realized_pnl_usdt": 77.23697625
@@ -351,13 +351,15 @@
         "lane": "manual_trigger_yuuki_multiview",
         "short_label": "multiview",
         "display_label": "multiview 基準",
-        "unique_entries": 0,
+        "unique_entries": 1,
         "closed_trades": 0,
-        "open_positions": 0,
+        "open_positions": 1,
         "wins": 0,
         "losses": 0,
-        "realized_pnl_usdt": 0.0,
-        "representative_variants": []
+        "realized_pnl_usdt": 0,
+        "representative_variants": [
+          "tp1_full"
+        ]
       },
       {
         "lane": "manual_trigger_yuuki_premortem_unlock_u01_weak_impulse_unlock",
@@ -535,13 +537,15 @@
         "lane": "manual_trigger_yuuki_multiview",
         "short_label": "multiview",
         "display_label": "multiview 基準",
-        "unique_entries": 0,
+        "unique_entries": 1,
         "closed_trades": 0,
-        "open_positions": 0,
+        "open_positions": 1,
         "wins": 0,
         "losses": 0,
-        "realized_pnl_usdt": 0.0,
-        "representative_variants": []
+        "realized_pnl_usdt": 0,
+        "representative_variants": [
+          "tp1_full"
+        ]
       },
       {
         "lane": "manual_trigger_yuuki_premortem_unlock_u01_weak_impulse_unlock",
@@ -621,13 +625,15 @@
           "lane": "manual_trigger_yuuki_multiview",
           "short_label": "multiview",
           "display_label": "multiview 基準",
-          "unique_entries": 0,
+          "unique_entries": 1,
           "closed_trades": 0,
-          "open_positions": 0,
+          "open_positions": 1,
           "wins": 0,
           "losses": 0,
-          "realized_pnl_usdt": 0.0,
-          "representative_variants": []
+          "realized_pnl_usdt": 0,
+          "representative_variants": [
+            "tp1_full"
+          ]
         },
         {
           "lane": "manual_trigger_yuuki_candidate_paper_y12_priceup_oidown_resolve_wait_long",
@@ -678,9 +684,9 @@
           "representative_variants": []
         }
       ],
-      "unique_entries": 0,
+      "unique_entries": 1,
       "closed_trades": 0,
-      "open_positions": 0,
+      "open_positions": 1,
       "wins": 0,
       "losses": 0,
       "realized_pnl_usdt": 0,
@@ -814,7 +820,7 @@
       "active_account_count": 2,
       "parked_account_count": 0,
       "variant_count": 2,
-      "entries": 0,
+      "entries": 2,
       "accounting_note_ja": "カテゴリ合算PnL/WR/Feeは非表示。variant別=口座単位のみ参照。",
       "avg_win_loss_gap_usdt": 0.0
     },
@@ -874,6 +880,74 @@
   "status_note_ja": "",
   "dashboard_note_ja": "",
   "variant_rows": [
+    {
+      "lane": "manual_trigger_yuuki_multiview",
+      "short_label": "multiview",
+      "display_label": "multiview 基準",
+      "paper_state_lane": "manual_trigger_yuuki_multiview__tp1_full",
+      "registered_in_broker_snapshot": true,
+      "category": "multiview系(同一シグナル群)",
+      "market_fill_verdict_20260705": "",
+      "paper_broker_enabled": null,
+      "paper_state_status": "active_or_legacy",
+      "paper_state_note_ja": "",
+      "exit_policy_variant": "tp1_full",
+      "side": "-",
+      "entries": 1,
+      "open_positions": 1,
+      "closed_trades": 0,
+      "closed_progress_target": 20,
+      "closed_progress_label": "0/20",
+      "wins": 0,
+      "losses": 0,
+      "profit_factor": null,
+      "payoff_ratio": null,
+      "decided_win_rate": null,
+      "partial_tp1_wins": 0,
+      "realized_pnl_usdt": 0,
+      "realized_exit_pnl_usdt": 0,
+      "avg_win_usdt": 0.0,
+      "avg_loss_usdt": 0.0,
+      "max_win_usdt": 0.0,
+      "max_loss_usdt": 0.0,
+      "entry_fee_usdt": 0,
+      "exit_reasons": [],
+      "reason_codes": []
+    },
+    {
+      "lane": "manual_trigger_yuuki_multiview",
+      "short_label": "multiview",
+      "display_label": "multiview 基準",
+      "paper_state_lane": "manual_trigger_yuuki_multiview__tp1_partial_rr_runner_be",
+      "registered_in_broker_snapshot": true,
+      "category": "multiview系(同一シグナル群)",
+      "market_fill_verdict_20260705": "",
+      "paper_broker_enabled": null,
+      "paper_state_status": "active_or_legacy",
+      "paper_state_note_ja": "",
+      "exit_policy_variant": "tp1_partial_rr_runner_be",
+      "side": "-",
+      "entries": 1,
+      "open_positions": 1,
+      "closed_trades": 0,
+      "closed_progress_target": 20,
+      "closed_progress_label": "0/20",
+      "wins": 0,
+      "losses": 0,
+      "profit_factor": null,
+      "payoff_ratio": null,
+      "decided_win_rate": null,
+      "partial_tp1_wins": 0,
+      "realized_pnl_usdt": 0,
+      "realized_exit_pnl_usdt": 0,
+      "avg_win_usdt": 0.0,
+      "avg_loss_usdt": 0.0,
+      "max_win_usdt": 0.0,
+      "max_loss_usdt": 0.0,
+      "entry_fee_usdt": 0,
+      "exit_reasons": [],
+      "reason_codes": []
+    },
     {
       "lane": "manual_trigger_yuuki_premortem_unlock_u01_weak_impulse_unlock",
       "short_label": "premortem_unlock_u01_weak_impulse_unlock",
@@ -949,74 +1023,6 @@
       "reason_codes": []
     },
     {
-      "lane": "manual_trigger_yuuki_multiview",
-      "short_label": "multiview",
-      "display_label": "multiview 基準",
-      "paper_state_lane": "manual_trigger_yuuki_multiview__tp1_full",
-      "registered_in_broker_snapshot": true,
-      "category": "multiview系(同一シグナル群)",
-      "market_fill_verdict_20260705": "",
-      "paper_broker_enabled": null,
-      "paper_state_status": "active_or_legacy",
-      "paper_state_note_ja": "",
-      "exit_policy_variant": "tp1_full",
-      "side": "-",
-      "entries": 0,
-      "open_positions": 0,
-      "closed_trades": 0,
-      "closed_progress_target": 20,
-      "closed_progress_label": "0/20",
-      "wins": 0,
-      "losses": 0,
-      "profit_factor": null,
-      "payoff_ratio": null,
-      "decided_win_rate": null,
-      "partial_tp1_wins": 0,
-      "realized_pnl_usdt": 0,
-      "realized_exit_pnl_usdt": 0,
-      "avg_win_usdt": 0.0,
-      "avg_loss_usdt": 0.0,
-      "max_win_usdt": 0.0,
-      "max_loss_usdt": 0.0,
-      "entry_fee_usdt": 0,
-      "exit_reasons": [],
-      "reason_codes": []
-    },
-    {
-      "lane": "manual_trigger_yuuki_multiview",
-      "short_label": "multiview",
-      "display_label": "multiview 基準",
-      "paper_state_lane": "manual_trigger_yuuki_multiview__tp1_partial_rr_runner_be",
-      "registered_in_broker_snapshot": true,
-      "category": "multiview系(同一シグナル群)",
-      "market_fill_verdict_20260705": "",
-      "paper_broker_enabled": null,
-      "paper_state_status": "active_or_legacy",
-      "paper_state_note_ja": "",
-      "exit_policy_variant": "tp1_partial_rr_runner_be",
-      "side": "-",
-      "entries": 0,
-      "open_positions": 0,
-      "closed_trades": 0,
-      "closed_progress_target": 20,
-      "closed_progress_label": "0/20",
-      "wins": 0,
-      "losses": 0,
-      "profit_factor": null,
-      "payoff_ratio": null,
-      "decided_win_rate": null,
-      "partial_tp1_wins": 0,
-      "realized_pnl_usdt": 0,
-      "realized_exit_pnl_usdt": 0,
-      "avg_win_usdt": 0.0,
-      "avg_loss_usdt": 0.0,
-      "max_win_usdt": 0.0,
-      "max_loss_usdt": 0.0,
-      "entry_fee_usdt": 0,
-      "exit_reasons": [],
-      "reason_codes": []
-    },
-    {
       "lane": "manual_trigger_yuuki_w12_f1_flush_rebound_long",
       "short_label": "w12_f1_flush_rebound_long",
       "display_label": "w12_f1 清算フラッシュ反発 Long",
@@ -1055,9 +1061,9 @@
     "category_rows": [
       {
         "category": "market-fill survivor",
-        "forward_entered_rows": 72,
+        "forward_entered_rows": 73,
         "paper_entries": 0,
-        "paper_minus_forward": -72,
+        "paper_minus_forward": -73,
         "note_ja": "Forwardはmarket-fill survivor候補セット全体のshadow信号、Paperはexit policy別variantの実行件数。1信号が最大3 paper entriesに増える。"
       },
       {
@@ -1094,55 +1100,55 @@
     {
       "kind": "reason_code",
       "reason": "funding_not_extreme",
-      "count": 25,
+      "count": 24,
       "meaning_ja": "Fundingが極端に偏っておらず、ロング/ショートの過熱や踏み上げ・投げ売りの燃料が足りない状態です。"
     },
     {
       "kind": "reason_code",
       "reason": "premium_within_cap",
-      "count": 25,
+      "count": 24,
       "meaning_ja": "先物価格の上乗せ/割引が許容範囲内で、歪みが十分に出ていない状態です。"
     },
     {
       "kind": "reason_code",
       "reason": "volatility_normalized",
-      "count": 25,
+      "count": 24,
       "meaning_ja": "値動きの荒さが通常レンジに戻っており、短時間でTPまで伸びる根拠が弱い状態です。"
     },
     {
       "kind": "reason_code",
       "reason": "oi_not_confirming",
-      "count": 19,
+      "count": 18,
       "meaning_ja": "価格の方向に対して建玉（OI）の増減が十分についてきていない状態です。上昇/下落に見えても新規参加者の追随が弱く、だましや一時的な戻りの可能性が高いので許可しません。"
     },
     {
       "kind": "reason_code",
       "reason": "cheap_trigger_not_met",
-      "count": 18,
+      "count": 17,
       "meaning_ja": "買うなら十分安い位置、売るなら十分高い/戻った位置、という事前の価格条件にまだ到達していない状態です。"
     },
     {
       "kind": "reason_code",
       "reason": "rr_too_low",
-      "count": 16,
+      "count": 15,
       "meaning_ja": "エントリー候補から利確目標までの距離に対して、損切り幅やコストを考えた見返りが小さい状態です。"
     },
     {
       "kind": "permission",
       "reason": "blocked",
-      "count": 16,
+      "count": 15,
       "meaning_ja": ""
     },
     {
       "kind": "action",
       "reason": "skip",
-      "count": 16,
+      "count": 15,
       "meaning_ja": ""
     },
     {
       "kind": "skip_reason",
       "reason": "方向優位が弱く環境認定できない / OIの追随が弱く自信度が不足 / 想定RRが閾値未満 / 事前トリガー未達で詳細執行判断に進まない",
-      "count": 15,
+      "count": 14,
       "meaning_ja": ""
     },
     {
@@ -1184,13 +1190,13 @@
     {
       "kind": "permission",
       "reason": "allowed",
-      "count": 5,
+      "count": 6,
       "meaning_ja": ""
     },
     {
       "kind": "action",
       "reason": "enter",
-      "count": 5,
+      "count": 6,
       "meaning_ja": ""
     },
     {
