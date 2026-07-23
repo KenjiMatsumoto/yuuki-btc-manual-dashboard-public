@@ -1,6 +1,6 @@
 {
   "candidate_id": "btc_manual_trigger_v1",
-  "generated_at_utc": "2026-07-23T21:24:36Z",
+  "generated_at_utc": "2026-07-23T21:31:47Z",
   "scope": {
     "asset": "BTCUSDT",
     "venue": "binance_perp",
@@ -16,7 +16,7 @@
       "remaining": 0
     },
     "shadow_resolved_rows": {
-      "current": 1907,
+      "current": 1908,
       "required": 3,
       "ratio": 1.0,
       "remaining": 0
@@ -42,8 +42,8 @@
       "bad_trade_prevention_count": 4863
     },
     "shadow": {
-      "journal_rows": 1914,
-      "resolved_rows": 1907,
+      "journal_rows": 1915,
+      "resolved_rows": 1908,
       "pending_rows": 7,
       "entered_rows": 73,
       "filled_entered_rows": 73,
@@ -54,7 +54,7 @@
       "gross_return_per_filled_entered_trade_pct": 1.5630891023576332,
       "average_return_per_filled_entered_trade_pct": 0.021412179484351142,
       "missed_opportunity_count": 275,
-      "bad_trade_prevention_count": 1559
+      "bad_trade_prevention_count": 1560
     },
     "readiness": {
       "verdict": "blocked",
@@ -422,23 +422,23 @@
   "recent_not_allowed_reason_rankings": {
     "recent_n": 30,
     "sample_rows": 30,
-    "not_allowed_rows": 26,
+    "not_allowed_rows": 27,
     "reason_codes": [
       {
         "key": "funding_not_extreme",
-        "count": 26
+        "count": 27
       },
       {
         "key": "premium_within_cap",
-        "count": 26
+        "count": 27
       },
       {
         "key": "volatility_normalized",
-        "count": 26
+        "count": 27
       },
       {
         "key": "oi_not_confirming",
-        "count": 20
+        "count": 21
       },
       {
         "key": "trend_alignment_short",
@@ -454,7 +454,7 @@
       },
       {
         "key": "rr_too_low",
-        "count": 8
+        "count": 9
       },
       {
         "key": "oi_confirms_move",
@@ -480,7 +480,7 @@
       },
       {
         "key": "方向優位が弱く環境認定できない / OIの追随が弱く自信度が不足 / 想定RRが閾値未満",
-        "count": 3
+        "count": 4
       },
       {
         "key": "OIの追随が弱く自信度が不足 / 方向性はあるがOI/継続確認不足のため監視継続",
@@ -494,11 +494,11 @@
       },
       {
         "key": "blocked",
-        "count": 8
+        "count": 9
       },
       {
         "key": "allowed",
-        "count": 4
+        "count": 3
       }
     ],
     "actions": [
@@ -508,17 +508,17 @@
       },
       {
         "key": "skip",
-        "count": 8
+        "count": 9
       },
       {
         "key": "enter",
-        "count": 4
+        "count": 3
       }
     ],
     "reason_codes_explained": [
       {
         "key": "funding_not_extreme",
-        "count": 26,
+        "count": 27,
         "explanation": {
           "code": "funding_not_extreme",
           "ja_label": "Funding極端値なし",
@@ -528,7 +528,7 @@
       },
       {
         "key": "premium_within_cap",
-        "count": 26,
+        "count": 27,
         "explanation": {
           "code": "premium_within_cap",
           "ja_label": "現物/先物プレミアムが通常範囲",
@@ -538,7 +538,7 @@
       },
       {
         "key": "volatility_normalized",
-        "count": 26,
+        "count": 27,
         "explanation": {
           "code": "volatility_normalized",
           "ja_label": "ボラティリティ通常化",
@@ -548,7 +548,7 @@
       },
       {
         "key": "oi_not_confirming",
-        "count": 20,
+        "count": 21,
         "explanation": {
           "code": "oi_not_confirming",
           "ja_label": "OI追随不足",
@@ -588,7 +588,7 @@
       },
       {
         "key": "rr_too_low",
-        "count": 8,
+        "count": 9,
         "explanation": {
           "code": "rr_too_low",
           "ja_label": "想定RR不足",
