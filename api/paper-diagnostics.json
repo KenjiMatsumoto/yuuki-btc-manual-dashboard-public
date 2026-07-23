@@ -1,6 +1,6 @@
 {
   "artifact": "btc_manual_trigger_paper_diagnostics",
-  "generated_at_utc": "2026-07-23T13:15:35Z",
+  "generated_at_utc": "2026-07-23T13:21:48Z",
   "variant_count": 108,
   "paper_account_count": 5,
   "strategy_lane_count": 4,
@@ -5211,12 +5211,6 @@
     },
     {
       "kind": "skip_reason",
-      "reason": "OIの追随が弱く自信度が不足 / 事前トリガー未達で詳細執行判断に進まない / 方向性はあるがOI/継続確認不足のため監視継続",
-      "count": 2,
-      "meaning_ja": ""
-    },
-    {
-      "kind": "skip_reason",
       "reason": "方向優位が弱く環境認定できない / OIの追随が弱く自信度が不足 / 想定RRが閾値未満",
       "count": 2,
       "meaning_ja": ""
@@ -5231,6 +5225,24 @@
       "kind": "action",
       "reason": "watch",
       "count": 2,
+      "meaning_ja": ""
+    },
+    {
+      "kind": "reason_code",
+      "reason": "london_compression_guard",
+      "count": 1,
+      "meaning_ja": "この理由コードはまだ日本語説明辞書に未登録です。artifact側にはコードをそのまま残しています。"
+    },
+    {
+      "kind": "skip_reason",
+      "reason": "OIの追随が弱く自信度が不足 / 事前トリガー未達で詳細執行判断に進まない / 方向性はあるがOI/継続確認不足のため監視継続",
+      "count": 1,
+      "meaning_ja": ""
+    },
+    {
+      "kind": "skip_reason",
+      "reason": "OIの追随が弱く自信度が不足 / 事前トリガー未達で詳細執行判断に進まない / London時間の低ボラ圧縮でだましを警戒 / 方向性はあるがOI/継続確認不足のため監視継続",
+      "count": 1,
       "meaning_ja": ""
     }
   ]
