@@ -1,6 +1,6 @@
 {
   "candidate_id": "btc_manual_trigger_v1",
-  "generated_at_utc": "2026-07-24T09:34:46Z",
+  "generated_at_utc": "2026-07-24T09:40:43Z",
   "scope": {
     "asset": "BTCUSDT",
     "venue": "binance_perp",
@@ -42,9 +42,9 @@
       "bad_trade_prevention_count": 4863
     },
     "shadow": {
-      "journal_rows": 1961,
+      "journal_rows": 1962,
       "resolved_rows": 1954,
-      "pending_rows": 7,
+      "pending_rows": 8,
       "entered_rows": 73,
       "filled_entered_rows": 73,
       "entered_unfilled_rows": 0,
