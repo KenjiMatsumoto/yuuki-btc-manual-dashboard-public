@@ -1,6 +1,6 @@
 {
   "artifact": "btc_manual_trigger_paper_diagnostics",
-  "generated_at_utc": "2026-07-24T14:56:42Z",
+  "generated_at_utc": "2026-07-24T15:02:42Z",
   "variant_count": 8,
   "paper_account_count": 8,
   "strategy_lane_count": 7,
@@ -291,21 +291,21 @@
       "live_status": "live未承認",
       "retired": "退役・参考"
     },
-    "raw_variant_entries": 12,
-    "unique_entries": 10,
+    "raw_variant_entries": 13,
+    "unique_entries": 11,
     "duplicate_variant_entries_excluded": 2,
     "duplicate_shared_signal_entries_excluded": 0,
     "representative_closed_trades": 10,
     "representative_wins": 9,
     "representative_losses": 1,
-    "representative_open_positions": 0,
+    "representative_open_positions": 1,
     "representative_realized_pnl_usdt": 847.17157712,
     "official_active_summary": {
       "strategy_lane_count": 11,
       "display_row_count": 7,
-      "unique_entries": 10,
+      "unique_entries": 11,
       "closed_trades": 10,
-      "open_positions": 0,
+      "open_positions": 1,
       "wins": 9,
       "losses": 1,
       "realized_pnl_usdt": 847.17157712
@@ -391,9 +391,9 @@
         "lane": "manual_trigger_yuuki_premortem_unlock_u01_weak_impulse_unlock",
         "short_label": "premortem_unlock_u01_weak_impulse_unlock",
         "display_label": "u01 weak impulse unlock",
-        "unique_entries": 3,
+        "unique_entries": 4,
         "closed_trades": 3,
-        "open_positions": 0,
+        "open_positions": 1,
         "wins": 2,
         "losses": 1,
         "realized_pnl_usdt": 157.41640507,
@@ -585,9 +585,9 @@
         "lane": "manual_trigger_yuuki_premortem_unlock_u01_weak_impulse_unlock",
         "short_label": "premortem_unlock_u01_weak_impulse_unlock",
         "display_label": "u01 weak impulse unlock",
-        "unique_entries": 3,
+        "unique_entries": 4,
         "closed_trades": 3,
-        "open_positions": 0,
+        "open_positions": 1,
         "wins": 2,
         "losses": 1,
         "realized_pnl_usdt": 157.41640507,
@@ -1235,7 +1235,7 @@
       "active_account_count": 1,
       "parked_account_count": 0,
       "variant_count": 1,
-      "entries": 3,
+      "entries": 4,
       "accounting_note_ja": "カテゴリ合算PnL/WR/Feeは非表示。variant別=口座単位のみ参照。",
       "avg_win_loss_gap_usdt": 76.20650615
     },
@@ -1423,8 +1423,8 @@
       "paper_state_note_ja": "",
       "exit_policy_variant": "tp1_full",
       "side": "short",
-      "entries": 3,
-      "open_positions": 0,
+      "entries": 4,
+      "open_positions": 1,
       "closed_trades": 3,
       "closed_progress_target": 20,
       "closed_progress_label": "3/20",
@@ -1610,9 +1610,9 @@
     "category_rows": [
       {
         "category": "market-fill survivor",
-        "forward_entered_rows": 76,
+        "forward_entered_rows": 77,
         "paper_entries": 0,
-        "paper_minus_forward": -76,
+        "paper_minus_forward": -77,
         "note_ja": "Forwardはmarket-fill survivor候補セット全体のshadow信号、Paperはexit policy別variantの実行件数。1信号が最大3 paper entriesに増える。"
       },
       {
@@ -1649,43 +1649,43 @@
     {
       "kind": "reason_code",
       "reason": "funding_not_extreme",
-      "count": 24,
+      "count": 23,
       "meaning_ja": "Fundingが極端に偏っておらず、ロング/ショートの過熱や踏み上げ・投げ売りの燃料が足りない状態です。"
     },
     {
       "kind": "reason_code",
       "reason": "premium_within_cap",
-      "count": 24,
+      "count": 23,
       "meaning_ja": "先物価格の上乗せ/割引が許容範囲内で、歪みが十分に出ていない状態です。"
     },
     {
       "kind": "reason_code",
       "reason": "volatility_normalized",
-      "count": 24,
+      "count": 23,
       "meaning_ja": "値動きの荒さが通常レンジに戻っており、短時間でTPまで伸びる根拠が弱い状態です。"
     },
     {
       "kind": "reason_code",
       "reason": "oi_not_confirming",
-      "count": 22,
+      "count": 21,
       "meaning_ja": "価格の方向に対して建玉（OI）の増減が十分についてきていない状態です。上昇/下落に見えても新規参加者の追随が弱く、だましや一時的な戻りの可能性が高いので許可しません。"
     },
     {
       "kind": "reason_code",
       "reason": "rr_too_low",
-      "count": 20,
+      "count": 19,
       "meaning_ja": "エントリー候補から利確目標までの距離に対して、損切り幅やコストを考えた見返りが小さい状態です。"
     },
     {
       "kind": "permission",
       "reason": "blocked",
-      "count": 20,
+      "count": 19,
       "meaning_ja": ""
     },
     {
       "kind": "action",
       "reason": "skip",
-      "count": 20,
+      "count": 19,
       "meaning_ja": ""
     },
     {
@@ -1701,20 +1701,20 @@
       "meaning_ja": ""
     },
     {
-      "kind": "skip_reason",
-      "reason": "方向優位が弱く環境認定できない / OIの追随が弱く自信度が不足 / 想定RRが閾値未満",
-      "count": 7,
-      "meaning_ja": ""
-    },
-    {
       "kind": "permission",
       "reason": "allowed",
-      "count": 6,
+      "count": 7,
       "meaning_ja": ""
     },
     {
       "kind": "action",
       "reason": "enter",
+      "count": 7,
+      "meaning_ja": ""
+    },
+    {
+      "kind": "skip_reason",
+      "reason": "方向優位が弱く環境認定できない / OIの追随が弱く自信度が不足 / 想定RRが閾値未満",
       "count": 6,
       "meaning_ja": ""
     },
