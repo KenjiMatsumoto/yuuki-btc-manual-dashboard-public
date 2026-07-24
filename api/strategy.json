@@ -1,5 +1,5 @@
 {
-  "generated_at_utc": "2026-07-24T07:30:29Z",
+  "generated_at_utc": "2026-07-24T07:37:29Z",
   "summary": {
     "strategy_lane_count": 14,
     "classification_counts": {
@@ -1992,7 +1992,7 @@
         "bitget_taker_10x_margin_net_pct_est": 83.66441
       },
       "forward": {
-        "rows": 1743,
+        "rows": 1744,
         "allowed_or_entered_rows": 3,
         "promotion_status": "blocked_forward_shadow_not_mature_or_failed"
       },
