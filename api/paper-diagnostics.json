@@ -1,6 +1,6 @@
 {
   "artifact": "btc_manual_trigger_paper_diagnostics",
-  "generated_at_utc": "2026-07-24T11:59:13Z",
+  "generated_at_utc": "2026-07-24T12:05:16Z",
   "variant_count": 8,
   "paper_account_count": 8,
   "strategy_lane_count": 7,
@@ -1485,19 +1485,19 @@
     {
       "kind": "reason_code",
       "reason": "cheap_trigger_not_met",
-      "count": 22,
+      "count": 21,
       "meaning_ja": "買うなら十分安い位置、売るなら十分高い/戻った位置、という事前の価格条件にまだ到達していない状態です。"
     },
     {
       "kind": "skip_reason",
       "reason": "方向優位が弱く環境認定できない / OIの追随が弱く自信度が不足 / 想定RRが閾値未満 / 事前トリガー未達で詳細執行判断に進まない",
-      "count": 22,
+      "count": 21,
       "meaning_ja": ""
     },
     {
       "kind": "skip_reason",
       "reason": "方向優位が弱く環境認定できない / OIの追随が弱く自信度が不足 / 想定RRが閾値未満",
-      "count": 5,
+      "count": 6,
       "meaning_ja": ""
     },
     {
