@@ -1,6 +1,6 @@
 {
   "candidate_id": "btc_manual_trigger_v1",
-  "generated_at_utc": "2026-07-24T16:50:22Z",
+  "generated_at_utc": "2026-07-24T16:57:06Z",
   "scope": {
     "asset": "BTCUSDT",
     "venue": "binance_perp",
@@ -42,9 +42,9 @@
       "bad_trade_prevention_count": 4863
     },
     "shadow": {
-      "journal_rows": 1994,
+      "journal_rows": 1995,
       "resolved_rows": 1986,
-      "pending_rows": 8,
+      "pending_rows": 9,
       "entered_rows": 78,
       "filled_entered_rows": 76,
       "entered_unfilled_rows": 0,
@@ -650,23 +650,23 @@
   "recent_not_allowed_reason_rankings": {
     "recent_n": 30,
     "sample_rows": 30,
-    "not_allowed_rows": 22,
+    "not_allowed_rows": 21,
     "reason_codes": [
       {
         "key": "funding_not_extreme",
-        "count": 22
+        "count": 21
       },
       {
         "key": "premium_within_cap",
-        "count": 22
+        "count": 21
       },
       {
         "key": "volatility_normalized",
-        "count": 22
+        "count": 21
       },
       {
         "key": "oi_not_confirming",
-        "count": 16
+        "count": 15
       },
       {
         "key": "cheap_trigger_not_met",
@@ -674,7 +674,7 @@
       },
       {
         "key": "rr_too_low",
-        "count": 12
+        "count": 11
       },
       {
         "key": "trend_alignment_short",
@@ -704,7 +704,7 @@
       },
       {
         "key": "方向優位が弱く環境認定できない / OIの追随が弱く自信度が不足 / 想定RRが閾値未満",
-        "count": 3
+        "count": 2
       },
       {
         "key": "OIの追随が弱く自信度が不足 / 事前トリガー未達で詳細執行判断に進まない / London時間の低ボラ圧縮でだましを警戒 / 方向性はあるがOI/継続確認不足のため監視継続",
@@ -722,7 +722,7 @@
     "permissions": [
       {
         "key": "blocked",
-        "count": 12
+        "count": 11
       },
       {
         "key": "watch_only",
@@ -730,13 +730,13 @@
       },
       {
         "key": "allowed",
-        "count": 8
+        "count": 9
       }
     ],
     "actions": [
       {
         "key": "skip",
-        "count": 12
+        "count": 11
       },
       {
         "key": "watch",
@@ -744,13 +744,13 @@
       },
       {
         "key": "enter",
-        "count": 8
+        "count": 9
       }
     ],
     "reason_codes_explained": [
       {
         "key": "funding_not_extreme",
-        "count": 22,
+        "count": 21,
         "explanation": {
           "code": "funding_not_extreme",
           "ja_label": "Funding極端値なし",
@@ -760,7 +760,7 @@
       },
       {
         "key": "premium_within_cap",
-        "count": 22,
+        "count": 21,
         "explanation": {
           "code": "premium_within_cap",
           "ja_label": "現物/先物プレミアムが通常範囲",
@@ -770,7 +770,7 @@
       },
       {
         "key": "volatility_normalized",
-        "count": 22,
+        "count": 21,
         "explanation": {
           "code": "volatility_normalized",
           "ja_label": "ボラティリティ通常化",
@@ -780,7 +780,7 @@
       },
       {
         "key": "oi_not_confirming",
-        "count": 16,
+        "count": 15,
         "explanation": {
           "code": "oi_not_confirming",
           "ja_label": "OI追随不足",
@@ -800,7 +800,7 @@
       },
       {
         "key": "rr_too_low",
-        "count": 12,
+        "count": 11,
         "explanation": {
           "code": "rr_too_low",
           "ja_label": "想定RR不足",
