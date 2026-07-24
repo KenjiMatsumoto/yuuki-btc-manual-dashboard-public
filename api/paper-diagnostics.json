@@ -1,6 +1,6 @@
 {
   "artifact": "btc_manual_trigger_paper_diagnostics",
-  "generated_at_utc": "2026-07-24T13:30:46Z",
+  "generated_at_utc": "2026-07-24T13:37:22Z",
   "variant_count": 8,
   "paper_account_count": 8,
   "strategy_lane_count": 7,
@@ -291,21 +291,21 @@
       "live_status": "live未承認",
       "retired": "退役・参考"
     },
-    "raw_variant_entries": 7,
-    "unique_entries": 5,
+    "raw_variant_entries": 11,
+    "unique_entries": 9,
     "duplicate_variant_entries_excluded": 2,
     "duplicate_shared_signal_entries_excluded": 0,
     "representative_closed_trades": 3,
     "representative_wins": 2,
     "representative_losses": 1,
-    "representative_open_positions": 2,
+    "representative_open_positions": 6,
     "representative_realized_pnl_usdt": 105.71559859,
     "official_active_summary": {
       "strategy_lane_count": 11,
       "display_row_count": 7,
-      "unique_entries": 5,
+      "unique_entries": 9,
       "closed_trades": 3,
-      "open_positions": 2,
+      "open_positions": 6,
       "wins": 2,
       "losses": 1,
       "realized_pnl_usdt": 105.71559859
@@ -391,9 +391,9 @@
         "lane": "manual_trigger_yuuki_premortem_unlock_u01_weak_impulse_unlock",
         "short_label": "premortem_unlock_u01_weak_impulse_unlock",
         "display_label": "u01 weak impulse unlock",
-        "unique_entries": 2,
+        "unique_entries": 3,
         "closed_trades": 2,
-        "open_positions": 0,
+        "open_positions": 1,
         "wins": 1,
         "losses": 1,
         "realized_pnl_usdt": 72.23358349,
@@ -405,13 +405,15 @@
         "lane": "manual_trigger_yuuki_r2_w2_london_late_low_vol_gate_loo",
         "short_label": "r2_w2_london_late_low_vol_gate_loo",
         "display_label": "r2_w2 London低vol gate除去",
-        "unique_entries": 0,
+        "unique_entries": 1,
         "closed_trades": 0,
-        "open_positions": 0,
+        "open_positions": 1,
         "wins": 0,
         "losses": 0,
-        "realized_pnl_usdt": 0.0,
-        "representative_variants": []
+        "realized_pnl_usdt": 0,
+        "representative_variants": [
+          "tp1_full"
+        ]
       },
       {
         "lane": "manual_trigger_yuuki_w12_f1_flush_rebound_long",
@@ -429,25 +431,29 @@
         "lane": "manual_trigger_yuuki_wave1_zone_limit_original_pullback",
         "short_label": "wave1_zone_limit_original_pullback",
         "display_label": "Wave 1 帯指値・original pullback",
-        "unique_entries": 0,
+        "unique_entries": 1,
         "closed_trades": 0,
-        "open_positions": 0,
+        "open_positions": 1,
         "wins": 0,
         "losses": 0,
-        "realized_pnl_usdt": 0.0,
-        "representative_variants": []
+        "realized_pnl_usdt": 0,
+        "representative_variants": [
+          "tp1_full"
+        ]
       },
       {
         "lane": "manual_trigger_yuuki_wave2_zone_limit_tp_far",
         "short_label": "wave2_zone_limit_tp_far",
         "display_label": "Wave 2 帯指値・TP far",
-        "unique_entries": 0,
+        "unique_entries": 1,
         "closed_trades": 0,
-        "open_positions": 0,
+        "open_positions": 1,
         "wins": 0,
         "losses": 0,
-        "realized_pnl_usdt": 0.0,
-        "representative_variants": []
+        "realized_pnl_usdt": 0,
+        "representative_variants": [
+          "tp1_full"
+        ]
       }
     ],
     "retired_reference_lane_rows": [
@@ -579,9 +585,9 @@
         "lane": "manual_trigger_yuuki_premortem_unlock_u01_weak_impulse_unlock",
         "short_label": "premortem_unlock_u01_weak_impulse_unlock",
         "display_label": "u01 weak impulse unlock",
-        "unique_entries": 2,
+        "unique_entries": 3,
         "closed_trades": 2,
-        "open_positions": 0,
+        "open_positions": 1,
         "wins": 1,
         "losses": 1,
         "realized_pnl_usdt": 72.23358349,
@@ -593,13 +599,15 @@
         "lane": "manual_trigger_yuuki_r2_w2_london_late_low_vol_gate_loo",
         "short_label": "r2_w2_london_late_low_vol_gate_loo",
         "display_label": "r2_w2 London低vol gate除去",
-        "unique_entries": 0,
+        "unique_entries": 1,
         "closed_trades": 0,
-        "open_positions": 0,
+        "open_positions": 1,
         "wins": 0,
         "losses": 0,
-        "realized_pnl_usdt": 0.0,
-        "representative_variants": []
+        "realized_pnl_usdt": 0,
+        "representative_variants": [
+          "tp1_full"
+        ]
       },
       {
         "lane": "manual_trigger_yuuki_w12_f1_flush_rebound_long",
@@ -617,25 +625,29 @@
         "lane": "manual_trigger_yuuki_wave1_zone_limit_original_pullback",
         "short_label": "wave1_zone_limit_original_pullback",
         "display_label": "Wave 1 帯指値・original pullback",
-        "unique_entries": 0,
+        "unique_entries": 1,
         "closed_trades": 0,
-        "open_positions": 0,
+        "open_positions": 1,
         "wins": 0,
         "losses": 0,
-        "realized_pnl_usdt": 0.0,
-        "representative_variants": []
+        "realized_pnl_usdt": 0,
+        "representative_variants": [
+          "tp1_full"
+        ]
       },
       {
         "lane": "manual_trigger_yuuki_wave2_zone_limit_tp_far",
         "short_label": "wave2_zone_limit_tp_far",
         "display_label": "Wave 2 帯指値・TP far",
-        "unique_entries": 0,
+        "unique_entries": 1,
         "closed_trades": 0,
-        "open_positions": 0,
+        "open_positions": 1,
         "wins": 0,
         "losses": 0,
-        "realized_pnl_usdt": 0.0,
-        "representative_variants": []
+        "realized_pnl_usdt": 0,
+        "representative_variants": [
+          "tp1_full"
+        ]
       }
     ],
     "shared_signal_group": {
@@ -966,7 +978,7 @@
       "active_account_count": 1,
       "parked_account_count": 0,
       "variant_count": 1,
-      "entries": 0,
+      "entries": 1,
       "accounting_note_ja": "カテゴリ合算PnL/WR/Feeは非表示。variant別=口座単位のみ参照。",
       "avg_win_loss_gap_usdt": 0.0
     },
@@ -992,7 +1004,7 @@
       "active_account_count": 1,
       "parked_account_count": 0,
       "variant_count": 1,
-      "entries": 0,
+      "entries": 1,
       "accounting_note_ja": "カテゴリ合算PnL/WR/Feeは非表示。variant別=口座単位のみ参照。",
       "avg_win_loss_gap_usdt": 0.0
     },
@@ -1044,7 +1056,7 @@
       "active_account_count": 1,
       "parked_account_count": 0,
       "variant_count": 1,
-      "entries": 0,
+      "entries": 1,
       "accounting_note_ja": "カテゴリ合算PnL/WR/Feeは非表示。variant別=口座単位のみ参照。",
       "avg_win_loss_gap_usdt": 0.0
     },
@@ -1070,7 +1082,7 @@
       "active_account_count": 1,
       "parked_account_count": 0,
       "variant_count": 1,
-      "entries": 2,
+      "entries": 3,
       "accounting_note_ja": "カテゴリ合算PnL/WR/Feeは非表示。variant別=口座単位のみ参照。",
       "avg_win_loss_gap_usdt": 72.23358349
     },
@@ -1183,6 +1195,108 @@
       "reason_codes": []
     },
     {
+      "lane": "manual_trigger_yuuki_r2_w2_london_late_low_vol_gate_loo",
+      "short_label": "r2_w2_london_late_low_vol_gate_loo",
+      "display_label": "r2_w2 London低vol gate除去",
+      "paper_state_lane": "manual_trigger_yuuki_r2_w2_london_late_low_vol_gate_loo__tp1_full",
+      "registered_in_broker_snapshot": true,
+      "category": "r2_w2 ゲート除去（研究選定済み・Paper観測中）",
+      "market_fill_verdict_20260705": "",
+      "paper_broker_enabled": true,
+      "paper_state_status": "active_broker_updated",
+      "paper_state_note_ja": "",
+      "exit_policy_variant": "tp1_full",
+      "side": "-",
+      "entries": 1,
+      "open_positions": 1,
+      "closed_trades": 0,
+      "closed_progress_target": 20,
+      "closed_progress_label": "0/20",
+      "wins": 0,
+      "losses": 0,
+      "profit_factor": null,
+      "payoff_ratio": null,
+      "decided_win_rate": null,
+      "partial_tp1_wins": 0,
+      "realized_pnl_usdt": 0,
+      "realized_exit_pnl_usdt": 0,
+      "avg_win_usdt": 0.0,
+      "avg_loss_usdt": 0.0,
+      "max_win_usdt": 0.0,
+      "max_loss_usdt": 0.0,
+      "entry_fee_usdt": 0,
+      "exit_reasons": [],
+      "reason_codes": []
+    },
+    {
+      "lane": "manual_trigger_yuuki_wave1_zone_limit_original_pullback",
+      "short_label": "wave1_zone_limit_original_pullback",
+      "display_label": "Wave 1 帯指値・original pullback",
+      "paper_state_lane": "manual_trigger_yuuki_wave1_zone_limit_original_pullback__tp1_full",
+      "registered_in_broker_snapshot": true,
+      "category": "Wave 1 帯指値（Paper観測中）",
+      "market_fill_verdict_20260705": "candidate_for_frozen_forward_shadow",
+      "paper_broker_enabled": true,
+      "paper_state_status": "active_broker_updated",
+      "paper_state_note_ja": "",
+      "exit_policy_variant": "tp1_full",
+      "side": "-",
+      "entries": 1,
+      "open_positions": 1,
+      "closed_trades": 0,
+      "closed_progress_target": 20,
+      "closed_progress_label": "0/20",
+      "wins": 0,
+      "losses": 0,
+      "profit_factor": null,
+      "payoff_ratio": null,
+      "decided_win_rate": null,
+      "partial_tp1_wins": 0,
+      "realized_pnl_usdt": 0,
+      "realized_exit_pnl_usdt": 0,
+      "avg_win_usdt": 0.0,
+      "avg_loss_usdt": 0.0,
+      "max_win_usdt": 0.0,
+      "max_loss_usdt": 0.0,
+      "entry_fee_usdt": 0,
+      "exit_reasons": [],
+      "reason_codes": []
+    },
+    {
+      "lane": "manual_trigger_yuuki_wave2_zone_limit_tp_far",
+      "short_label": "wave2_zone_limit_tp_far",
+      "display_label": "Wave 2 帯指値・TP far",
+      "paper_state_lane": "manual_trigger_yuuki_wave2_zone_limit_tp_far__tp1_full",
+      "registered_in_broker_snapshot": true,
+      "category": "Wave 2 TP far（Paper観測中）",
+      "market_fill_verdict_20260705": "",
+      "paper_broker_enabled": true,
+      "paper_state_status": "active_broker_updated",
+      "paper_state_note_ja": "",
+      "exit_policy_variant": "tp1_full",
+      "side": "-",
+      "entries": 1,
+      "open_positions": 1,
+      "closed_trades": 0,
+      "closed_progress_target": 20,
+      "closed_progress_label": "0/20",
+      "wins": 0,
+      "losses": 0,
+      "profit_factor": null,
+      "payoff_ratio": null,
+      "decided_win_rate": null,
+      "partial_tp1_wins": 0,
+      "realized_pnl_usdt": 0,
+      "realized_exit_pnl_usdt": 0,
+      "avg_win_usdt": 0.0,
+      "avg_loss_usdt": 0.0,
+      "max_win_usdt": 0.0,
+      "max_loss_usdt": 0.0,
+      "entry_fee_usdt": 0,
+      "exit_reasons": [],
+      "reason_codes": []
+    },
+    {
       "lane": "manual_trigger_yuuki_multiview",
       "short_label": "multiview",
       "display_label": "multiview 基準",
@@ -1239,8 +1353,8 @@
       "paper_state_note_ja": "",
       "exit_policy_variant": "tp1_full",
       "side": "short",
-      "entries": 2,
-      "open_positions": 0,
+      "entries": 3,
+      "open_positions": 1,
       "closed_trades": 2,
       "closed_progress_target": 20,
       "closed_progress_label": "2/20",
@@ -1268,114 +1382,12 @@
       ]
     },
     {
-      "lane": "manual_trigger_yuuki_r2_w2_london_late_low_vol_gate_loo",
-      "short_label": "r2_w2_london_late_low_vol_gate_loo",
-      "display_label": "r2_w2 London低vol gate除去",
-      "paper_state_lane": "manual_trigger_yuuki_r2_w2_london_late_low_vol_gate_loo__tp1_full",
-      "registered_in_broker_snapshot": true,
-      "category": "r2_w2 ゲート除去（研究選定済み・Paper観測中）",
-      "market_fill_verdict_20260705": "",
-      "paper_broker_enabled": true,
-      "paper_state_status": "active_broker_updated",
-      "paper_state_note_ja": "",
-      "exit_policy_variant": "tp1_full",
-      "side": "-",
-      "entries": 0,
-      "open_positions": 0,
-      "closed_trades": 0,
-      "closed_progress_target": 20,
-      "closed_progress_label": "0/20",
-      "wins": 0,
-      "losses": 0,
-      "profit_factor": null,
-      "payoff_ratio": null,
-      "decided_win_rate": null,
-      "partial_tp1_wins": 0,
-      "realized_pnl_usdt": 0,
-      "realized_exit_pnl_usdt": 0,
-      "avg_win_usdt": 0.0,
-      "avg_loss_usdt": 0.0,
-      "max_win_usdt": 0.0,
-      "max_loss_usdt": 0.0,
-      "entry_fee_usdt": 0,
-      "exit_reasons": [],
-      "reason_codes": []
-    },
-    {
       "lane": "manual_trigger_yuuki_w12_f1_flush_rebound_long",
       "short_label": "w12_f1_flush_rebound_long",
       "display_label": "w12_f1 清算フラッシュ反発 Long",
       "paper_state_lane": "manual_trigger_yuuki_w12_f1_flush_rebound_long__tp1_full",
       "registered_in_broker_snapshot": true,
       "category": "w12_f1 清算フラッシュ反発（研究選定済み・Paper観測中）",
-      "market_fill_verdict_20260705": "",
-      "paper_broker_enabled": true,
-      "paper_state_status": "active_broker_updated",
-      "paper_state_note_ja": "",
-      "exit_policy_variant": "tp1_full",
-      "side": "-",
-      "entries": 0,
-      "open_positions": 0,
-      "closed_trades": 0,
-      "closed_progress_target": 20,
-      "closed_progress_label": "0/20",
-      "wins": 0,
-      "losses": 0,
-      "profit_factor": null,
-      "payoff_ratio": null,
-      "decided_win_rate": null,
-      "partial_tp1_wins": 0,
-      "realized_pnl_usdt": 0,
-      "realized_exit_pnl_usdt": 0,
-      "avg_win_usdt": 0.0,
-      "avg_loss_usdt": 0.0,
-      "max_win_usdt": 0.0,
-      "max_loss_usdt": 0.0,
-      "entry_fee_usdt": 0,
-      "exit_reasons": [],
-      "reason_codes": []
-    },
-    {
-      "lane": "manual_trigger_yuuki_wave1_zone_limit_original_pullback",
-      "short_label": "wave1_zone_limit_original_pullback",
-      "display_label": "Wave 1 帯指値・original pullback",
-      "paper_state_lane": "manual_trigger_yuuki_wave1_zone_limit_original_pullback__tp1_full",
-      "registered_in_broker_snapshot": true,
-      "category": "Wave 1 帯指値（Paper観測中）",
-      "market_fill_verdict_20260705": "candidate_for_frozen_forward_shadow",
-      "paper_broker_enabled": true,
-      "paper_state_status": "active_broker_updated",
-      "paper_state_note_ja": "",
-      "exit_policy_variant": "tp1_full",
-      "side": "-",
-      "entries": 0,
-      "open_positions": 0,
-      "closed_trades": 0,
-      "closed_progress_target": 20,
-      "closed_progress_label": "0/20",
-      "wins": 0,
-      "losses": 0,
-      "profit_factor": null,
-      "payoff_ratio": null,
-      "decided_win_rate": null,
-      "partial_tp1_wins": 0,
-      "realized_pnl_usdt": 0,
-      "realized_exit_pnl_usdt": 0,
-      "avg_win_usdt": 0.0,
-      "avg_loss_usdt": 0.0,
-      "max_win_usdt": 0.0,
-      "max_loss_usdt": 0.0,
-      "entry_fee_usdt": 0,
-      "exit_reasons": [],
-      "reason_codes": []
-    },
-    {
-      "lane": "manual_trigger_yuuki_wave2_zone_limit_tp_far",
-      "short_label": "wave2_zone_limit_tp_far",
-      "display_label": "Wave 2 帯指値・TP far",
-      "paper_state_lane": "manual_trigger_yuuki_wave2_zone_limit_tp_far__tp1_full",
-      "registered_in_broker_snapshot": true,
-      "category": "Wave 2 TP far（Paper観測中）",
       "market_fill_verdict_20260705": "",
       "paper_broker_enabled": true,
       "paper_state_status": "active_broker_updated",
@@ -1446,12 +1458,6 @@
   "skip_reason_rows": [
     {
       "kind": "reason_code",
-      "reason": "oi_not_confirming",
-      "count": 28,
-      "meaning_ja": "価格の方向に対して建玉（OI）の増減が十分についてきていない状態です。上昇/下落に見えても新規参加者の追随が弱く、だましや一時的な戻りの可能性が高いので許可しません。"
-    },
-    {
-      "kind": "reason_code",
       "reason": "funding_not_extreme",
       "count": 28,
       "meaning_ja": "Fundingが極端に偏っておらず、ロング/ショートの過熱や踏み上げ・投げ売りの燃料が足りない状態です。"
@@ -1470,38 +1476,56 @@
     },
     {
       "kind": "reason_code",
+      "reason": "oi_not_confirming",
+      "count": 27,
+      "meaning_ja": "価格の方向に対して建玉（OI）の増減が十分についてきていない状態です。上昇/下落に見えても新規参加者の追随が弱く、だましや一時的な戻りの可能性が高いので許可しません。"
+    },
+    {
+      "kind": "reason_code",
       "reason": "rr_too_low",
-      "count": 25,
+      "count": 24,
       "meaning_ja": "エントリー候補から利確目標までの距離に対して、損切り幅やコストを考えた見返りが小さい状態です。"
     },
     {
       "kind": "permission",
       "reason": "blocked",
-      "count": 25,
+      "count": 24,
       "meaning_ja": ""
     },
     {
       "kind": "action",
       "reason": "skip",
-      "count": 25,
+      "count": 24,
       "meaning_ja": ""
     },
     {
       "kind": "reason_code",
       "reason": "cheap_trigger_not_met",
-      "count": 18,
+      "count": 17,
       "meaning_ja": "買うなら十分安い位置、売るなら十分高い/戻った位置、という事前の価格条件にまだ到達していない状態です。"
     },
     {
       "kind": "skip_reason",
       "reason": "方向優位が弱く環境認定できない / OIの追随が弱く自信度が不足 / 想定RRが閾値未満 / 事前トリガー未達で詳細執行判断に進まない",
-      "count": 18,
+      "count": 17,
       "meaning_ja": ""
     },
     {
       "kind": "skip_reason",
       "reason": "方向優位が弱く環境認定できない / OIの追随が弱く自信度が不足 / 想定RRが閾値未満",
       "count": 7,
+      "meaning_ja": ""
+    },
+    {
+      "kind": "permission",
+      "reason": "watch_only",
+      "count": 4,
+      "meaning_ja": ""
+    },
+    {
+      "kind": "action",
+      "reason": "watch",
+      "count": 4,
       "meaning_ja": ""
     },
     {
@@ -1524,18 +1548,6 @@
     },
     {
       "kind": "permission",
-      "reason": "watch_only",
-      "count": 3,
-      "meaning_ja": ""
-    },
-    {
-      "kind": "action",
-      "reason": "watch",
-      "count": 3,
-      "meaning_ja": ""
-    },
-    {
-      "kind": "permission",
       "reason": "allowed",
       "count": 2,
       "meaning_ja": ""
@@ -1544,6 +1556,24 @@
       "kind": "action",
       "reason": "enter",
       "count": 2,
+      "meaning_ja": ""
+    },
+    {
+      "kind": "reason_code",
+      "reason": "trend_alignment_short",
+      "count": 1,
+      "meaning_ja": "この理由コードはまだ日本語説明辞書に未登録です。artifact側にはコードをそのまま残しています。"
+    },
+    {
+      "kind": "reason_code",
+      "reason": "oi_confirms_move",
+      "count": 1,
+      "meaning_ja": "この理由コードはまだ日本語説明辞書に未登録です。artifact側にはコードをそのまま残しています。"
+    },
+    {
+      "kind": "skip_reason",
+      "reason": "London時間の低ボラ圧縮でだましを警戒",
+      "count": 1,
       "meaning_ja": ""
     }
   ]
