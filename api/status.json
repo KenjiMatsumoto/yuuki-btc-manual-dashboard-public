@@ -1,6 +1,6 @@
 {
   "candidate_id": "btc_manual_trigger_v1",
-  "generated_at_utc": "2026-07-24T09:40:43Z",
+  "generated_at_utc": "2026-07-24T09:46:45Z",
   "scope": {
     "asset": "BTCUSDT",
     "venue": "binance_perp",
@@ -16,7 +16,7 @@
       "remaining": 0
     },
     "shadow_resolved_rows": {
-      "current": 1954,
+      "current": 1955,
       "required": 3,
       "ratio": 1.0,
       "remaining": 0
@@ -42,8 +42,8 @@
       "bad_trade_prevention_count": 4863
     },
     "shadow": {
-      "journal_rows": 1962,
-      "resolved_rows": 1954,
+      "journal_rows": 1963,
+      "resolved_rows": 1955,
       "pending_rows": 8,
       "entered_rows": 73,
       "filled_entered_rows": 73,
@@ -54,7 +54,7 @@
       "gross_return_per_filled_entered_trade_pct": 1.5630891023576332,
       "average_return_per_filled_entered_trade_pct": 0.021412179484351142,
       "missed_opportunity_count": 275,
-      "bad_trade_prevention_count": 1606
+      "bad_trade_prevention_count": 1607
     },
     "readiness": {
       "verdict": "blocked",
