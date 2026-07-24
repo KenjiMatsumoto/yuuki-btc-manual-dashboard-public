@@ -1,5 +1,5 @@
 {
-  "generated_at_utc": "2026-07-24T11:02:22Z",
+  "generated_at_utc": "2026-07-24T11:08:07Z",
   "summary": {
     "strategy_lane_count": 14,
     "classification_counts": {
@@ -22,8 +22,8 @@
       "blocker_count": 1
     },
     "current_forward_shadow": {
-      "journal_rows": 1967,
-      "resolved_rows": 1959,
+      "journal_rows": 1968,
+      "resolved_rows": 1960,
       "pending_rows": 8,
       "entered_rows": 73,
       "filled_entered_rows": 73,
@@ -34,7 +34,7 @@
       "gross_return_per_filled_entered_trade_pct": 1.5630891023576332,
       "average_return_per_filled_entered_trade_pct": 0.021412179484351142,
       "missed_opportunity_count": 275,
-      "bad_trade_prevention_count": 1611
+      "bad_trade_prevention_count": 1612
     },
     "forward_repair_50_verdict_counts": {
       "reject": 49,
