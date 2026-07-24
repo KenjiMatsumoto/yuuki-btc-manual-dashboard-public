@@ -1,6 +1,6 @@
 {
   "artifact": "btc_manual_trigger_paper_diagnostics",
-  "generated_at_utc": "2026-07-24T07:55:30Z",
+  "generated_at_utc": "2026-07-24T08:07:32Z",
   "variant_count": 8,
   "paper_account_count": 8,
   "strategy_lane_count": 7,
@@ -1467,19 +1467,19 @@
     {
       "kind": "reason_code",
       "reason": "rr_too_low",
-      "count": 28,
+      "count": 27,
       "meaning_ja": "エントリー候補から利確目標までの距離に対して、損切り幅やコストを考えた見返りが小さい状態です。"
     },
     {
       "kind": "permission",
       "reason": "blocked",
-      "count": 28,
+      "count": 27,
       "meaning_ja": ""
     },
     {
       "kind": "action",
       "reason": "skip",
-      "count": 28,
+      "count": 27,
       "meaning_ja": ""
     },
     {
@@ -1497,37 +1497,37 @@
     {
       "kind": "reason_code",
       "reason": "trend_alignment_long",
-      "count": 2,
+      "count": 3,
       "meaning_ja": "この理由コードはまだ日本語説明辞書に未登録です。artifact側にはコードをそのまま残しています。"
     },
     {
       "kind": "reason_code",
       "reason": "score_below_allowed_threshold",
-      "count": 2,
+      "count": 3,
       "meaning_ja": "この理由コードはまだ日本語説明辞書に未登録です。artifact側にはコードをそのまま残しています。"
     },
     {
       "kind": "skip_reason",
-      "reason": "方向優位が弱く環境認定できない / OIの追随が弱く自信度が不足 / 想定RRが閾値未満",
-      "count": 2,
-      "meaning_ja": ""
-    },
-    {
-      "kind": "skip_reason",
       "reason": "OIの追随が弱く自信度が不足 / 方向性はあるがOI/継続確認不足のため監視継続",
-      "count": 2,
+      "count": 3,
       "meaning_ja": ""
     },
     {
       "kind": "permission",
       "reason": "watch_only",
-      "count": 2,
+      "count": 3,
       "meaning_ja": ""
     },
     {
       "kind": "action",
       "reason": "watch",
-      "count": 2,
+      "count": 3,
+      "meaning_ja": ""
+    },
+    {
+      "kind": "skip_reason",
+      "reason": "方向優位が弱く環境認定できない / OIの追随が弱く自信度が不足 / 想定RRが閾値未満",
+      "count": 1,
       "meaning_ja": ""
     }
   ]
