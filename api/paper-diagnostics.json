@@ -1,6 +1,6 @@
 {
   "artifact": "btc_manual_trigger_paper_diagnostics",
-  "generated_at_utc": "2026-07-24T13:17:16Z",
+  "generated_at_utc": "2026-07-24T13:24:33Z",
   "variant_count": 8,
   "paper_account_count": 8,
   "strategy_lane_count": 7,
@@ -1018,7 +1018,7 @@
       "active_account_count": 2,
       "parked_account_count": 0,
       "variant_count": 2,
-      "entries": 2,
+      "entries": 4,
       "accounting_note_ja": "カテゴリ合算PnL/WR/Feeは非表示。variant別=口座単位のみ参照。",
       "avg_win_loss_gap_usdt": 28.4820151
     },
@@ -1117,7 +1117,7 @@
       "paper_state_note_ja": "",
       "exit_policy_variant": "tp1_partial_rr_runner_be",
       "side": "short",
-      "entries": 1,
+      "entries": 2,
       "open_positions": 1,
       "closed_trades": 1,
       "closed_progress_target": 20,
@@ -1195,7 +1195,7 @@
       "paper_state_note_ja": "",
       "exit_policy_variant": "tp1_full",
       "side": "short",
-      "entries": 1,
+      "entries": 2,
       "open_positions": 1,
       "closed_trades": 1,
       "closed_progress_target": 20,
@@ -1408,9 +1408,9 @@
     "category_rows": [
       {
         "category": "market-fill survivor",
-        "forward_entered_rows": 73,
+        "forward_entered_rows": 74,
         "paper_entries": 0,
-        "paper_minus_forward": -73,
+        "paper_minus_forward": -74,
         "note_ja": "Forwardはmarket-fill survivor候補セット全体のshadow信号、Paperはexit policy別variantの実行件数。1信号が最大3 paper entriesに増える。"
       },
       {
@@ -1447,55 +1447,55 @@
     {
       "kind": "reason_code",
       "reason": "oi_not_confirming",
-      "count": 30,
+      "count": 28,
       "meaning_ja": "価格の方向に対して建玉（OI）の増減が十分についてきていない状態です。上昇/下落に見えても新規参加者の追随が弱く、だましや一時的な戻りの可能性が高いので許可しません。"
     },
     {
       "kind": "reason_code",
       "reason": "funding_not_extreme",
-      "count": 30,
+      "count": 28,
       "meaning_ja": "Fundingが極端に偏っておらず、ロング/ショートの過熱や踏み上げ・投げ売りの燃料が足りない状態です。"
     },
     {
       "kind": "reason_code",
       "reason": "premium_within_cap",
-      "count": 30,
+      "count": 28,
       "meaning_ja": "先物価格の上乗せ/割引が許容範囲内で、歪みが十分に出ていない状態です。"
     },
     {
       "kind": "reason_code",
       "reason": "volatility_normalized",
-      "count": 30,
+      "count": 28,
       "meaning_ja": "値動きの荒さが通常レンジに戻っており、短時間でTPまで伸びる根拠が弱い状態です。"
     },
     {
       "kind": "reason_code",
       "reason": "rr_too_low",
-      "count": 27,
+      "count": 25,
       "meaning_ja": "エントリー候補から利確目標までの距離に対して、損切り幅やコストを考えた見返りが小さい状態です。"
     },
     {
       "kind": "permission",
       "reason": "blocked",
-      "count": 27,
+      "count": 25,
       "meaning_ja": ""
     },
     {
       "kind": "action",
       "reason": "skip",
-      "count": 27,
+      "count": 25,
       "meaning_ja": ""
     },
     {
       "kind": "reason_code",
       "reason": "cheap_trigger_not_met",
-      "count": 20,
+      "count": 18,
       "meaning_ja": "買うなら十分安い位置、売るなら十分高い/戻った位置、という事前の価格条件にまだ到達していない状態です。"
     },
     {
       "kind": "skip_reason",
       "reason": "方向優位が弱く環境認定できない / OIの追随が弱く自信度が不足 / 想定RRが閾値未満 / 事前トリガー未達で詳細執行判断に進まない",
-      "count": 20,
+      "count": 18,
       "meaning_ja": ""
     },
     {
@@ -1532,6 +1532,18 @@
       "kind": "action",
       "reason": "watch",
       "count": 3,
+      "meaning_ja": ""
+    },
+    {
+      "kind": "permission",
+      "reason": "allowed",
+      "count": 2,
+      "meaning_ja": ""
+    },
+    {
+      "kind": "action",
+      "reason": "enter",
+      "count": 2,
       "meaning_ja": ""
     }
   ]
