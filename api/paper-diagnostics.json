@@ -1,6 +1,6 @@
 {
   "artifact": "btc_manual_trigger_paper_diagnostics",
-  "generated_at_utc": "2026-07-24T17:11:10Z",
+  "generated_at_utc": "2026-07-24T17:16:58Z",
   "variant_count": 8,
   "paper_account_count": 8,
   "strategy_lane_count": 7,
@@ -260,17 +260,17 @@
   "empty_legacy_state_count": 0,
   "candidate_count": 0,
   "pnl_breakdown": {
-    "closed_trades": 12,
-    "wins": 10,
+    "closed_trades": 13,
+    "wins": 11,
     "losses": 2,
-    "realized_pnl_usdt": 976.31253264,
-    "realized_exit_pnl_usdt": 1036.31253264,
-    "entry_fee_usdt": 60.0,
-    "avg_win_usdt": 94.37155648,
+    "realized_pnl_usdt": 994.89226071,
+    "realized_exit_pnl_usdt": 1059.89226071,
+    "entry_fee_usdt": 65.0,
+    "avg_win_usdt": 87.48139026,
     "avg_loss_usdt": -5.00169638,
-    "profit_factor": 94.33954934,
-    "payoff_ratio": 18.86790987,
-    "decided_win_rate": 0.83333333,
+    "profit_factor": 96.19689199,
+    "payoff_ratio": 17.490344,
+    "decided_win_rate": 0.84615385,
     "max_win_usdt": 157.55326921,
     "max_loss_usdt": -5.00339276
   },
@@ -295,20 +295,20 @@
     "unique_entries": 11,
     "duplicate_variant_entries_excluded": 2,
     "duplicate_shared_signal_entries_excluded": 0,
-    "representative_closed_trades": 10,
-    "representative_wins": 9,
+    "representative_closed_trades": 11,
+    "representative_wins": 10,
     "representative_losses": 1,
-    "representative_open_positions": 1,
-    "representative_realized_pnl_usdt": 847.17157712,
+    "representative_open_positions": 0,
+    "representative_realized_pnl_usdt": 865.75130519,
     "official_active_summary": {
       "strategy_lane_count": 11,
       "display_row_count": 7,
       "unique_entries": 11,
-      "closed_trades": 10,
-      "open_positions": 1,
-      "wins": 9,
+      "closed_trades": 11,
+      "open_positions": 0,
+      "wins": 10,
       "losses": 1,
-      "realized_pnl_usdt": 847.17157712
+      "realized_pnl_usdt": 865.75130519
     },
     "official_active_lane_rows": [
       {
@@ -392,11 +392,11 @@
         "short_label": "premortem_unlock_u01_weak_impulse_unlock",
         "display_label": "u01 weak impulse unlock",
         "unique_entries": 4,
-        "closed_trades": 3,
-        "open_positions": 1,
-        "wins": 2,
+        "closed_trades": 4,
+        "open_positions": 0,
+        "wins": 3,
         "losses": 1,
-        "realized_pnl_usdt": 157.41640507,
+        "realized_pnl_usdt": 175.99613314,
         "representative_variants": [
           "tp1_full"
         ]
@@ -586,11 +586,11 @@
         "short_label": "premortem_unlock_u01_weak_impulse_unlock",
         "display_label": "u01 weak impulse unlock",
         "unique_entries": 4,
-        "closed_trades": 3,
-        "open_positions": 1,
-        "wins": 2,
+        "closed_trades": 4,
+        "open_positions": 0,
+        "wins": 3,
         "losses": 1,
-        "realized_pnl_usdt": 157.41640507,
+        "realized_pnl_usdt": 175.99613314,
         "representative_variants": [
           "tp1_full"
         ]
@@ -743,17 +743,17 @@
     }
   },
   "focus_breakdown": {
-    "closed_trades": 12,
-    "wins": 10,
+    "closed_trades": 13,
+    "wins": 11,
     "losses": 2,
-    "realized_pnl_usdt": 976.31253264,
-    "realized_exit_pnl_usdt": 1036.31253264,
-    "entry_fee_usdt": 60.0,
-    "avg_win_usdt": 94.37155648,
+    "realized_pnl_usdt": 994.89226071,
+    "realized_exit_pnl_usdt": 1059.89226071,
+    "entry_fee_usdt": 65.0,
+    "avg_win_usdt": 87.48139026,
     "avg_loss_usdt": -5.00169638,
-    "profit_factor": 94.33954934,
-    "payoff_ratio": 18.86790987,
-    "decided_win_rate": 0.83333333,
+    "profit_factor": 96.19689199,
+    "payoff_ratio": 17.490344,
+    "decided_win_rate": 0.84615385,
     "max_win_usdt": 157.55326921,
     "max_loss_usdt": -5.00339276,
     "worst_trades": [
@@ -793,6 +793,23 @@
           "volatility_normalized",
           "yuuki_multiview_consensus_enabled",
           "yuuki_multiview_consensus_met"
+        ]
+      },
+      {
+        "lane": "manual_trigger_yuuki_premortem_unlock_u01_weak_impulse_unlock",
+        "short_label": "premortem_unlock_u01_weak_impulse_unlock",
+        "exit_policy_variant": "tp1_full",
+        "side": "short",
+        "exit_time_utc": "2026-07-24T17:15:58Z",
+        "exit_reason": "expiry",
+        "realized_pnl_usdt": 18.57972807,
+        "realized_exit_pnl_usdt": 23.57972807,
+        "entry_fee_allocated_usdt": 5.0,
+        "return_on_notional_pct": 0.11789864,
+        "reason_codes": [
+          "u01_weak_impulse_unlock_add",
+          "active_premortem_vetoes=london_weak_impulse_veto",
+          "non_premortem_allow=True"
         ]
       },
       {
@@ -893,22 +910,6 @@
           "short_impulse_retest_rescue",
           "yuuki_multiview_consensus_enabled",
           "yuuki_multiview_consensus_met"
-        ]
-      },
-      {
-        "lane": "manual_trigger_yuuki_wave1_zone_limit_original_pullback",
-        "short_label": "wave1_zone_limit_original_pullback",
-        "exit_policy_variant": "tp1_full",
-        "side": "short",
-        "exit_time_utc": "2026-07-24T13:45:00Z",
-        "exit_reason": "tp1",
-        "realized_pnl_usdt": 85.20072114,
-        "realized_exit_pnl_usdt": 90.20072114,
-        "entry_fee_allocated_usdt": 5.0,
-        "return_on_notional_pct": 0.45100361,
-        "reason_codes": [
-          "base_signal_pending_limit_filled",
-          "zone_limit_first_future_bar_touch"
         ]
       }
     ],
@@ -1214,17 +1215,17 @@
       "avg_win_loss_gap_usdt": 157.55326921
     },
     {
-      "closed_trades": 3,
-      "wins": 2,
+      "closed_trades": 4,
+      "wins": 3,
       "losses": 1,
-      "realized_pnl_usdt": 157.41640507,
-      "realized_exit_pnl_usdt": 172.41640507,
-      "entry_fee_usdt": 15.0,
-      "avg_win_usdt": 81.20989891,
+      "realized_pnl_usdt": 175.99613314,
+      "realized_exit_pnl_usdt": 195.99613314,
+      "entry_fee_usdt": 20.0,
+      "avg_win_usdt": 60.3331753,
       "avg_loss_usdt": -5.00339276,
-      "profit_factor": 32.46193246,
-      "payoff_ratio": 16.23096623,
-      "decided_win_rate": 0.66666667,
+      "profit_factor": 36.17535832,
+      "payoff_ratio": 12.05845277,
+      "decided_win_rate": 0.75,
       "max_win_usdt": 85.18282158,
       "max_loss_usdt": -5.00339276,
       "category": "u01 weak impulse unlock（Paper観測中）",
@@ -1237,7 +1238,7 @@
       "variant_count": 1,
       "entries": 4,
       "accounting_note_ja": "カテゴリ合算PnL/WR/Feeは非表示。variant別=口座単位のみ参照。",
-      "avg_win_loss_gap_usdt": 76.20650615
+      "avg_win_loss_gap_usdt": 55.32978254
     },
     {
       "closed_trades": 0,
@@ -1411,47 +1412,6 @@
       ]
     },
     {
-      "lane": "manual_trigger_yuuki_premortem_unlock_u01_weak_impulse_unlock",
-      "short_label": "premortem_unlock_u01_weak_impulse_unlock",
-      "display_label": "u01 weak impulse unlock",
-      "paper_state_lane": "manual_trigger_yuuki_premortem_unlock_u01_weak_impulse_unlock__tp1_full",
-      "registered_in_broker_snapshot": true,
-      "category": "u01 weak impulse unlock（Paper観測中）",
-      "market_fill_verdict_20260705": "",
-      "paper_broker_enabled": true,
-      "paper_state_status": "active_broker_updated",
-      "paper_state_note_ja": "",
-      "exit_policy_variant": "tp1_full",
-      "side": "short",
-      "entries": 4,
-      "open_positions": 1,
-      "closed_trades": 3,
-      "closed_progress_target": 20,
-      "closed_progress_label": "3/20",
-      "wins": 2,
-      "losses": 1,
-      "profit_factor": 32.46193246,
-      "payoff_ratio": 16.23096623,
-      "decided_win_rate": 0.66666667,
-      "partial_tp1_wins": 0,
-      "realized_pnl_usdt": 157.41640507,
-      "realized_exit_pnl_usdt": 172.41640507,
-      "avg_win_usdt": 81.20989891,
-      "avg_loss_usdt": -5.00339276,
-      "max_win_usdt": 85.18282158,
-      "max_loss_usdt": -5.00339276,
-      "entry_fee_usdt": 15.0,
-      "exit_reasons": [
-        "expiry",
-        "tp1"
-      ],
-      "reason_codes": [
-        "active_premortem_vetoes=london_weak_impulse_veto",
-        "non_premortem_allow=True",
-        "u01_weak_impulse_unlock_add"
-      ]
-    },
-    {
       "lane": "manual_trigger_yuuki_r2_w2_london_late_low_vol_gate_loo",
       "short_label": "r2_w2_london_late_low_vol_gate_loo",
       "display_label": "r2_w2 London低vol gate除去",
@@ -1569,6 +1529,47 @@
       "reason_codes": [
         "base_signal_pending_limit_filled",
         "zone_limit_first_future_bar_touch"
+      ]
+    },
+    {
+      "lane": "manual_trigger_yuuki_premortem_unlock_u01_weak_impulse_unlock",
+      "short_label": "premortem_unlock_u01_weak_impulse_unlock",
+      "display_label": "u01 weak impulse unlock",
+      "paper_state_lane": "manual_trigger_yuuki_premortem_unlock_u01_weak_impulse_unlock__tp1_full",
+      "registered_in_broker_snapshot": true,
+      "category": "u01 weak impulse unlock（Paper観測中）",
+      "market_fill_verdict_20260705": "",
+      "paper_broker_enabled": true,
+      "paper_state_status": "active_broker_updated",
+      "paper_state_note_ja": "",
+      "exit_policy_variant": "tp1_full",
+      "side": "short",
+      "entries": 4,
+      "open_positions": 0,
+      "closed_trades": 4,
+      "closed_progress_target": 20,
+      "closed_progress_label": "4/20",
+      "wins": 3,
+      "losses": 1,
+      "profit_factor": 36.17535832,
+      "payoff_ratio": 12.05845277,
+      "decided_win_rate": 0.75,
+      "partial_tp1_wins": 0,
+      "realized_pnl_usdt": 175.99613314,
+      "realized_exit_pnl_usdt": 195.99613314,
+      "avg_win_usdt": 60.3331753,
+      "avg_loss_usdt": -5.00339276,
+      "max_win_usdt": 85.18282158,
+      "max_loss_usdt": -5.00339276,
+      "entry_fee_usdt": 20.0,
+      "exit_reasons": [
+        "expiry",
+        "tp1"
+      ],
+      "reason_codes": [
+        "active_premortem_vetoes=london_weak_impulse_veto",
+        "non_premortem_allow=True",
+        "u01_weak_impulse_unlock_add"
       ]
     },
     {
