@@ -1,6 +1,6 @@
 {
   "candidate_id": "btc_manual_trigger_v1",
-  "generated_at_utc": "2026-07-24T16:18:10Z",
+  "generated_at_utc": "2026-07-24T16:25:15Z",
   "scope": {
     "asset": "BTCUSDT",
     "venue": "binance_perp",
@@ -16,13 +16,13 @@
       "remaining": 0
     },
     "shadow_resolved_rows": {
-      "current": 1982,
+      "current": 1984,
       "required": 3,
       "ratio": 1.0,
       "remaining": 0
     },
     "shadow_decisive_rows": {
-      "current": 75,
+      "current": 76,
       "required": 1,
       "ratio": 1.0,
       "remaining": 0
@@ -42,19 +42,19 @@
       "bad_trade_prevention_count": 4863
     },
     "shadow": {
-      "journal_rows": 1991,
-      "resolved_rows": 1982,
-      "pending_rows": 9,
+      "journal_rows": 1992,
+      "resolved_rows": 1984,
+      "pending_rows": 8,
       "entered_rows": 77,
-      "filled_entered_rows": 75,
+      "filled_entered_rows": 76,
       "entered_unfilled_rows": 0,
       "wins": 42,
-      "losses": 33,
-      "entered_win_rate": 0.56,
-      "gross_return_per_filled_entered_trade_pct": 2.516683264550782,
-      "average_return_per_filled_entered_trade_pct": 0.033555776860677095,
+      "losses": 34,
+      "entered_win_rate": 0.5526315789473685,
+      "gross_return_per_filled_entered_trade_pct": 2.264454961188776,
+      "average_return_per_filled_entered_trade_pct": 0.02979546001564179,
       "missed_opportunity_count": 278,
-      "bad_trade_prevention_count": 1629
+      "bad_trade_prevention_count": 1630
     },
     "readiness": {
       "verdict": "blocked",
@@ -674,11 +674,11 @@
       },
       {
         "key": "rr_too_low",
-        "count": 15
+        "count": 14
       },
       {
         "key": "trend_alignment_short",
-        "count": 8
+        "count": 9
       },
       {
         "key": "london_compression_guard",
@@ -690,13 +690,13 @@
       },
       {
         "key": "score_below_allowed_threshold",
-        "count": 2
+        "count": 3
       }
     ],
     "skip_reasons": [
       {
         "key": "方向優位が弱く環境認定できない / OIの追随が弱く自信度が不足 / 想定RRが閾値未満 / 事前トリガー未達で詳細執行判断に進まない",
-        "count": 12
+        "count": 11
       },
       {
         "key": "London時間の低ボラ圧縮でだましを警戒",
@@ -713,16 +713,20 @@
       {
         "key": "事前トリガー未達で詳細執行判断に進まない / London時間の低ボラ圧縮でだましを警戒",
         "count": 2
+      },
+      {
+        "key": "OIの追随が弱く自信度が不足 / 事前トリガー未達で詳細執行判断に進まない / 方向性はあるがOI/継続確認不足のため監視継続",
+        "count": 1
       }
     ],
     "permissions": [
       {
         "key": "blocked",
-        "count": 15
+        "count": 14
       },
       {
         "key": "watch_only",
-        "count": 8
+        "count": 9
       },
       {
         "key": "allowed",
@@ -732,11 +736,11 @@
     "actions": [
       {
         "key": "skip",
-        "count": 15
+        "count": 14
       },
       {
         "key": "watch",
-        "count": 8
+        "count": 9
       },
       {
         "key": "enter",
@@ -796,7 +800,7 @@
       },
       {
         "key": "rr_too_low",
-        "count": 15,
+        "count": 14,
         "explanation": {
           "code": "rr_too_low",
           "ja_label": "想定RR不足",
@@ -806,7 +810,7 @@
       },
       {
         "key": "trend_alignment_short",
-        "count": 8,
+        "count": 9,
         "explanation": {
           "code": "trend_alignment_short",
           "ja_label": "未登録理由コード",
@@ -836,7 +840,7 @@
       },
       {
         "key": "score_below_allowed_threshold",
-        "count": 2,
+        "count": 3,
         "explanation": {
           "code": "score_below_allowed_threshold",
           "ja_label": "未登録理由コード",
