@@ -1,6 +1,6 @@
 {
   "artifact": "btc_manual_trigger_paper_diagnostics",
-  "generated_at_utc": "2026-07-24T19:15:11Z",
+  "generated_at_utc": "2026-07-24T19:21:27Z",
   "variant_count": 8,
   "paper_account_count": 8,
   "strategy_lane_count": 7,
@@ -1673,15 +1673,15 @@
     },
     {
       "kind": "reason_code",
-      "reason": "cheap_trigger_not_met",
-      "count": 15,
-      "meaning_ja": "買うなら十分安い位置、売るなら十分高い/戻った位置、という事前の価格条件にまだ到達していない状態です。"
-    },
-    {
-      "kind": "reason_code",
       "reason": "trend_alignment_short",
       "count": 15,
       "meaning_ja": "この理由コードはまだ日本語説明辞書に未登録です。artifact側にはコードをそのまま残しています。"
+    },
+    {
+      "kind": "reason_code",
+      "reason": "cheap_trigger_not_met",
+      "count": 15,
+      "meaning_ja": "買うなら十分安い位置、売るなら十分高い/戻った位置、という事前の価格条件にまだ到達していない状態です。"
     },
     {
       "kind": "permission",
